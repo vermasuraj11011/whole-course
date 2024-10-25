@@ -1,0 +1,2 @@
+# whole-course
+Scala task 

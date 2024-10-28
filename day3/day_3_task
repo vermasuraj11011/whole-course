@@ -10,4 +10,4 @@ implement the below algo on the original array
 - Heap sort
 - Selection sort
 
-return type is Unit
+return type is Unit.

@@ -1,0 +1,13 @@
+Arrays
+
+implements function that takes arrray as parametere and does the following.
+
+implement the below alog on the original array
+
+- Bubble sort
+- Insertion sort
+- Quick sort
+- Heap sort
+- Selection sort
+
+return type is Unit

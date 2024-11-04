@@ -88,13 +88,13 @@ object Task5 {
                 childNode.emp = childNode.emp :+ newEmployee
               } else {
                 val newChildNode = OrgNode(currentOrg, parentNode, List.empty[OrgNode], List(newEmployee))
-                parentNode.children = parentNode.children ++ List(newChildNode)
+                parentNode.children = parentNode.children :+ newChildNode
               }
             } else {
               parentNode = OrgNode(name = parentOrg, parent = root, children = List.empty[OrgNode], emp = null)
               val newChildNode = OrgNode(currentOrg, parentNode, List.empty[OrgNode], List(newEmployee))
-              parentNode.children = parentNode.children ++ List(newChildNode)
-              root.children = root.children ++ List(parentNode)
+              parentNode.children = parentNode.children :+ newChildNode
+              root.children = root.children :+ parentNode
             }
           case _ =>
             println("Input string does not match the expected format.")
@@ -150,24 +150,28 @@ object Task5 {
 //    <parent_org>,<current_org>,(<sno>,<name>,<city>)
 
 //    Iphone,Iphone-15,(3,Mohan,Indore)
+
 //    Press <p> to see the organization structure
 //    Press <e> exit the application
 //    For enter employee details, pass data in the below format
 //    <parent_org>,<current_org>,(<sno>,<name>,<city>)
 
 //    Iphone,Iphone-16,(4,Chintu,Indore)
+
 //    Press <p> to see the organization structure
 //    Press <e> exit the application
 //    For enter employee details, pass data in the below format
 //    <parent_org>,<current_org>,(<sno>,<name>,<city>)
 
 //    Mac,Mac-16inch,(5,Sohan,Mumbai)
+
 //    Press <p> to see the organization structure
 //    Press <e> exit the application
 //    For enter employee details, pass data in the below format
 //    <parent_org>,<current_org>,(<sno>,<name>,<city>)
 
 //    Mac,Mac-16inch,(6,Sameer,Delhi)
+
 //    Press <p> to see the organization structure
 //    Press <e> exit the application
 //    For enter employee details, pass data in the below format

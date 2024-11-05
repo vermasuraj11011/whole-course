@@ -104,6 +104,8 @@ object Task5 {
       prompts()
       input = readLine()
     }
+
+    println("Application is closed successfully.....")
   }
 }
 

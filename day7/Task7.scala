@@ -54,12 +54,12 @@ object Task7 {
   def main(args: Array[String]): Unit = {
     val result = randomNumberThreadExecutor
     //    Await.result(result, Duration.Inf)
-    println(result)
+//    println(result)
     result.onComplete {
       case Success(value) => println(value)
       case Failure(exception) => println(exception)
     }
-    println("Main thread is Ended")
+//    println("Main thread is Ended")
     //    println(result.value.get.get)
   }
 }

@@ -182,3 +182,118 @@ create another microservice that creates three actors
 - Each of them should have an associated consumer correspond to the topic that stores the message
 - no sooner any of these actor gets a message  they need to pass the message to the MessageGatherer Actor
 - This actor has a kafka producer that stores the received message to a topic name consilated-messages
+
+```scala
+import akka.actor.ActorSystem
+import akka.kafka.ConsumerSettings
+import org.apache.kafka.clients.consumer.{ConsumerConfig, KafkaConsumer}
+import org.apache.kafka.common.serialization.StringDeserializer
+
+import java.util.Properties
+import scala.jdk.CollectionConverters._
+
+object KafkaConsumerFactory {
+  def consumerSettings(system: ActorSystem): ConsumerSettings[String, String] = {
+    ConsumerSettings(system, new StringDeserializer, new StringDeserializer)
+            .withBootstrapServers(sys.env.getOrElse("BROKER_HOST", "localhost") + ":9092")
+            .withGroupId("message")
+            .withProperty(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest")
+  }
+}
+```
+
+```scala
+import akka.actor.{Actor, ActorRef, Props}
+import spray.json._
+import JsonFormats._
+import org.apache.kafka.clients.producer.{KafkaProducer, ProducerRecord}
+
+class MessageGatherer(producer: KafkaProducer[String, String]) extends Actor with MsgActors {
+  def receive: Receive = {
+    case msg: Message =>
+      val record = new ProducerRecord[String, String](topic, msg.messageKey, msg.toJson.toString())
+      producer.send(record)
+      println(s"MessageGatherer consolidated message: $msg")
+  }
+
+  override def actorName: String = "MessageGatherer"
+
+  override def topic: String = "consolidated-messages"
+}
+
+class CloudListener(messageGatherer: ActorRef) extends Actor {
+  def receive: Receive = {
+    case msg: Message =>
+      messageGatherer ! msg
+  }
+}
+
+class NetworkListener(messageGatherer: ActorRef) extends Actor {
+  def receive: Receive = {
+    case msg: Message =>
+      messageGatherer ! msg
+  }
+}
+
+class AppListener(messageGatherer: ActorRef) extends Actor {
+  def receive: Receive = {
+    case msg: Message =>
+      messageGatherer ! msg
+  }
+}
+```
+
+```scala
+
+// ConsumerMicroService.scala
+import akka.actor.{ActorRef, ActorSystem, Props}
+import akka.kafka.Subscriptions
+import akka.kafka.scaladsl.Consumer
+import akka.stream.scaladsl.Sink
+import spray.json._
+import JsonFormats._
+import akka.http.scaladsl.Http
+import akka.http.scaladsl.model.StatusCodes
+import akka.http.scaladsl.server.Directives._
+
+object ConsumerMicroService {
+  implicit val system: ActorSystem = ActorSystem("KafkaListenersSystem")
+
+  def main(args: Array[String]): Unit = {
+
+    val producer = KafkaProducerFactory.createProducer()
+    val messageGatherer = system.actorOf(Props(new MessageGatherer(producer)), "messageGatherer")
+
+    val cloudListener = system.actorOf(Props(new CloudListener(messageGatherer)), "cloudListener")
+    val networkListener = system.actorOf(Props(new NetworkListener(messageGatherer)), "networkListener")
+    val appListener = system.actorOf(Props(new AppListener(messageGatherer)), "appListener")
+
+    val consumerSettings = KafkaConsumerFactory.consumerSettings(system)
+
+    def startListener(topic: String, listener: ActorRef): Unit = {
+      Consumer.plainSource(consumerSettings, Subscriptions.topics(topic))
+        .map { record => record.value().parseJson.convertTo[Message] }
+        .runWith(Sink.actorRef(listener, onCompleteMessage = "complete", onFailureMessage = (x: Throwable) => {
+          new RuntimeException(s"There was an error: $x")
+        }))
+    }
+
+    startListener("cloud-message", cloudListener)
+    startListener("network-message", networkListener)
+    startListener("app-message", appListener)
+
+    println("Listeners are active and consuming messages...")
+
+    val route = post {
+      path("terminate") {
+        system.terminate()
+        complete(StatusCodes.OK, "System terminated")
+      }
+    }
+
+
+    Http().newServerAt("0.0.0.0", 8081).bind(route)
+    println("Server online at http://0.0.0.0:8081/")
+  }
+}
+```

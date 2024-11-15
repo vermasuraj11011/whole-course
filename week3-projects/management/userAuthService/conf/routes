@@ -1,0 +1,25 @@
+# Authentication routes
+POST          /auth/login                   com.management.authentication.controllers.AuthController.login
+POST          /auth/logout                  com.management.authentication.controllers.AuthController.logout
+
+
+# User routes
+GET           /auth/users                   com.management.authentication.controllers.UserController.getUsers
+GET           /auth/user/:id                com.management.authentication.controllers.UserController.getUser(id: Int)
+POST          /auth/user                    com.management.authentication.controllers.UserController.createUser
+PUT           /auth/user/:id                com.management.authentication.controllers.UserController.updateUser(id: Int)
+DELETE        /auth/user/:id                com.management.authentication.controllers.UserController.deleteUser(id: Int)
+
+# Organization routes
+GET           /auth/organizations           com.management.authentication.controllers.OrganizationController.getListOfOrgs
+GET           /auth/organization/:id        com.management.authentication.controllers.OrganizationController.getOrgDetail(id: Int)
+POST          /auth/organization            com.management.authentication.controllers.OrganizationController.createOrg
+DELETE        /auth/organization/:id        com.management.authentication.controllers.OrganizationController.deleteOrg(id: Int)
+PUT           /auth/organization/:id        com.management.authentication.controllers.OrganizationController.updateOrg(id: Int)
+
+# Department routes
+GET           /auth/departments             com.management.authentication.controllers.DepartmentController.getDepartments
+GET           /auth/department/:id          com.management.authentication.controllers.DepartmentController.getDepartment(id: Int)
+POST          /auth/department              com.management.authentication.controllers.DepartmentController.createDepartment
+PUT           /auth/department/:id          com.management.authentication.controllers.DepartmentController.updateDepartment(id: Int)
+DELETE        /auth/department/:id          com.management.authentication.controllers.DepartmentController.deleteDepartment(id: Int)

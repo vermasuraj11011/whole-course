@@ -1,0 +1,2 @@
+GET         /api/*path        com.management.gateway.controllers.ApiGatewayController.forwardRequest(path: String)
+POST        /api/*path        com.management.gateway.controllers.ApiGatewayController.forwardRequest(path: String)

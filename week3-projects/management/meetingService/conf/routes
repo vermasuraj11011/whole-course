@@ -1,0 +1,13 @@
+# Meeting
+GET           /meeting/meet                 com.management.meeting.controllers.MeetingController.get_meetings
+GET           /meeting/meet/:id             com.management.meeting.controllers.MeetingController.get_meeting(id: Int)
+POST          /meeting/meet                 com.management.meeting.controllers.MeetingController.create_meeting
+PUT           /meeting/meet/:id             com.management.meeting.controllers.MeetingController.update_meeting(id: Int)
+DELETE        /meeting/meet/:id             com.management.meeting.controllers.MeetingController.delete_meeting(id: Int)
+
+# Meeting Room
+GET           /meeting/meet_rooms           com.management.meeting.controllers.MeetingRoomController.getMeetingRooms
+GET           /meeting/meet_room/:id        com.management.meeting.controllers.MeetingRoomController.getMeetingRoom(id: Int)
+POST          /meeting/meet_room            com.management.meeting.controllers.MeetingRoomController.createMeetingRoom
+PUT           /meeting/meet_room/:id        com.management.meeting.controllers.MeetingRoomController.updateMeetingRoom(id: Int)
+DELETE        /meeting/meet_room/:id        com.management.meeting.controllers.MeetingRoomController.deleteMeetingRoom(id: Int)

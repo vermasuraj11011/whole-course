@@ -21,21 +21,31 @@ lazy val common = (project in file("common")).settings(
   libraryDependencies ++=
     Seq(
       guice,
-      "com.typesafe.play" %% "play-guice"            % "2.8.8",
-      "be.objectify"      %% "deadbolt-scala"        % "3.0.0",
-      "com.sun.mail"       % "jakarta.mail"          % "2.0.1",
-      "com.typesafe.play" %% "play-json"             % "2.9.2",
-      "org.playframework" %% "play-slick"            % "6.1.0",
-      "org.playframework" %% "play-slick-evolutions" % "6.1.0",
-      "mysql"              % "mysql-connector-java"  % "8.0.26",
-      "org.playframework" %% "play-ws"               % "3.0.0",
-      "org.apache.kafka"  %% "kafka"                 % "3.7.0"
+      "com.typesafe.play" %% "play-guice"                 % "2.8.8",
+      "be.objectify"      %% "deadbolt-scala"             % "3.0.0",
+      "com.sun.mail"       % "jakarta.mail"               % "2.0.1",
+      "com.typesafe.play" %% "play-json"                  % "2.9.2",
+      "org.playframework" %% "play-slick"                 % "6.1.0",
+      "org.playframework" %% "play-slick-evolutions"      % "6.1.0",
+      "mysql"              % "mysql-connector-java"       % "8.0.26",
+      "org.playframework" %% "play-ws"                    % "3.0.0",
+      "org.apache.kafka"  %% "kafka"                      % "3.2.2",
+      "com.typesafe.akka" %% "akka-stream-kafka"          % "4.0.2",
+      "com.typesafe.akka" %% "akka-http-spray-json"       % "10.5.0",
+      "org.slf4j"          % "slf4j-simple"               % "1.7.36",
+      "com.typesafe.akka" %% "akka-actor-typed"           % "2.7.0",
+      "com.typesafe.akka" %% "akka-stream"                % "2.7.0",
+      "com.typesafe.akka" %% "akka-slf4j"                 % "2.7.0",
+      "com.typesafe.akka" %% "akka-serialization-jackson" % "2.7.0"
     )
 )
 
 lazy val notification = (project in file("notificationService"))
   .dependsOn(common)
-  .settings(Compile / mainClass := Some("com.management.reminder.MainApp"))
+  .settings(
+    Compile / mainClass := Some("com.management.notification.mine.Main"),
+    libraryDependencies ++= Seq("org.quartz-scheduler" % "quartz" % "2.3.2")
+  )
 
 lazy val apiGateWay = (project in file("apiGatewayService"))
   .dependsOn(common)
@@ -67,10 +77,10 @@ lazy val root = (project in file("."))
   .settings(
     libraryDependencies += "com.typesafe.play" %% "play-guice" % "2.8.8",
     Compile / run := {
-      val api_val: Unit          = (apiGateWay / Compile / run).toTask("").value
-      val user_val: Unit         = (userAuth / Compile / run).toTask("").value
-      val meeting_val: Unit      = (meeting / Compile / run).toTask("").value
-      val equipment_val: Unit    = (equipment / Compile / run).toTask("").value
+      val api_val: Unit       = (apiGateWay / Compile / run).toTask("").value
+      val user_val: Unit      = (userAuth / Compile / run).toTask("").value
+      val meeting_val: Unit   = (meeting / Compile / run).toTask("").value
+      val equipment_val: Unit = (equipment / Compile / run).toTask("").value
 //      val notification_val: Unit = (notification / Compile / run).toTask("").value
       Def
         .task {

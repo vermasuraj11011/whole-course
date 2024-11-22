@@ -21,6 +21,8 @@ class UserRepo @Inject() (dbConfigProvider: DatabaseConfigProvider)(implicit ec:
 
   def find(id: Int): Future[Option[User]] = db.run(users.filter(_.id === id).result.headOption)
 
+  def findByEmail(email: String): Future[Option[User]] = db.run(users.filter(_.email === email).result.headOption)
+
   def add(user: User): Future[Int] = db.run(users returning users.map(_.id) += user)
 
   def update(user: User): Future[Int] = db.run(users.filter(_.id === user.id).update(user))

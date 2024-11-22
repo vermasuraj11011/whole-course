@@ -247,3 +247,8 @@ On the base of the combination of service access and the roles the user will acc
   push equipment remainder detail to kafka.
 - once the equipment is deallocated the equipment is marked as available and the kafka producer in the equipment service
   push thank you email along with the equipment condition detail to user.
+
+
+### Containers
+
+![Alt text](./images/docker_conatiners.png)

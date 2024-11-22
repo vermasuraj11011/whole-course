@@ -38,7 +38,9 @@ lazy val common = (project in file("common")).settings(
       "com.typesafe.akka" %% "akka-actor-typed"           % "2.7.0",
       "com.typesafe.akka" %% "akka-stream"                % "2.7.0",
       "com.typesafe.akka" %% "akka-slf4j"                 % "2.7.0",
-      "com.typesafe.akka" %% "akka-serialization-jackson" % "2.7.0"
+      "com.typesafe.akka" %% "akka-serialization-jackson" % "2.7.0",
+      "com.auth0"          % "java-jwt"                   % "4.3.0",
+      filters
     )
 )
 
@@ -71,10 +73,7 @@ lazy val meeting = (project in file("meetingService"))
 
 lazy val equipment = (project in file("equipmentService"))
   .dependsOn(common)
-  .settings(
-    PlayKeys.devSettings := Seq("play.server.http.port" -> "9003"),
-    commonSettings,
-  )
+  .settings(PlayKeys.devSettings := Seq("play.server.http.port" -> "9003"), commonSettings)
   .enablePlugins(PlayScala)
 
 lazy val root = (project in file("."))

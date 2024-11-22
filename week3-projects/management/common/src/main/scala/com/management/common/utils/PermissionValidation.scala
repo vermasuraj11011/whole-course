@@ -5,7 +5,6 @@ import play.api.mvc.Request
 object PermissionValidation {
   def validate(requiredPermission: Permission)(implicit request: Request[_]): Boolean = {
     println(s"headers: ${request.headers}")
-    // Extract relevant fields from the request headers
     val roleHeader                    = request.headers.get("role")
     val userIdHeader                  = request.headers.get("user-id")
     val meetingServiceEnabledHeader   = request.headers.get("is-meeting-service-enabled")
@@ -22,25 +21,21 @@ object PermissionValidation {
         val meetingServiceEnabledFlag   = meetingServiceEnabled.toBoolean
         val equipmentServiceEnabledFlag = equipmentServiceEnabled.toBoolean
 
-        // Match the role
         val userRole = matchRole(role)
         userRole match {
           case Some(userRole) =>
-            // Check if the organization is authorized for the modules and if the role has the required permission
             requiredPermission match {
               case _: MeetingServiceEnum if !meetingServiceEnabledFlag =>
-                false // Organization does not have access to the meeting service
+                false
               case _: EquipmentServiceEnum if !equipmentServiceEnabledFlag =>
-                false // Organization does not have access to the equipment service
+                false
               case _ =>
-                userRole.permissions.contains(requiredPermission) // Standard permission check
+                userRole.permissions.contains(requiredPermission)
             }
           case None =>
-            // If the role doesn't match any predefined roles, return false
             false
         }
       case _ =>
-        // If any necessary headers are missing, validation fails
         false
     }
   }

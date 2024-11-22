@@ -17,9 +17,7 @@ import scala.concurrent.{ExecutionContext, Future}
 class MeetingController @Inject() (
   val cc: ControllerComponents,
   meetingRepo: MeetingRepo,
-  meetingService: MeetingService,
-  csrfAddToken: CSRFAddToken,
-  csrfCheck: CSRFCheck
+  meetingService: MeetingService
 )(implicit ec: ExecutionContext)
   extends AbstractController(cc) {
 
@@ -27,7 +25,7 @@ class MeetingController @Inject() (
 
   def get_meetings: Action[AnyContent] =
     Action.async { implicit request =>
-      if (PermissionValidation.validate(request, ReadMeeting)) {
+      if (PermissionValidation.validate(ReadMeeting)) {
         meetingRepo
           .list()
           .map { meetings =>
@@ -40,7 +38,7 @@ class MeetingController @Inject() (
 
   def get_meeting(id: Int): Action[AnyContent] =
     Action.async { implicit request =>
-      if (PermissionValidation.validate(request, ReadMeeting)) {
+      if (PermissionValidation.validate(ReadMeeting)) {
         meetingRepo
           .find(id)
           .map {
@@ -56,13 +54,13 @@ class MeetingController @Inject() (
 
   def create_meeting: Action[AnyContent] =
     Action.async { implicit request =>
-      if (PermissionValidation.validate(request, CreateMeeting)) {
+      if (PermissionValidation.validate(CreateMeeting)) {
         val meeting = request.body.asJson.get.as[MeetingReq]
         val userId  = request.headers.get("user-id").get.toInt
         meetingService
           .createMeeting(userId, meeting)
-          .map { id =>
-            Ok(Json.toJson(id))
+          .map { meeting =>
+            Ok(Json.toJson(meeting))
           }
       } else {
         Future.successful(Forbidden("You do not have permission to create meetings"))
@@ -71,12 +69,12 @@ class MeetingController @Inject() (
 
   def update_meeting(id: Int): Action[AnyContent] =
     Action.async { implicit request =>
-      if (PermissionValidation.validate(request, UpdateMeeting)) {
+      if (PermissionValidation.validate(UpdateMeeting)) {
         val meeting = request.body.asJson.get.as[Meeting]
         meetingRepo
           .update(meeting)
           .map { id =>
-            Ok(Json.toJson(id))
+            Ok(Json.toJson(meeting))
           }
       } else {
         Future.successful(Forbidden("You do not have permission to update meetings"))
@@ -85,7 +83,7 @@ class MeetingController @Inject() (
 
   def delete_meeting(id: Int): Action[AnyContent] =
     Action.async { implicit request =>
-      if (PermissionValidation.validate(request, DeleteMeeting)) {
+      if (PermissionValidation.validate(DeleteMeeting)) {
         meetingRepo
           .delete(id)
           .map {

@@ -13,13 +13,15 @@ class UserService @Inject() (userRepo: UserRepo, orgRep: OrganizationRepo, deptR
   ec: ExecutionContext
 ) {
 
+  def getUserEntity(id: Int): Future[Option[User]] = userRepo.find(id)
+
   def getUser(id: Int): Future[Option[UserView]] =
     userRepo
       .find(id)
       .flatMap {
         case Some(user) =>
           val orgFuture  = getOrganization(user.organizationId)
-          val deptFuture = getDepartment(user.departmentId)
+          val deptFuture = getDepartment(user.departmentId.get)
 
           for {
             orgOpt  <- orgFuture
@@ -38,7 +40,7 @@ class UserService @Inject() (userRepo: UserRepo, orgRep: OrganizationRepo, deptR
       .list()
       .flatMap { users =>
         val orgFutures  = users.map(user => getOrganization(user.organizationId))
-        val deptFutures = users.map(user => getDepartment(user.departmentId))
+        val deptFutures = users.map(user => getDepartment(user.departmentId.get))
 
         val orgFuture  = Future.sequence(orgFutures)
         val deptFuture = Future.sequence(deptFutures)
@@ -58,12 +60,14 @@ class UserService @Inject() (userRepo: UserRepo, orgRep: OrganizationRepo, deptR
           }
       }
 
+  def getUsersEntity(ids: List[Int]): Future[Seq[User]] = userRepo.findByIds(ids)
+
   def getUsers(ids: List[Int]): Future[Seq[UserView]] =
     userRepo
       .findByIds(ids)
       .flatMap { users =>
         val orgFutures  = users.map(user => getOrganization(user.organizationId))
-        val deptFutures = users.map(user => getDepartment(user.departmentId))
+        val deptFutures = users.map(user => getDepartment(user.departmentId.get))
 
         val orgFuture  = Future.sequence(orgFutures)
         val deptFuture = Future.sequence(deptFutures)
@@ -111,7 +115,7 @@ class UserService @Inject() (userRepo: UserRepo, orgRep: OrganizationRepo, deptR
         password = userReq.password,
         name = userReq.name,
         role = "user",
-        departmentId = userReq.departmentId,
+        departmentId = Some(userReq.departmentId),
         organizationId = userReq.organizationId,
         isActive = true,
         token = userReq.token

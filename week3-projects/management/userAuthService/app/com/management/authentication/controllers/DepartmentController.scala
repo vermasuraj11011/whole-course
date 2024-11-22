@@ -18,7 +18,7 @@ class DepartmentController @Inject() (departmentRepo: DepartmentRepo, cc: Contro
 
   def getDepartments: Action[AnyContent] =
     Action.async { implicit request =>
-      if (PermissionValidation.validate(request, ReadDepartment)) {
+      if (PermissionValidation.validate(ReadDepartment)) {
         departmentRepo
           .list()
           .map { departments =>
@@ -31,7 +31,7 @@ class DepartmentController @Inject() (departmentRepo: DepartmentRepo, cc: Contro
 
   def getDepartment(id: Int): Action[AnyContent] =
     Action.async { implicit request =>
-      if (PermissionValidation.validate(request, ReadDepartment)) {
+      if (PermissionValidation.validate(ReadDepartment)) {
         departmentRepo
           .find(id)
           .map {
@@ -47,7 +47,7 @@ class DepartmentController @Inject() (departmentRepo: DepartmentRepo, cc: Contro
 
   def createDepartment: Action[AnyContent] =
     Action.async { implicit request =>
-      if (PermissionValidation.validate(request, ReadDepartment)) {
+      if (PermissionValidation.validate(ReadDepartment)) {
         val department = request.body.asJson.get.as[Department]
         departmentRepo
           .add(department)
@@ -61,7 +61,7 @@ class DepartmentController @Inject() (departmentRepo: DepartmentRepo, cc: Contro
 
   def updateDepartment(id: Int): Action[AnyContent] =
     Action.async { implicit request =>
-      if (PermissionValidation.validate(request, UpdateDepartment)) {
+      if (PermissionValidation.validate(UpdateDepartment)) {
         val department = request.body.asJson.get.as[Department]
         if (department.id == id) {
           departmentRepo
@@ -79,7 +79,7 @@ class DepartmentController @Inject() (departmentRepo: DepartmentRepo, cc: Contro
 
   def deleteDepartment(id: Int): Action[AnyContent] =
     Action.async { implicit request =>
-      if (PermissionValidation.validate(request, DeleteDepartment)) {
+      if (PermissionValidation.validate(DeleteDepartment)) {
         departmentRepo
           .delete(id)
           .map { id =>

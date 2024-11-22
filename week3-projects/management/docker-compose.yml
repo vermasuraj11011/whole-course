@@ -1,0 +1,71 @@
+version: "3.9"
+
+services:
+  apigateway:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        FOLDER_NAME: apiGatewayService
+        SERVICE_NAME: apigateway
+        SERVICE_PORT: 9000
+    ports:
+      - "9000:9000"
+    networks:
+      - management-network
+
+  userauth:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        FOLDER_NAME: userAuthService
+        SERVICE_NAME: userauth
+        SERVICE_PORT: 9001
+    ports:
+      - "9001:9001"
+    networks:
+      - management-network
+
+  meeting:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        FOLDER_NAME: meetingService
+        SERVICE_NAME: meeting
+        SERVICE_PORT: 9002
+    ports:
+      - "9002:9002"
+    networks:
+      - management-network
+
+  equipment:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        FOLDER_NAME: equipmentService
+        SERVICE_NAME: equipment
+        SERVICE_PORT: 9003
+    ports:
+      - "9003:9003"
+    networks:
+      - management-network
+
+  notification:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        FOLDER_NAME: notificationService
+        SERVICE_NAME: notification
+        SERVICE_PORT: 9004
+    ports:
+      - "9004:9004"
+    networks:
+      - management-network
+
+networks:
+  management-network:
+    driver: bridge

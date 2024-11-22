@@ -13,6 +13,6 @@ object DepartmentView {
       name = department.name,
       organizationId = department.organizationId,
       isActive = department.isActive,
-      head = department.head
+      head = department.head.get
     )
 }

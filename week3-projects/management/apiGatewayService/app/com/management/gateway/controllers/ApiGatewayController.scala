@@ -7,6 +7,7 @@ import play.api.mvc._
 import play.api.libs.ws._
 import play.api.http.HttpEntity
 import play.api.Configuration
+import play.api.libs.ws.ahc.StandaloneAhcWSClient
 
 import scala.concurrent.{ExecutionContext, Future}
 
@@ -14,6 +15,7 @@ import scala.concurrent.{ExecutionContext, Future}
 class ApiGatewayController @Inject() (
   val controllerComponents: ControllerComponents,
   wsClient: WSClient,
+  wsRequest: StandaloneAhcWSClient,
   config: Configuration,
   userRepo: UserRepo,
   organizationRepo: OrganizationRepo
@@ -53,7 +55,57 @@ class ApiGatewayController @Inject() (
       }
     }
 
-  private def processRequest(request: Request[AnyContent], url: String): Future[Result] =
+  def processRequest(request: Request[AnyContent], url: String): Future[Result] = {
+    println("Processing private api")
+
+    extractHeaders(request).flatMap { headers =>
+      println(s"processing request for user ${headers.find(_._1 == "user-id").get._2}")
+
+      request.method match {
+        case "GET" | "DELETE" =>
+          wsRequest
+            .url(url)
+            .withMethod(request.method)
+            .withHttpHeaders(headers: _*)
+            .withQueryStringParameters(
+              request
+                .queryString
+                .flatMap { case (key, values) =>
+                  values.map(key -> _)
+                }
+                .toSeq: _*
+            )
+            .stream()
+            .map { response =>
+              Status(response.status).sendEntity(HttpEntity.Streamed(response.bodyAsSource, None, None))
+            }
+            .recover { case e: Exception =>
+              InternalServerError(s"Failed to forward request: ${e.getMessage}")
+            }
+
+        case "POST" | "PUT" =>
+          request.body.asJson match {
+            case Some(jsonBody) =>
+              wsRequest
+                .url(url)
+                .withMethod(request.method)
+                .withHttpHeaders(headers: _*)
+                .withBody(jsonBody)
+                .stream()
+                .map { response =>
+                  Status(response.status).sendEntity(HttpEntity.Streamed(response.bodyAsSource, None, None))
+                }
+                .recover { case e: Exception =>
+                  InternalServerError(s"Failed to forward request: ${e.getMessage}")
+                }
+            case None =>
+              Future.successful(BadRequest("Request body is not valid JSON"))
+          }
+      }
+    }
+  }
+
+  private def processRequest1(request: Request[AnyContent], url: String): Future[Result] =
     extractHeaders(request).flatMap { headers =>
       println("Processing request 1")
 
@@ -95,18 +147,6 @@ class ApiGatewayController @Inject() (
             println("Forwarding XML body")
             wsRequest.withBody(xml).stream()
 
-//          case AnyContentAsMultipartFormData(data) =>
-//            println("Forwarding MultipartFormData body")
-//            // Convert multipart data as needed
-//            val parts =
-//              data
-//                .files
-//                .map { file =>
-//                  // Handle file processing if needed
-//                  WSBodyPart(file.filename.getOrElse("file"), file.ref, contentType = file.contentType)
-//                }
-//            wsRequest.withBody(Source(parts)).stream()
-
           case _ =>
             println("No body or unsupported body type")
             wsRequest.stream()
@@ -124,29 +164,118 @@ class ApiGatewayController @Inject() (
         }
     }
 
+  def bodyWritableForAnyContent(body: AnyContent): Option[BodyWritable[AnyContent]] =
+    body match {
+      case AnyContentAsJson(json) =>
+        Some(BodyWritable(_ => InMemoryBody(ByteString.fromString(json.toString)), "application/json"))
+      case AnyContentAsText(text) =>
+        Some(BodyWritable(_ => InMemoryBody(ByteString.fromString(text)), "text/plain"))
+      case AnyContentAsXml(xml) =>
+        Some(BodyWritable(_ => InMemoryBody(ByteString.fromString(xml.toString)), "application/xml"))
+      case AnyContentAsRaw(raw) =>
+        raw.asBytes().map(bytes => BodyWritable(_ => InMemoryBody(bytes), "application/octet-stream"))
+      case _ =>
+        None
+    }
+
+//  private def processRequestWithoutHeaders(request: Request[AnyContent], url: String): Future[Result] = {
+//    val wsRequest =
+//      wsClient
+//        .url(url)
+//        .withHttpHeaders(request.headers.toSimpleMap.toSeq: _*) // Forward headers
+//        .withQueryStringParameters(
+//          request
+//            .queryString
+//            .flatMap { case (key, values) =>
+//              values.map(key -> _)
+//            }
+//            .toSeq: _* // Forward query parameters
+//        )
+//
+//    request.method match {
+//      case "GET" | "DELETE" =>
+//        // Handle GET and DELETE (no body is sent for these)
+//        wsRequest
+//          .withMethod(request.method)
+//          .stream()
+//          .map { response =>
+//            Status(response.status).sendEntity(HttpEntity.Streamed(response.bodyAsSource, None, None))
+//          }
+//          .recover { case e: Exception =>
+//            InternalServerError(s"Failed to forward request: ${e.getMessage}")
+//          }
+//
+//      case "POST" | "PUT" =>
+//        // Handle POST and PUT (body is sent if valid JSON is present)
+//        request.body.asJson match {
+//          case Some(jsonBody) =>
+//            wsRequest
+//              .withMethod(request.method)
+//              .withBody(jsonBody) // Send the JSON body
+//              .stream()
+//              .map { response =>
+//                Status(response.status).sendEntity(HttpEntity.Streamed(response.bodyAsSource, None, None))
+//              }
+//              .recover { case e: Exception =>
+//                InternalServerError(s"Failed to forward request: ${e.getMessage}")
+//              }
+//          case None =>
+//            Future.successful(BadRequest("Request body is not valid JSON"))
+//        }
+//
+//      case other =>
+//        Future.successful(MethodNotAllowed(s"Unsupported HTTP method: $other"))
+//    }
+//  }
+
   private def processRequestWithoutHeaders(request: Request[AnyContent], url: String): Future[Result] =
-    wsClient
-      .url(url)
-      .withMethod(request.method)
-      .withHttpHeaders(request.headers.toSimpleMap.toSeq: _*)
-      .withQueryStringParameters(
-        request
-          .queryString
-          .flatMap { case (key, values) =>
-            values.map(key -> _)
+    request.body.asJson match {
+      case Some(jsonBody) =>
+        wsClient
+          .url(url)
+          .post(jsonBody)
+          .map { response =>
+            Status(response.status).sendEntity(HttpEntity.Streamed(response.bodyAsSource, None, None))
           }
-          .toSeq: _*
-      )
-      .stream()
-      .map { response =>
-        println("Processing request without headers 2")
-        val s = Status(response.status).sendEntity(HttpEntity.Streamed(response.bodyAsSource, None, None))
-        println("Processing request without headers 3")
-        s
-      }
-      .recover { case e: Exception =>
-        InternalServerError(s"Failed to forward request: ${e.getMessage}")
-      }
+          .recover { case e: Exception =>
+            InternalServerError(s"Failed to forward request: ${e.getMessage}")
+          }
+      case None =>
+        Future.successful(BadRequest("Request body is not valid JSON"))
+    }
+
+  private def processRequestWithoutHeaders1(request: Request[AnyContent], url: String): Future[Result] = {
+    val wsRequest =
+      wsClient
+        .url(url)
+        .withMethod(request.method)
+        .withHttpHeaders(request.headers.toSimpleMap.toSeq: _*)
+        .withQueryStringParameters(
+          request
+            .queryString
+            .flatMap { case (key, values) =>
+              values.map(value => key -> value)
+            }
+            .toSeq: _*
+        )
+
+    bodyWritableForAnyContent(request.body) match {
+      case Some(writable) =>
+        val finalReq = wsRequest.withBody(request.body)(writable)
+
+        finalReq
+          .stream()
+          .map { response =>
+            val s = Status(response.status).sendEntity(HttpEntity.Streamed(response.bodyAsSource, None, None))
+            s
+          }
+          .recover { case e: Exception =>
+            InternalServerError(s"Failed to forward request: ${e.getMessage}")
+          }
+      case None =>
+        Future.successful(InternalServerError("Unsupported body content type"))
+    }
+  }
 
   private def extractHeaders(request: Request[AnyContent]): Future[Seq[(String, String)]] =
     request.headers.get("key") match {
@@ -164,11 +293,13 @@ class ApiGatewayController @Inject() (
                     println(s"Organization: $organization")
                     Seq(
                       "user-id"                      -> user.id.toString,
-                      "department-id"                -> user.departmentId.toString,
+                      "department-id"                -> user.departmentId.get.toString,
                       "organization-id"              -> user.organizationId.toString,
                       "is-meeting-service-enabled"   -> organization.isMeetingServiceEnabled.toString,
                       "is-equipment-service-enabled" -> organization.isEquipmentServiceEnabled.toString,
-                      "role"                         -> user.role
+                      "role"                         -> user.role,
+                      "email"                        -> user.email,
+                      "key"                          -> token
                     )
                   case None =>
                     println("Organization not found")

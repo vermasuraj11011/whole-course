@@ -15,6 +15,9 @@ class EquipmentService @Inject() (equipmentRepo: EquipmentRepo, equipmentDetailR
   ec: ExecutionContext
 ) {
 
+  def createEquip(equipment: Equipment): Future[Equipment] =
+    equipmentRepo.insert(equipment).map(id => equipment.copy(id = id))
+
   def createEquipment(equipmentReq: EquipmentReq, deptId: Int, orgId: Int): Future[EquipmentView] =
     equipmentDetailRepo
       .findById(equipmentReq.equipmentDetailId)

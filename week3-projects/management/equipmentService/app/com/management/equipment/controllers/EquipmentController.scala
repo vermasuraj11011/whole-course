@@ -1,8 +1,9 @@
 package com.management.equipment.controllers
 
 import com.management.equipment.dtos.EquipmentReq
+import com.management.equipment.entity.Equipment
 import com.management.equipment.service.EquipmentService
-import play.api.libs.json.Json
+import play.api.libs.json.{Format, Json}
 import play.api.mvc._
 import jakarta.inject._
 
@@ -14,6 +15,8 @@ class EquipmentController @Inject() (
   equipmentService: EquipmentService
 )(implicit ec: ExecutionContext)
   extends BaseController {
+
+  implicit val personFormat: Format[Equipment] = Json.format[Equipment]
 
   def findEquipment(id: Int): Action[AnyContent] =
     Action.async {
@@ -63,12 +66,21 @@ class EquipmentController @Inject() (
         }
     }
 
+  def create1: Action[AnyContent] =
+    Action.async { implicit request =>
+      val equipment = request.body.asJson.get.as[Equipment]
+      equipmentService.createEquip(equipment).map(equipment => Ok(Json.toJson(equipment)))
+    }
+
   def create: Action[AnyContent] =
     Action.async { implicit request =>
       val equipmentReq =
         request.body.asJson.map(_.as[EquipmentReq]).getOrElse(throw new Exception("Equipment request not found"))
-      val deptId = request.headers.get("deptId").map(_.toInt).getOrElse(throw new Exception("Department Id not found"))
-      val orgId  = request.headers.get("orgId").map(_.toInt).getOrElse(throw new Exception("Organization Id not found"))
+      val deptId =
+        request.headers.get("department-id").map(_.toInt).getOrElse(throw new Exception("Department Id not found"))
+      val orgId =
+        request.headers.get("organization-id").map(_.toInt).getOrElse(throw new Exception("Organization Id not found"))
+
       equipmentService
         .createEquipment(equipmentReq, deptId, orgId)
         .map { equipment =>

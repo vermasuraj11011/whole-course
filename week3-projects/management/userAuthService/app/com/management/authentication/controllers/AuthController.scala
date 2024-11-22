@@ -2,7 +2,7 @@ package com.management.authentication.controllers
 
 import com.management.authentication.dtos.{AuthDetail, LoginSuccess}
 import com.management.authentication.service.AuthService
-import com.management.authentication.views.LogoutView
+import com.management.authentication.response.LogoutView
 import com.management.common.repos.UserRepo
 import com.management.common.utils.{PermissionValidation, ReadUser, TokenGenerator}
 import play.api.mvc.{AbstractController, Action, AnyContent, ControllerComponents}
@@ -17,9 +17,9 @@ class AuthController @Inject() (userRepo: UserRepo, authService: AuthService, cc
 
   def login: Action[AnyContent] =
     Action.async { implicit request =>
+      println("in login")
       val authDetail: AuthDetail = request.body.asJson.get.as[AuthDetail]
       println(s"AuthDetail: $authDetail")
-
       authService
         .verifyCreds(authDetail.email, authDetail.password)
         .flatMap {
@@ -42,7 +42,7 @@ class AuthController @Inject() (userRepo: UserRepo, authService: AuthService, cc
 
   def logout: Action[AnyContent] =
     Action.async { implicit request =>
-      if (PermissionValidation.validate(request, ReadUser)) {
+      if (PermissionValidation.validate(ReadUser)) {
         val userId = request.headers.get("user-id").get.toInt
         userRepo
           .find(userId)

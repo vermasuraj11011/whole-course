@@ -18,7 +18,7 @@ class MeetingRoomController @Inject() (meetingRoomService: MeetingRoomService, c
 
   def getMeetingRooms: Action[AnyContent] =
     Action.async { implicit request =>
-      if (PermissionValidation.validate(request, CreateDepartment)) {
+      if (PermissionValidation.validate(CreateDepartment)) {
         meetingRoomService
           .getMeetingRooms
           .map { meetingRooms =>
@@ -31,7 +31,7 @@ class MeetingRoomController @Inject() (meetingRoomService: MeetingRoomService, c
 
   def getMeetingRoom(id: Int): Action[AnyContent] =
     Action.async { implicit request =>
-      if (PermissionValidation.validate(request, CreateDepartment)) {
+      if (PermissionValidation.validate(CreateDepartment)) {
         meetingRoomService
           .getMeetingRoom(id)
           .map {
@@ -47,7 +47,7 @@ class MeetingRoomController @Inject() (meetingRoomService: MeetingRoomService, c
 
   def createMeetingRoom: Action[AnyContent] =
     Action.async { implicit request =>
-      if (PermissionValidation.validate(request, CreateDepartment)) {
+      if (PermissionValidation.validate(CreateDepartment)) {
         val meetingRoom = request.body.asJson.get.as[MeetingRoom]
         meetingRoomService
           .createMeetingRoom(meetingRoom)
@@ -61,7 +61,7 @@ class MeetingRoomController @Inject() (meetingRoomService: MeetingRoomService, c
 
   def updateMeetingRoom(id: Int): Action[AnyContent] =
     Action.async { implicit request =>
-      if (PermissionValidation.validate(request, CreateDepartment)) {
+      if (PermissionValidation.validate(CreateDepartment)) {
         val meetingRoom = request.body.asJson.get.as[MeetingRoom]
         meetingRoomService
           .updateMeetingRoom(meetingRoom)
@@ -75,7 +75,7 @@ class MeetingRoomController @Inject() (meetingRoomService: MeetingRoomService, c
 
   def deleteMeetingRoom(id: Int): Action[AnyContent] =
     Action.async { implicit request =>
-      if (PermissionValidation.validate(request, CreateDepartment)) {
+      if (PermissionValidation.validate(CreateDepartment)) {
         meetingRoomService
           .deleteMeetingRoom(id)
           .map {

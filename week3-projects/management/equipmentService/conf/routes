@@ -4,10 +4,15 @@ GET         /equipment/equipments                     com.management.equipment.c
 GET         /equipment/available                      com.management.equipment.controllers.EquipmentController.listAvailableEquipment
 GET         /equipment/unavailable                    com.management.equipment.controllers.EquipmentController.listUnAvailableEquipment
 GET         /equipment/:id                            com.management.equipment.controllers.EquipmentController.findEquipment(id: Int)
-POST        /equipment/equipment                      com.management.equipment.controllers.EquipmentController.create
+POST        /equipment/equipment                      com.management.equipment.controllers.EquipmentController.create1
 PUT         /equipment/equipment/:id                  com.management.equipment.controllers.EquipmentController.update(id: Int)
 
 # Routes for EquipmentAllocationController
 POST        /equipment/allocation                     com.management.equipment.controllers.EquipmentAllocationController.allocateEquipment
 POST        /equipment/deallocation/:id               com.management.equipment.controllers.EquipmentAllocationController.deallocateEquipment(id: Int)
 GET         /equipment/allocation/not-returned        com.management.equipment.controllers.EquipmentAllocationController.listNotReturnedEquipment
+
+# Routes for EquipmentDetailController
+GET         /equipment/equipment_details              com.management.equipment.controllers.EquipmentDetailController.getEquipDetails
+GET         /equipment/equipment_detail/:id           com.management.equipment.controllers.EquipmentDetailController.getEquipDetail(id: Int)
+POST        /equipment/equipment_detail               com.management.equipment.controllers.EquipmentDetailController.createEquipDetail

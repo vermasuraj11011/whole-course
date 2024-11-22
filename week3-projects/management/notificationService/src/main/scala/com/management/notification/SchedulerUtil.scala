@@ -1,5 +1,6 @@
 package com.management.notification
 
+import com.management.common.utils.DateUtils
 import org.quartz.{JobBuilder, JobDataMap, JobDetail, SchedulerFactory, TriggerBuilder}
 import org.quartz.impl.StdSchedulerFactory
 import spray.json._
@@ -8,6 +9,13 @@ import com.management.notification.JsonFormats._
 import java.util.Date
 
 object SchedulerUtil {
+
+  def sendReminderToTeam(meetingReminder: MeetingReminder): Unit =
+    println(s"""
+        |User with Id: ${meetingReminder.userId} 
+        | has a scheduled a meeting at ${DateUtils.convertTimestampToHumanReadableDate(meetingReminder.startTime)}
+        |
+        |""".stripMargin)
 
   def scheduleJob(equipmentReminder: Option[EquipmentReminder], meetingReminder: Option[MeetingReminder]): Unit = {
     val schedulerFactory: SchedulerFactory = new StdSchedulerFactory()
@@ -38,6 +46,8 @@ object SchedulerUtil {
       }
     } else {
       meetingReminder.foreach { reminder =>
+        sendReminderToTeam(reminder)
+        TeamUpdateUtil.meetingScheduled(reminder)
         println(s"Meeting reminder is scheduled: $meetingReminder")
         val meetingJobData = new JobDataMap()
         meetingJobData.put("reminder", reminder.toJson.compactPrint)
@@ -53,7 +63,7 @@ object SchedulerUtil {
           TriggerBuilder
             .newTrigger()
             .withIdentity("meetingTrigger", "group1")
-            .startAt(new Date(reminder.startTime + 60000))
+            .startAt(new Date(reminder.startTime - 60000))
             .build()
 
         scheduler.scheduleJob(meetingJob, meetingTrigger)

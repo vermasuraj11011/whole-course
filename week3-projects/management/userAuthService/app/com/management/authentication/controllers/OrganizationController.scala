@@ -17,7 +17,7 @@ class OrganizationController @Inject() (organizationRepo: OrganizationRepo, cc: 
 
   def getOrgDetail(id: Int): Action[AnyContent] =
     Action.async { implicit request =>
-      if (PermissionValidation.validate(request, ReadOrganization)) {
+      if (PermissionValidation.validate(ReadOrganization)) {
         organizationRepo
           .find(id)
           .map {
@@ -33,7 +33,7 @@ class OrganizationController @Inject() (organizationRepo: OrganizationRepo, cc: 
 
   def getListOfOrgs: Action[AnyContent] =
     Action.async { implicit request =>
-      if (PermissionValidation.validate(request, ReadOrganization)) {
+      if (PermissionValidation.validate(ReadOrganization)) {
         organizationRepo
           .list()
           .map { organizations =>
@@ -46,7 +46,7 @@ class OrganizationController @Inject() (organizationRepo: OrganizationRepo, cc: 
 
   def createOrg: Action[AnyContent] =
     Action.async { implicit request =>
-      if (PermissionValidation.validate(request, CreateOrganization)) {
+      if (PermissionValidation.validate(CreateOrganization)) {
         val organization = request.body.asJson.get.as[Organization]
         organizationRepo
           .add(organization)
@@ -60,7 +60,7 @@ class OrganizationController @Inject() (organizationRepo: OrganizationRepo, cc: 
 
   def updateOrg(id: Int): Action[AnyContent] =
     Action.async { implicit request =>
-      if (PermissionValidation.validate(request, UpdateOrganization)) {
+      if (PermissionValidation.validate(UpdateOrganization)) {
         val organization = request.body.asJson.get.as[Organization]
         if (organization.id != id) {
           Future.successful(BadRequest("Invalid organization id"))
@@ -78,7 +78,7 @@ class OrganizationController @Inject() (organizationRepo: OrganizationRepo, cc: 
 
   def deleteOrg(id: Int): Action[AnyContent] =
     Action.async { implicit request =>
-      if (PermissionValidation.validate(request, UpdateOrganization)) {
+      if (PermissionValidation.validate(UpdateOrganization)) {
         organizationRepo
           .delete(id)
           .map { id =>

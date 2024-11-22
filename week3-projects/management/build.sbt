@@ -1,5 +1,3 @@
-import scala.collection.immutable.Seq
-
 ThisBuild / scalaVersion := "2.13.15"
 ThisBuild / version      := "1.0"
 ThisBuild / name         := "management-project"
@@ -8,20 +6,24 @@ ThisBuild / organization := "com.management"
 ThisBuild / libraryDependencySchemes += "org.scala-lang.modules" %% "scala-xml" % "early-semver"
 ThisBuild / evictionErrorLevel                                   := Level.Warn
 
+import scala.collection.Seq
+
 Global / excludeLintKeys += name
 
 lazy val commonSettings =
   Seq(
     Compile / unmanagedSourceDirectories += baseDirectory.value / "app",
     Compile / unmanagedResourceDirectories ++= Seq(baseDirectory.value / "conf", baseDirectory.value / "public"),
-    libraryDependencies ++= Seq(guice, "com.typesafe.play" %% "play-guice" % "2.8.8")
+    Compile / managedSources ++=
+      (Compile / unmanagedSources).value,
+    libraryDependencies ++= Seq(guice, "org.playframework" %% "play-guice" % "3.0.0")
   )
 
 lazy val common = (project in file("common")).settings(
   libraryDependencies ++=
     Seq(
       guice,
-      "com.typesafe.play" %% "play-guice"                 % "2.8.8",
+      "org.playframework" %% "play-guice"                 % "3.0.0",
       "be.objectify"      %% "deadbolt-scala"             % "3.0.0",
       "com.sun.mail"       % "jakarta.mail"               % "2.0.1",
       "com.typesafe.play" %% "play-json"                  % "2.9.2",
@@ -43,7 +45,7 @@ lazy val common = (project in file("common")).settings(
 lazy val notification = (project in file("notificationService"))
   .dependsOn(common)
   .settings(
-    Compile / mainClass := Some("com.management.notification.mine.Main"),
+    Compile / mainClass := Some("com.management.notification.NotificationMain"),
     libraryDependencies ++= Seq("org.quartz-scheduler" % "quartz" % "2.3.2")
   )
 
@@ -69,19 +71,22 @@ lazy val meeting = (project in file("meetingService"))
 
 lazy val equipment = (project in file("equipmentService"))
   .dependsOn(common)
-  .settings(PlayKeys.devSettings := Seq("play.server.http.port" -> "9003"), commonSettings)
+  .settings(
+    PlayKeys.devSettings := Seq("play.server.http.port" -> "9003"),
+    commonSettings,
+  )
   .enablePlugins(PlayScala)
 
 lazy val root = (project in file("."))
   .aggregate(common, apiGateWay, userAuth, meeting, equipment, notification)
   .settings(
-    libraryDependencies += "com.typesafe.play" %% "play-guice" % "2.8.8",
+    libraryDependencies += "org.playframework" %% "play-guice" % "3.0.0",
     Compile / run := {
-      val api_val: Unit       = (apiGateWay / Compile / run).toTask("").value
-      val user_val: Unit      = (userAuth / Compile / run).toTask("").value
-      val meeting_val: Unit   = (meeting / Compile / run).toTask("").value
-      val equipment_val: Unit = (equipment / Compile / run).toTask("").value
-//      val notification_val: Unit = (notification / Compile / run).toTask("").value
+      val api_val: Unit          = (apiGateWay / Compile / run).toTask("").value
+      val user_val: Unit         = (userAuth / Compile / run).toTask("").value
+      val meeting_val: Unit      = (meeting / Compile / run).toTask("").value
+      val equipment_val: Unit    = (equipment / Compile / run).toTask("").value
+      val notification_val: Unit = (notification / Compile / run).toTask("").value
       Def
         .task {
           ()

@@ -3,6 +3,7 @@ package com.management.equipment.dtos
 import play.api.libs.json.{Format, Json}
 
 case class EquipmentReturnReminder(
+  messageType: String = "equipment",
   equipmentId: Int,
   equipmentName: String,
   userId: Int,

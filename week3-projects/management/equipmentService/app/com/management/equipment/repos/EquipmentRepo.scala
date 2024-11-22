@@ -16,8 +16,13 @@ class EquipmentRepo @Inject() (dbConfigProvider: DatabaseConfigProvider)(implici
 
   private val equipment = TableQuery[EquipmentTable]
 
-  def all(): Future[Seq[Equipment]]                = db.run(equipment.result)
-  def insert(equipment: Equipment): Future[Int]    = db.run(this.equipment += equipment)
+  def all(): Future[Seq[Equipment]] = db.run(equipment.result)
+
+  def insert(equipment: Equipment): Future[Int] = {
+    val insertQuery = (this.equipment returning this.equipment.map(_.id)) += equipment
+    db.run(insertQuery)
+  }
+
   def findById(id: Int): Future[Option[Equipment]] = db.run(equipment.filter(_.id === id).result.headOption)
   def findByEquipmentDetailId(id: Int): Future[Seq[Equipment]] =
     db.run(equipment.filter(_.equipmentDetailId === id).result)

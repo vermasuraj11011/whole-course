@@ -19,11 +19,12 @@ case class MeetingReminder(
   name: String,
   userId: Int,
   startTime: Long,
+  endTime: Long,
   isReminderSent: Boolean,
   email: String
 )
 
 object JsonFormats extends DefaultJsonProtocol {
   implicit val equipmentReminderFormat: RootJsonFormat[EquipmentReminder] = jsonFormat8(EquipmentReminder)
-  implicit val meetingReminderFormat: RootJsonFormat[MeetingReminder]     = jsonFormat7(MeetingReminder)
+  implicit val meetingReminderFormat: RootJsonFormat[MeetingReminder]     = jsonFormat8(MeetingReminder)
 }

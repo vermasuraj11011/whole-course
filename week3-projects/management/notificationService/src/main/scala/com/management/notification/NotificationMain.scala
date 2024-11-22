@@ -7,7 +7,7 @@ import akka.http.scaladsl.server.Directives.{complete, path, post}
 import akka.kafka.scaladsl.Consumer
 import akka.kafka.{ConsumerSettings, Subscriptions}
 import akka.stream.scaladsl.Sink
-import com.management.notification.JsonFormats._
+import com.management.notification.JsonFormats.{equipmentReminderFormat, meetingReminderFormat}
 import org.apache.kafka.clients.consumer.ConsumerConfig
 import org.apache.kafka.common.serialization.StringDeserializer
 import spray.json._
@@ -52,9 +52,10 @@ object NotificationMain {
     val equipmentReminderActor = system.actorOf(Props(new EquipmentReminderActor(schedulerActor)), "equipmentReminder")
     val meetingReminderActor   = system.actorOf(Props(new MeetingReminderActor(schedulerActor)), "meetingReminder")
 
+    val KAFKA_IP = sys.env.getOrElse("KAFKA_IP", "localhost")
     val consumerSettings =
       ConsumerSettings(system, new StringDeserializer, new StringDeserializer)
-        .withBootstrapServers("localhost:9092")
+        .withBootstrapServers(s"$KAFKA_IP:9092")
         .withGroupId("unique-group-id")
         .withProperty(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest")
 
@@ -91,7 +92,7 @@ object NotificationMain {
           )
         )
 
-    listeners("equipment-returned-reminder", equipmentReminderActor)
+    listeners("equipment-reminder", equipmentReminderActor)
     listeners("meeting-reminder", meetingReminderActor)
 
     println("Listeners are active and consuming messages...")
@@ -106,5 +107,7 @@ object NotificationMain {
 
     Http().newServerAt("0.0.0.0", 9004).bind(route)
     println("Server online at http://0.0.0.0:9004/")
+
+    Thread.sleep(Long.MaxValue)
   }
 }

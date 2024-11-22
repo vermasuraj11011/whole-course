@@ -17,18 +17,18 @@ case class EquipmentAllocation(
   returnCondition: Option[String]
 )
 
-class EquipmentAllocationTable(tag: Tag) extends Table[EquipmentAllocation](tag, "EquipmentAllocation") {
+class EquipmentAllocationTable(tag: Tag) extends Table[EquipmentAllocation](tag, "equipment_allocation") {
   def id                = column[Int]("id", O.PrimaryKey, O.AutoInc)
-  def equipmentDetailId = column[Int]("equipmentDetailId")
-  def organizationId    = column[Int]("organizationId")
-  def departmentId      = column[Int]("departmentId")
-  def userId            = column[Int]("userId")
-  def allocatedQuantity = column[Int]("allocatedQuantity")
-  def allocatedDate     = column[Long]("allocatedDate")
-  def isActive          = column[Boolean]("isActive")
-  def deallocatedDate   = column[Option[Long]]("deallocatedDate")
+  def equipmentDetailId = column[Int]("equipment_detail_id")
+  def organizationId    = column[Int]("organization_id")
+  def departmentId      = column[Int]("department_id")
+  def userId            = column[Int]("user_id")
+  def allocatedQuantity = column[Int]("allocated_quantity")
+  def allocatedDate     = column[Long]("allocated_date")
+  def isActive          = column[Boolean]("is_active", O.Default(true))
+  def deallocatedDate   = column[Option[Long]]("deallocated_date")
   def purpose           = column[String]("purpose")
-  def returnCondition   = column[Option[String]]("returnCondition")
+  def returnCondition   = column[Option[String]]("return_condition")
 
   def equipmentFK = foreignKey("equipment_fk", equipmentDetailId, TableQuery[EquipmentDetailTable])(_.id)
   def organizationFK =

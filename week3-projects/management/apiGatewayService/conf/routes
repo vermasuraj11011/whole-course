@@ -1,2 +1,4 @@
 GET         /api/*path        com.management.gateway.controllers.ApiGatewayController.forwardRequest(path: String)
+
++nocsrf
 POST        /api/*path        com.management.gateway.controllers.ApiGatewayController.forwardRequest(path: String)

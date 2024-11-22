@@ -6,7 +6,7 @@ import com.management.equipment.repos.{EquipmentAllocationRepo, EquipmentDetailR
 import com.management.equipment.repositories.EquipmentRepo
 import com.management.equipment.view.{EquipmentAllocationView, EquipmentDetailView, EquipmentView}
 import com.management.equipment.entity.EquipmentDetail
-import com.management.common.utils.KafkaProducerUtil
+import com.management.common.utils.{FutureUtil, KafkaProducerUtil}
 
 import javax.inject.{Inject, Singleton}
 import scala.concurrent.{ExecutionContext, Future}
@@ -26,7 +26,7 @@ class EquipmentAllocationService @Inject() (
     deptId: Int,
     orgId: Int,
     userId: Int
-  ): Future[EquipmentAllocationView] =
+  ): Future[EquipmentAllocation] =
     equipmentDetailService
       .getEquipmentDetailById(equipmentReq.equipmentId)
       .flatMap {
@@ -40,33 +40,36 @@ class EquipmentAllocationService @Inject() (
                 if (availableEquipment.size < equipmentReq.allocatedQuantity || availableEquipment.isEmpty) {
                   Future.failed(new Exception("Equipment not available"))
                 } else {
-                  Future
-                    .sequence(
-                      availableEquipment
-                        .take(equipmentReq.allocatedQuantity)
-                        .map { equipment =>
-                          equipmentService.updateEquipment(equipment.copy(status = "allocated"))
-                        }
-                    )
-                    .flatMap { _ =>
-                      equipmentAllocationRepo.insert(
-                        EquipmentAllocation(
-                          id = 1,
-                          equipmentDetailId = equipmentDetailView.id,
-                          organizationId = orgId,
-                          departmentId = deptId,
-                          userId = userId,
-                          allocatedQuantity = equipmentDetailView.availableQuantity - equipmentReq.allocatedQuantity,
-                          allocatedDate = System.currentTimeMillis(),
-                          isActive = true,
-                          deallocatedDate = None,
-                          purpose = equipmentReq.purpose,
-                          returnCondition = None
-                        )
+                  equipmentAllocationRepo
+                    .add(
+                      EquipmentAllocation(
+                        id = 0,
+                        equipmentDetailId = equipmentDetailView.id,
+                        organizationId = orgId,
+                        departmentId = deptId,
+                        userId = userId,
+                        allocatedQuantity = equipmentDetailView.availableQuantity - equipmentReq.allocatedQuantity,
+                        allocatedDate = System.currentTimeMillis(),
+                        isActive = true,
+                        deallocatedDate = None,
+                        purpose = equipmentReq.purpose,
+                        returnCondition = None
                       )
+                    )
+                    .flatMap { id =>
+                      Future
+                        .sequence(
+                          availableEquipment
+                            .take(equipmentReq.allocatedQuantity)
+                            .map { equipment =>
+                              equipmentService
+                                .updateEquipment(equipment.copy(status = "allocated", equipmentAllocationId = id))
+                            }
+                        )
+                        .map(_ => id)
                     }
-                    .map { id =>
-                      equipmentDetailRepo.update(
+                    .flatMap { id =>
+                      val equipmentDetailUpdate =
                         EquipmentDetail(
                           id = equipmentDetailView.id,
                           name = equipmentDetailView.name,
@@ -77,33 +80,12 @@ class EquipmentAllocationService @Inject() (
                           totalQuantity = equipmentDetailView.totalQuantity,
                           availableQuantity = equipmentDetailView.availableQuantity - equipmentReq.allocatedQuantity
                         )
-                      )
-                      id
-                    }
-                    .map { id =>
-                      EquipmentAllocationView(
-                        id = id,
-                        equipmentDetail =
-                          EquipmentDetailView(
-                            id = equipmentDetailView.id,
-                            name = equipmentDetailView.name,
-                            description = equipmentDetailView.description,
-                            organizationId = null,
-                            departmentId = null,
-                            isActive = equipmentDetailView.isActive,
-                            totalQuantity = equipmentDetailView.totalQuantity,
-                            availableQuantity = equipmentDetailView.availableQuantity
-                          ),
-                        organization = null,
-                        department = null,
-                        userId = null,
-                        allocatedQuantity = equipmentReq.allocatedQuantity,
-                        allocatedDate = System.currentTimeMillis(),
-                        isActive = true,
-                        deallocatedDate = None,
-                        purpose = equipmentReq.purpose,
-                        returnCondition = None
-                      )
+
+                      FutureUtil
+                        .join(equipmentDetailRepo.update(equipmentDetailUpdate), equipmentAllocationRepo.findById(id))
+                        .map { case (_, Some(equipmentAllocation)) =>
+                          equipmentAllocation
+                        }
                     }
                 }
               case _ =>
@@ -117,7 +99,7 @@ class EquipmentAllocationService @Inject() (
     id: Int,
     equipmentDeallocationReq: EquipmentAllocationReq,
     userEmail: String
-  ): Future[Option[EquipmentAllocationView]] =
+  ): Future[Option[EquipmentAllocation]] =
     equipmentAllocationRepo
       .findById(id)
       .flatMap {
@@ -130,7 +112,7 @@ class EquipmentAllocationService @Inject() (
                   equipments
                     .filter(_.status == "allocated")
                     .map { equipment =>
-                      equipmentService.updateEquipment(equipment.copy(status = "available"))
+                      equipmentService.updateEquipment(equipment.copy(status = "available", equipmentAllocationId = 0))
                     }
                 )
                 .flatMap { _ =>
@@ -172,23 +154,7 @@ class EquipmentAllocationService @Inject() (
                               )
                             }
                           )
-                          .map { _ =>
-                            Some(
-                              EquipmentAllocationView(
-                                id = equipmentAllocated.id,
-                                equipmentDetail = equipmentDetailView,
-                                organization = null,
-                                department = null,
-                                userId = null,
-                                allocatedQuantity = equipmentAllocated.allocatedQuantity,
-                                allocatedDate = equipmentAllocated.allocatedDate,
-                                isActive = false,
-                                deallocatedDate = equipmentAllocated.deallocatedDate,
-                                purpose = equipmentAllocated.purpose,
-                                returnCondition = equipmentDeallocationReq.returnCondition
-                              )
-                            )
-                          }
+                          .flatMap(_ => equipmentAllocationRepo.findById(id))
                       }
                   case None =>
                     Future.successful(None)
@@ -235,7 +201,7 @@ class EquipmentAllocationService @Inject() (
   private def equipmentReturnedReminderPushToKafka(reminder: EquipmentReturnReminder): Future[Unit] =
     kafkaProducerUtil
       .sendMessage[EquipmentReturnReminder](
-        topic = "equipment-returned-reminder",
+        topic = "equipment-reminder",
         key = s"equipment_reminder_${reminder.equipmentName.replaceAll(" ", "_")}",
         value = reminder
       )

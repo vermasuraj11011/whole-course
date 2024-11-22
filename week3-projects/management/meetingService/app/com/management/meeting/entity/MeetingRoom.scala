@@ -3,7 +3,14 @@ import slick.lifted.ProvenShape
 import slick.jdbc.PostgresProfile.api._
 import com.management.common.entity.OrganizationTable
 
-case class MeetingRoom(id: Int, roomNo: Int, name: String, capacity: Int, organizationId: Int, status: String)
+case class MeetingRoom(
+  id: Int,
+  roomNo: Int,
+  name: String,
+  capacity: Int,
+  organizationId: Int,
+  status: String = "available"
+)
 
 class MeetingRoomTable(tag: Tag) extends Table[MeetingRoom](tag, "meeting_room") {
   def id: Rep[Int]             = column[Int]("id", O.PrimaryKey, O.AutoInc)
@@ -17,6 +24,4 @@ class MeetingRoomTable(tag: Tag) extends Table[MeetingRoom](tag, "meeting_room")
     (id, roomNo, name, capacity, organizationId, status) <> (MeetingRoom.tupled, MeetingRoom.unapply)
 
   def organizationIdFk = foreignKey("organization_id_fk", organizationId, TableQuery[OrganizationTable])(_.id)
-
-
 }

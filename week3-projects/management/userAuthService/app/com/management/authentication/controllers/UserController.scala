@@ -17,7 +17,7 @@ class UserController @Inject() (userRepo: UserRepo, cc: ControllerComponents)(im
 
   def getUsers: Action[AnyContent] =
     Action.async { implicit request =>
-      if (PermissionValidation.validate(request, ReadUser)) {
+      if (PermissionValidation.validate(ReadUser)) {
         userRepo
           .list()
           .map { users =>
@@ -30,7 +30,7 @@ class UserController @Inject() (userRepo: UserRepo, cc: ControllerComponents)(im
 
   def getUser(sno: Int): Action[AnyContent] =
     Action.async { implicit request =>
-      if (PermissionValidation.validate(request, ReadUser)) {
+      if (PermissionValidation.validate(ReadUser)) {
         userRepo
           .find(sno)
           .map {
@@ -46,7 +46,7 @@ class UserController @Inject() (userRepo: UserRepo, cc: ControllerComponents)(im
 
   def createUser: Action[AnyContent] =
     Action.async { implicit request =>
-      if (PermissionValidation.validate(request, CreateUser)) {
+      if (PermissionValidation.validate(CreateUser)) {
         println("Creating user")
         val user = request.body.asJson.get.as[User]
         userRepo
@@ -61,7 +61,7 @@ class UserController @Inject() (userRepo: UserRepo, cc: ControllerComponents)(im
 
   def updateUser(id: Int): Action[AnyContent] =
     Action.async { implicit request =>
-      if (PermissionValidation.validate(request, UpdateUser)) {
+      if (PermissionValidation.validate(UpdateUser)) {
         val user = request.body.asJson.get.as[User]
         userRepo
           .update(user)
@@ -75,7 +75,7 @@ class UserController @Inject() (userRepo: UserRepo, cc: ControllerComponents)(im
 
   def deleteUser(sno: Int): Action[AnyContent] =
     Action.async { implicit request =>
-      if (PermissionValidation.validate(request, DeleteUser)) {
+      if (PermissionValidation.validate(DeleteUser)) {
         userRepo
           .delete(sno)
           .map { id =>

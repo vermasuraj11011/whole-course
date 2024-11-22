@@ -1,10 +1,12 @@
 package com.management.notification
 
+import com.management.common.utils.DateUtils
 import org.quartz.{Job, JobExecutionContext}
 import spray.json._
 import com.management.notification.JsonFormats._
 
 class Scheduler extends Job {
+
   override def execute(context: JobExecutionContext): Unit = {
     println("Scheduler is running...")
     val reminderJson = context.getJobDetail.getJobDataMap.getString("reminder")
@@ -19,7 +21,9 @@ class Scheduler extends Job {
         else
           "Please return the equipment as soon as possible."
 
-      println(s"""This is the equipment reminder which you have returned at ${equipmentReminder.returnDate}
+      println(
+        s"""This is the equipment reminder which you have returned at ${DateUtils
+            .convertTimestampToHumanReadableDate(equipmentReminder.returnDate)}
            |The equipment details are as follows:
            |  Equipment ID: ${equipmentReminder.equipmentId}
            |  Equipment Name: ${equipmentReminder.equipmentName}
@@ -29,21 +33,12 @@ class Scheduler extends Job {
            |  Condition: ${equipmentReminder.condition}
            |  
            |  $endStatement
-           |""".stripMargin)
+           |""".stripMargin
+      )
       println(s"Equipment reminder task is completed")
     } else if (reminder.fields.contains("meetingId")) {
       val meetingReminder = reminder.convertTo[MeetingReminder]
-
-      println(s"""Reminder for meeting ${meetingReminder.name} scheduled at ${meetingReminder.startTime}
-           |The meeting details are as follows:
-           |  Meeting ID: ${meetingReminder.meetingId}
-           |  Meeting Name: ${meetingReminder.name}
-           |  User ID: ${meetingReminder.userId}
-           |  Email: ${meetingReminder.email}
-           |  
-           |  Please join the meeting on time.
-           |  Thank you.
-           |""".stripMargin)
+      TeamUpdateUtil.meetingStarted(meetingReminder)
       println(s"Meeting reminder task is completed")
     }
   }

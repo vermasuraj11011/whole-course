@@ -3,6 +3,7 @@ POST          /auth/login                   com.management.authentication.contro
 POST          /auth/logout                  com.management.authentication.controllers.AuthController.logout
 
 
+
 # User routes
 GET           /auth/users                   com.management.authentication.controllers.UserController.getUsers
 GET           /auth/user/:id                com.management.authentication.controllers.UserController.getUser(id: Int)
@@ -16,6 +17,9 @@ GET           /auth/organization/:id        com.management.authentication.contro
 POST          /auth/organization            com.management.authentication.controllers.OrganizationController.createOrg
 DELETE        /auth/organization/:id        com.management.authentication.controllers.OrganizationController.deleteOrg(id: Int)
 PUT           /auth/organization/:id        com.management.authentication.controllers.OrganizationController.updateOrg(id: Int)
+
+#GET           /auth/organizations           com.management.authentication.controllers.Organization2Controller.getAllOrganizations
+
 
 # Department routes
 GET           /auth/departments             com.management.authentication.controllers.DepartmentController.getDepartments

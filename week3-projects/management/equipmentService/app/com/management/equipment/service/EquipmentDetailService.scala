@@ -11,6 +11,13 @@ import scala.concurrent.{ExecutionContext, Future}
 @Singleton
 class EquipmentDetailService @Inject() (equipmentDetailRepo: EquipmentDetailRepo)(implicit ec: ExecutionContext) {
 
+  def createEquipmentDetail1(equipment: EquipmentDetail): Future[EquipmentDetail] =
+    equipmentDetailRepo.add(equipment).map(id => equipment.copy(id = id))
+
+  def getEquipmentDetails: Future[Seq[EquipmentDetail]] = equipmentDetailRepo.all()
+
+  def getEquipmentDetailById1(id: Int): Future[Option[EquipmentDetail]] = equipmentDetailRepo.findById(id)
+
   def createEquipmentDetail(equipmentReq: EquipmentDetailReq, deptId: Int, orgId: Int): Future[EquipmentDetailView] = {
     val equipment =
       EquipmentDetail(

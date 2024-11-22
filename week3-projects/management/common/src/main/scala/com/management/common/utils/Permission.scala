@@ -130,11 +130,10 @@ case object DepartmentHead extends Role {
 case object Admin extends Role {
   override def roleStr: String = "admin"
   override def permissions: Set[Permission] =
-    Set(CreateOrganization, UpdateOrganization, CreateDepartment, UpdateDepartment, DeleteDepartment) ++
-      DepartmentHead.permissions
+    Set(UpdateOrganization, CreateDepartment, UpdateDepartment, DeleteDepartment) ++ DepartmentHead.permissions
 }
 
 case object SuperAdmin extends Role {
   override def roleStr: String              = "super_admin"
-  override def permissions: Set[Permission] = Set(DeleteOrganization) ++ Admin.permissions
+  override def permissions: Set[Permission] = Set(DeleteOrganization, CreateOrganization) ++ Admin.permissions
 }

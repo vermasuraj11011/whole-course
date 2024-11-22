@@ -1,4 +1,4 @@
-package com.management.authentication.views
+package com.management.authentication.response
 
 case class LogoutView(message: String, name: String, email: String, organizationId: Int)
 

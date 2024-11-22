@@ -3,7 +3,7 @@ package com.management.common.utils
 import play.api.mvc.Request
 
 object PermissionValidation {
-  def validate(request: Request[_], requiredPermission: Permission): Boolean = {
+  def validate(requiredPermission: Permission)(implicit request: Request[_]): Boolean = {
     println(s"headers: ${request.headers}")
     // Extract relevant fields from the request headers
     val roleHeader                    = request.headers.get("role")

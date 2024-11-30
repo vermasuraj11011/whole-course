@@ -98,13 +98,13 @@ object Day18And19 {
     val startTime = System.currentTimeMillis()
 
     //   find the user who has done the maximum transaction
-    joinedDF.groupBy("name").count().orderBy(col("count").desc).show(1)
+    joinedDF.groupBy("user_id").count().orderBy(col("count").desc).show(1)
 
     //    find the user who has done the minimum transaction
-    joinedDF.groupBy("name").count().orderBy(col("count").asc).show(1)
+    joinedDF.groupBy("user_id").count().orderBy(col("count").asc).show(1)
 
     //    find the list of users who has done more than 10 transaction
-    joinedDF.groupBy("name").count().filter("count > 10").show()
+    joinedDF.groupBy("user_id").count().filter("count > 10").show()
 
     val endTime = System.currentTimeMillis()
 
@@ -116,13 +116,13 @@ object Day18And19 {
     val startTimeAfterCaching = System.currentTimeMillis()
 
 //   find the user who has done the maximum transaction
-    joinedDF.groupBy("name").count().orderBy(col("count").desc).show(1)
+    joinedDF.groupBy("user_id").count().orderBy(col("count").desc).show(1)
 
 //    find the user who has done the minimum transaction
-    joinedDF.groupBy("name").count().orderBy(col("count").asc).show(1)
+    joinedDF.groupBy("user_id").count().orderBy(col("count").asc).show(1)
 
 //    find the list of users who has done more than 10 transaction
-    joinedDF.groupBy("name").count().filter("count > 10").show()
+    joinedDF.groupBy("user_id").count().filter("count > 10").show()
 
     val endTimeAfterCaching = System.currentTimeMillis()
 

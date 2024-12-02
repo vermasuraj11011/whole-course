@@ -6,5 +6,5 @@ object Utils {
   val TRANSCTION_DATA_PATH  = s"gs://$BUCKET_NAME/transction/Transactions.csv"
   val INPUT_PATH            = s"gs://$BUCKET_NAME/spark/input"
   val OUTPUT_PATH           = s"gs://$BUCKET_NAME/spark/output"
-  Val CHECK_POINT_PATH      = s"gs://$BUCKET_NAME/spark/checkpoints"
+  val CHECK_POINT_PATH      = s"gs://$BUCKET_NAME/spark/checkpoints"
 }

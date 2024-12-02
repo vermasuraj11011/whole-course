@@ -19,15 +19,14 @@
 
 Agenda of this article is to design a distributed storage system that can store and retrieve files. The system should be
 scalable, fault-tolerant, and highly available.
-Initially system is designed to work for one million users and 100 TB of data. The system should be able to store files
-of size upto 10 GB.
+Initially system is designed to work for one million users. The system should be able to store files of size upto 10 GB.
 
 ### Introduction
 
 A distributed storage system is a system that stores data on multiple nodes. The data is distributed across the nodes in
 the system. The system should be able to store and retrieve files. The system should be scalable, fault-tolerant, and
 highly available. The system admin can monitor the system and perform maintenance tasks like adding new nodes, removing
-nodes, and rebalancing the data.
+nodes, and balancing the data.
 
 ### Requirements
 
@@ -35,10 +34,10 @@ nodes, and rebalancing the data.
 2. The system should be scalable, fault-tolerant, and highly available.
 3. The system should be able to store files of size upto 10 GB.
 4. The system should grantee data availability.
-5. The system should be able to handle one million users and 100 TB of data.
+5. The system should be able to handle one million users.
 6. There should be user authentication and authorization.
 7. The system should be able to handle concurrent requests.
-8. There should be 10gb of free data storage for each user and above that user has to pay 1$ per 10gb
+8. There should be 10gb of free data storage for each user and above that user has to pay 1$ per 10gb.
 
 ### Data Hierarchy
 
@@ -76,7 +75,7 @@ nodes, and rebalancing the data.
 ### Technologies
 
 ```text
-role and permisison : LDAP
+role and permission : LDAP
 backend: Rust
 frontend: React
 database: Cassandra
@@ -147,14 +146,14 @@ logs and monitoring: Prometheus, Grafana
 
 6. **`shared_storage_pool`**
 
-   | **Column**          | **Type**      | **Description**                                    |
-         |----------------------|---------------|----------------------------------------------------|
-   | `pool_id`           | INT           | Unique identifier for the storage pool.           |
-   | `total_storage`     | BIGINT        | Total storage allocated (in MB).                  |
-   | `total_used`        | BIGINT        | Total storage used (in MB).                       |
-   | `org_id`            | INT           | Foreign key to `organization`.                    |
-   | `created_at`        | TIMESTAMP     | When the pool was created.                        |
-   | `updated_at`        | TIMESTAMP     | When the pool was last updated.                   |
+   | **Column**          | **Type**      | **Description**                                  |
+         |----------------------|---------------|--------------------------------------------------|
+   | `pool_id`           | INT           | Unique identifier for the storage pool.          |
+   | `total_storage`     | BIGINT        | Total storage allocated (in MB), default is 10gb |
+   | `total_used`        | BIGINT        | Total storage used (in MB).                      |
+   | `org_id`            | INT           | Foreign key to `organization`.                   |
+   | `created_at`        | TIMESTAMP     | When the pool was created.                       |
+   | `updated_at`        | TIMESTAMP     | When the pool was last updated.                  |
 
 7. **`folder`**
 
@@ -262,7 +261,7 @@ users. which will be saved in the ldap server.
 - user will send a post request to the https://api.example.com/org1/home/user1/file
 - the request will first hit the load balancer which will forward the request to the api gateway.
 - the api gateway will authenticate the token and forward the request to the file service.
-- the file service will get the information of the user and organization and the shared storage pool information.
+- the file service will get the information of the user and organization and the shared storage pool information also check if the pool has enough storage or not.
 - the file service will break the file into chunks and push the chunks into the kafka queue.
 - each chunk will have a partition index started from 0 to n.
   {file_id, data, created_at, updated_at, partition_index}

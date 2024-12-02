@@ -1,3 +1,5 @@
+package day18_19
+
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions.{broadcast, col}
 
@@ -13,14 +15,14 @@ object Day18And19 {
         .config("spark.hadoop.google.cloud.auth.service.account.enable", "true")
         .config(
           "spark.hadoop.google.cloud.auth.service.account.json.keyfile",
-          "/Users/devavasadi/Documents/gcp-final-key.json"
+          "src/main/resources/spark-gcs-key.json"
         )
         .master("local[*]")
         .getOrCreate()
 
-    val bucketName          = "scala-spark-temp"
-    val user_data_path      = s"gs://$bucketName/transction/CustomerDemographic.csv"
-    val tranction_data_path = s"gs://$bucketName/transction/Transactions.csv"
+    val bucketName          = Utils.BUCKET_NAME
+    val user_data_path      = Utils.USER_DATA_PATH
+    val tranction_data_path = Utils.TRANSACTION_DATA_PATH
 
     task_1_broadcastin_and_join(spark, user_data_path, tranction_data_path)
     task_2_caching(spark, user_data_path, tranction_data_path)
@@ -128,22 +130,4 @@ object Day18And19 {
 
     println(s"Time taken after caching: ${endTimeAfterCaching - startTimeAfterCaching} ms")
   }
-
-//  Task 3
-//  3. Streaming (Kafka Source)
-//  Question:
-//    Write a Spark Structured Streaming application in Scala that consumes messages from a Kafka topic, processes the messages to extract specific fields, and writes the output to the console.
-//
-//    Scenario:
-//
-//    Kafka Topic: transactions
-//  Message Format: JSON with fields transactionId, userId, and amount.
-//  Required Processing: Extract transactionId and amount fields and calculate the total amount in a 10-second window.
-//  Instructions:
-//
-//    Set up the Kafka source in the Spark application.
-//    Perform the necessary transformations on the streaming data.
-//  Use windowing to calculate the total amount.
-//    Output the results to the console.
-
 }

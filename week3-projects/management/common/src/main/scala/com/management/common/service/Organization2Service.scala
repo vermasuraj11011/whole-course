@@ -41,6 +41,8 @@ class Organization2Service @Inject() (orgRepo: Organization2Repo, departmentRepo
               orgId -> deptsView
             }
 
+          logger.
+
           Organization2View
             .fromOrganizationDefault(org)
 //            .copy(departments = groupDepartmentViewByOrg.get(org.id), head = None)

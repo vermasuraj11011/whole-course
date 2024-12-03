@@ -89,24 +89,24 @@ logs and monitoring: Prometheus, Grafana
 1. **`server`**
 
    | **Column**          | **Type**      | **Description**                                    |
-         |---------------------|---------------|----------------------------------------------------|
-   | `server_id`         | INT           | Unique identifier for the server.                 |
-   | `ip_address`        | VARCHAR(50)   | IP address of the server.                         |
-   | `hostname`          | VARCHAR(255) | Hostname of the server.                           |
-   | `status`            | ENUM          | Current status (`active`, `inactive`, `failed`).  |
-   | `created_at`        | TIMESTAMP     | When the server was added.                        |
-   | `updated_at`        | TIMESTAMP     | When the server was last updated.                 |
-   | `last_heartbeat`    | TIMESTAMP     | Timestamp of the last heartbeat check.            |
-   | `server_type_id`    | INT           | Foreign key to `server_type`.                     |
-   | `storage_type_id`   | INT           | Foreign key to `storage_type`.                    |
-   | `region_id`         | INT           | Geographic region of the server.                  |
+   |---------------------|---------------|----------------------------------------------------|
+   | `server_id`         | INT           | Unique identifier for the server.                  |
+   | `ip_address`        | VARCHAR(50)   | IP address of the server.                          |
+   | `hostname`          | VARCHAR(255) | Hostname of the server.                             |
+   | `status`            | ENUM          | Current status (`active`, `inactive`, `failed`).   |
+   | `created_at`        | TIMESTAMP     | When the server was added.                         |
+   | `updated_at`        | TIMESTAMP     | When the server was last updated.                  | 
+   | `last_heartbeat`    | TIMESTAMP     | Timestamp of the last heartbeat check.             |
+   | `server_type_id`    | INT           | Foreign key to `server_type`.                      |
+   | `storage_type_id`   | INT           | Foreign key to `storage_type`.                     |
+   | `region_id`         | INT           | Geographic region of the server.                   |
 
 2. **`server_type`**
 
    | **Column**         | **Type**      | **Description**                                    |
-         |---------------------|---------------|----------------------------------------------------|
+   |---------------------|---------------|---------------------------------------------------|
    | `type_id`           | INT           | Unique identifier for server type.                |
-   | `type_name`         | VARCHAR(100)  | Name of the server type (e.g., `zookeeper`).       |
+   | `type_name`         | VARCHAR(100)  | Name of the server type (e.g., `zookeeper`).      |
    | `configuration`     | TEXT          | JSON or detailed config settings for the type.    |
    | `created_at`        | TIMESTAMP     | When the server type was added.                   |
    | `updated_at`        | TIMESTAMP     | When the server type was last updated.            |
@@ -114,7 +114,7 @@ logs and monitoring: Prometheus, Grafana
 3. **`storage_type`**
 
    | **Column**         | **Type**      | **Description**                                    |
-         |---------------------|---------------|----------------------------------------------------|
+   |---------------------|---------------|---------------------------------------------------|
    | `type_id`           | INT           | Unique identifier for storage type.               |
    | `type_name`         | VARCHAR(100)  | Name of the storage type.                         |
    | `configuration`     | TEXT          | JSON or detailed config for the storage.          |
@@ -123,19 +123,19 @@ logs and monitoring: Prometheus, Grafana
 
 4. **`organization`**
 
-   | **Column**          | **Type**      | **Description**                                    |
-         |----------------------|---------------|----------------------------------------------------|
-   | `org_id`            | INT           | Unique identifier for the organization.           |
-   | `name`              | VARCHAR(255)  | Name of the organization.                         |
-   | `created_at`        | TIMESTAMP     | When the organization was created.                |
-   | `updated_at`        | TIMESTAMP     | When the organization was last updated.           |
-   | `shared_storage_pool_id` | INT     | Foreign key to `shared_storage_pool`.             |
-   | `owner_id`          | INT           | Foreign key to the owner user in `user`.          |
+   | **Column**           | **Type**      | **Description**                                   |
+   |----------------------|---------------|---------------------------------------------------|
+   | `org_id`             | INT           | Unique identifier for the organization.           |
+   | `name`               | VARCHAR(255)  | Name of the organization.                         |
+   | `created_at`         | TIMESTAMP     | When the organization was created.                |
+   | `updated_at`         | TIMESTAMP     | When the organization was last updated.           |
+   | `shared_storage_pool_id` | INT     | Foreign key to `shared_storage_pool`.               |
+   | `owner_id`           | INT           | Foreign key to the owner user in `user`.          |
 
 5. **`user`**
 
-   | **Column**          | **Type**      | **Description**                                    |
-         |----------------------|---------------|----------------------------------------------------|
+   | **Column**          | **Type**      | **Description**                                   |
+   |----------------------|---------------|--------------------------------------------------|
    | `user_id`           | INT           | Unique identifier for the user.                   |
    | `org_id`            | INT           | Foreign key to `organization`.                    |
    | `name`              | VARCHAR(255)  | Name of the user.                                 |
@@ -147,7 +147,7 @@ logs and monitoring: Prometheus, Grafana
 6. **`shared_storage_pool`**
 
    | **Column**          | **Type**      | **Description**                                  |
-         |----------------------|---------------|--------------------------------------------------|
+   |---------------------|---------------|--------------------------------------------------|
    | `pool_id`           | INT           | Unique identifier for the storage pool.          |
    | `total_storage`     | BIGINT        | Total storage allocated (in MB), default is 10gb |
    | `total_used`        | BIGINT        | Total storage used (in MB).                      |
@@ -158,7 +158,7 @@ logs and monitoring: Prometheus, Grafana
 7. **`folder`**
 
    | **Column**         | **Type**    | **Description**                                |
-         |--------------------|-------------|------------------------------------------------|
+   |--------------------|-------------|------------------------------------------------|
    | `folder_id`        | INT         | Unique identifier for the folder.              |
    | `user_id`          | INT         | Foreign key to `user`.                         |
    | `org_id`           | INT         | Foreign key to `organization`.                 |
@@ -171,7 +171,7 @@ logs and monitoring: Prometheus, Grafana
 8. **`file_data`**
 
    | **Column**          | **Type**       | **Description**                                |
-         |----------------------|----------------|------------------------------------------------|
+   |----------------------|----------------|-----------------------------------------------|
    | `file_id`           | INT            | Unique identifier for the file.                |
    | `folder_id`         | INT            | Foreign key to `folder`.                       |
    | `user_id`           | INT            | Foreign key to `user`.                         |
@@ -181,12 +181,12 @@ logs and monitoring: Prometheus, Grafana
    | `data`              | BYTEA          | Metadata for quick access (not actual file).   |
    | `created_at`        | TIMESTAMP      | When the file was created.                     |
    | `updated_at`        | TIMESTAMP      | When the file was last updated.                |
-   | `permission`       | VARCHAR(255)   | permission string (rwx------)                  |
+   | `permission`       | VARCHAR(255)   | permission string (rwx------)                   |
 
 9. **`file_blob_data`**
 
-   | **Column**          | **Type**      | **Description**                                    |
-         |----------------------|---------------|----------------------------------------------------|
+   | **Column**          | **Type**      | **Description**                                   |
+   |---------------------|---------------|---------------------------------------------------|
    | `blob_id`           | INT           | Unique identifier for the file chunk.             |
    | `file_id`           | INT           | Foreign key to `file_data`.                       |
    | `data`              | BYTEA         | Actual binary data of the chunk.                  |

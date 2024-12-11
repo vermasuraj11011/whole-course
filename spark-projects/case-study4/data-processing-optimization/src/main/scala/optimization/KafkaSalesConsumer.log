@@ -1,0 +1,737 @@
+Application starting...
+SLF4J: Class path contains multiple SLF4J providers.
+SLF4J: Found provider [ch.qos.logback.classic.spi.LogbackServiceProvider@47faa49c]
+SLF4J: Found provider [org.apache.logging.slf4j.SLF4JServiceProvider@28f2a10f]
+SLF4J: See https://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual provider is of type [ch.qos.logback.classic.spi.LogbackServiceProvider@47faa49c]
+2024-12-12 03:22:55 [main] WARN  o.a.hadoop.util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.apache.spark.unsafe.Platform (file:/Users/surajverma/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/apache/spark/spark-unsafe_2.13/3.5.1/spark-unsafe_2.13-3.5.1.jar) to constructor java.nio.DirectByteBuffer(long,int)
+WARNING: Please consider reporting this to the maintainers of org.apache.spark.unsafe.Platform
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2024-12-12 03:22:56 [main] INFO  org.sparkproject.jetty.util.log - Logging initialized @5750ms to org.sparkproject.jetty.util.log.Slf4jLog
+2024-12-12 03:22:56 [main] INFO  o.sparkproject.jetty.server.Server - jetty-9.4.52.v20230823; built: 2023-08-23T19:29:37.669Z; git: abdcda73818a1a2c705da276edb0bf6581e7997e; jvm 11.0.25+9-LTS
+2024-12-12 03:22:56 [main] INFO  o.sparkproject.jetty.server.Server - Started @5787ms
+2024-12-12 03:22:56 [main] INFO  o.s.jetty.server.AbstractConnector - Started ServerConnector@408e96d9{HTTP/1.1, (http/1.1)}{0.0.0.0:4040}
+2024-12-12 03:22:56 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@12d1f1d4{/,null,AVAILABLE,@Spark}
+2024-12-12 03:22:56 [main] INFO  o.s.j.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@12d1f1d4{/,null,STOPPED,@Spark}
+2024-12-12 03:22:56 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@4fd05028{/jobs,null,AVAILABLE,@Spark}
+2024-12-12 03:22:56 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@4fb392c4{/jobs/json,null,AVAILABLE,@Spark}
+2024-12-12 03:22:56 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@541179e7{/jobs/job,null,AVAILABLE,@Spark}
+2024-12-12 03:22:56 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@7b32b129{/jobs/job/json,null,AVAILABLE,@Spark}
+2024-12-12 03:22:56 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@1c9fbb61{/stages,null,AVAILABLE,@Spark}
+2024-12-12 03:22:56 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@15d42ccb{/stages/json,null,AVAILABLE,@Spark}
+2024-12-12 03:22:56 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@4c361f63{/stages/stage,null,AVAILABLE,@Spark}
+2024-12-12 03:22:56 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@4eb166a1{/stages/stage/json,null,AVAILABLE,@Spark}
+2024-12-12 03:22:56 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@29fd8e67{/stages/pool,null,AVAILABLE,@Spark}
+2024-12-12 03:22:56 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@4bd5849e{/stages/pool/json,null,AVAILABLE,@Spark}
+2024-12-12 03:22:56 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@39909d1a{/storage,null,AVAILABLE,@Spark}
+2024-12-12 03:22:56 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@7343922c{/storage/json,null,AVAILABLE,@Spark}
+2024-12-12 03:22:56 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@6f2e1024{/storage/rdd,null,AVAILABLE,@Spark}
+2024-12-12 03:22:56 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@3c50ad4b{/storage/rdd/json,null,AVAILABLE,@Spark}
+2024-12-12 03:22:56 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@28f9fedd{/environment,null,AVAILABLE,@Spark}
+2024-12-12 03:22:56 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@2e17a321{/environment/json,null,AVAILABLE,@Spark}
+2024-12-12 03:22:56 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@35f3a22c{/executors,null,AVAILABLE,@Spark}
+2024-12-12 03:22:56 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@123d7057{/executors/json,null,AVAILABLE,@Spark}
+2024-12-12 03:22:56 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@35ee466f{/executors/threadDump,null,AVAILABLE,@Spark}
+2024-12-12 03:22:56 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@4ba02375{/executors/threadDump/json,null,AVAILABLE,@Spark}
+2024-12-12 03:22:56 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@3289079a{/executors/heapHistogram,null,AVAILABLE,@Spark}
+2024-12-12 03:22:56 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@788ba63e{/executors/heapHistogram/json,null,AVAILABLE,@Spark}
+2024-12-12 03:22:56 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@68ee3b6d{/static,null,AVAILABLE,@Spark}
+2024-12-12 03:22:56 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@43982337{/,null,AVAILABLE,@Spark}
+2024-12-12 03:22:56 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@2f0ed952{/api,null,AVAILABLE,@Spark}
+2024-12-12 03:22:56 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@11e355ca{/jobs/job/kill,null,AVAILABLE,@Spark}
+2024-12-12 03:22:56 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@e11ecfa{/stages/stage/kill,null,AVAILABLE,@Spark}
+2024-12-12 03:22:56 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@4b4ee511{/metrics/json,null,AVAILABLE,@Spark}
+2024-12-12 03:22:56 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@2d5a1588{/SQL,null,AVAILABLE,@Spark}
+2024-12-12 03:22:56 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@125d47c4{/SQL/json,null,AVAILABLE,@Spark}
+2024-12-12 03:22:56 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@1c240cf2{/SQL/execution,null,AVAILABLE,@Spark}
+2024-12-12 03:22:56 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@58f2466c{/SQL/execution/json,null,AVAILABLE,@Spark}
+2024-12-12 03:22:56 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@3caafa67{/static/sql,null,AVAILABLE,@Spark}
++-----+----------+-----------+----------+---------+---------+---------+---------+---------+-----------+------------+---------+
+|Store|      Date|Temperature|Fuel_Price|MarkDown1|MarkDown2|MarkDown3|MarkDown4|MarkDown5|        CPI|Unemployment|IsHoliday|
++-----+----------+-----------+----------+---------+---------+---------+---------+---------+-----------+------------+---------+
+|    1|2010-02-05|      42.31|     2.572|       NA|       NA|       NA|       NA|       NA|211.0963582|       8.106|    false|
+|    1|2010-02-12|      38.51|     2.548|       NA|       NA|       NA|       NA|       NA|211.2421698|       8.106|     true|
+|    1|2010-02-19|      39.93|     2.514|       NA|       NA|       NA|       NA|       NA|211.2891429|       8.106|    false|
+|    1|2010-02-26|      46.63|     2.561|       NA|       NA|       NA|       NA|       NA|211.3196429|       8.106|    false|
+|    1|2010-03-05|       46.5|     2.625|       NA|       NA|       NA|       NA|       NA|211.3501429|       8.106|    false|
+|    1|2010-03-12|      57.79|     2.667|       NA|       NA|       NA|       NA|       NA|211.3806429|       8.106|    false|
+|    1|2010-03-19|      54.58|      2.72|       NA|       NA|       NA|       NA|       NA| 211.215635|       8.106|    false|
+|    1|2010-03-26|      51.45|     2.732|       NA|       NA|       NA|       NA|       NA|211.0180424|       8.106|    false|
+|    1|2010-04-02|      62.27|     2.719|       NA|       NA|       NA|       NA|       NA|210.8204499|       7.808|    false|
+|    1|2010-04-09|      65.86|      2.77|       NA|       NA|       NA|       NA|       NA|210.6228574|       7.808|    false|
++-----+----------+-----------+----------+---------+---------+---------+---------+---------+-----------+------------+---------+
+only showing top 10 rows
+
++-----+----+------+
+|Store|Type|  Size|
++-----+----+------+
+|    1|   A|151315|
+|    2|   A|202307|
+|    3|   B| 37392|
+|    4|   A|205863|
+|    5|   B| 34875|
+|    6|   A|202505|
+|    7|   B| 70713|
+|    8|   A|155078|
+|    9|   B|125833|
+|   10|   B|126512|
++-----+----+------+
+only showing top 10 rows
+
+root
+ |-- store: string (nullable = true)
+ |-- department: string (nullable = true)
+ |-- date: string (nullable = true)
+ |-- weekly_sales: float (nullable = false)
+ |-- is_holiday: boolean (nullable = false)
+
+2024-12-12 03:23:18 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@76a41af0{/StreamingQuery,null,AVAILABLE,@Spark}
+2024-12-12 03:23:18 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@641bd93e{/StreamingQuery/json,null,AVAILABLE,@Spark}
+2024-12-12 03:23:18 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@1440a166{/StreamingQuery/statistics,null,AVAILABLE,@Spark}
+2024-12-12 03:23:18 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@50e7f88b{/StreamingQuery/statistics/json,null,AVAILABLE,@Spark}
+2024-12-12 03:23:18 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@5a429813{/static/sql,null,AVAILABLE,@Spark}
+2024-12-12 03:23:18 [main] WARN  o.a.s.s.e.s.ResolveWriteToStream - Temporary checkpoint location created which is deleted normally when the query didn't fail: /private/var/folders/c1/8yy49ydd3md3vmrcd5qq78ym0000gp/T/temporary-e66fafc1-791d-4d81-983c-0fb6089ca6ad. If it's required to delete it under any circumstances, please set spark.sql.streaming.forceDeleteTempCheckpointLocation to true. Important to know deleting temp checkpoint folder is best effort.
+2024-12-12 03:23:18 [main] WARN  o.a.s.s.e.s.ResolveWriteToStream - spark.sql.adaptive.enabled is not supported in streaming DataFrames/Datasets and will be disabled.
+2024-12-12 03:23:18 [stream execution thread for [id = a48421b7-6d6a-4f54-8965-765e5941ea5c, runId = 5362b126-c1ec-4850-8b94-29b04b363236]] WARN  o.a.k.c.admin.AdminClientConfig - These configurations '[key.deserializer, value.deserializer, enable.auto.commit, max.poll.records, auto.offset.reset]' were supplied but are not used yet.
+Processing batch: 0
++-----+----------+----------+------------+----------+
+|store|department|      date|weekly_sales|is_holiday|
++-----+----------+----------+------------+----------+
+|    8|         3|2024-12-11|   1962.4646|     false|
+|    1|        11|2024-12-11|   1324.5887|     false|
+|    5|         6|2024-12-11|   1148.7737|      true|
+|    8|         9|2024-12-11|   1719.7625|      true|
+|    5|        15|2024-12-11|   1947.4795|     false|
+|    8|         6|2024-12-11|   1652.5537|     false|
+|    5|        17|2024-12-11|   1434.1079|      true|
+|    8|         5|2024-12-11|   1811.2391|      true|
+|    5|         9|2024-12-11|   1914.6292|     false|
+|    1|        11|2024-12-11|   1438.8889|      true|
++-----+----------+----------+------------+----------+
+only showing top 10 rows
+
+2024-12-12 03:23:19 [stream execution thread for [id = a48421b7-6d6a-4f54-8965-765e5941ea5c, runId = 5362b126-c1ec-4850-8b94-29b04b363236]] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:23:19 [stream execution thread for [id = a48421b7-6d6a-4f54-8965-765e5941ea5c, runId = 5362b126-c1ec-4850-8b94-29b04b363236]] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:23:20 [Executor task launch worker for task 0.0 in stage 7.0 (TID 7)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:23:20 [Executor task launch worker for task 2.0 in stage 7.0 (TID 9)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:23:20 [Executor task launch worker for task 0.0 in stage 7.0 (TID 7)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:23:20 [Executor task launch worker for task 1.0 in stage 7.0 (TID 8)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:23:20 [Executor task launch worker for task 2.0 in stage 7.0 (TID 9)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:23:20 [Executor task launch worker for task 1.0 in stage 7.0 (TID 8)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:23:29 [Executor task launch worker for task 0.0 in stage 7.0 (TID 7)] INFO  c.g.c.h.g.GoogleCloudStorageFileSystem - Successfully repaired 'gs://scala-spark-temp/walmart_data/dynamic_data/train.csv/_temporary/0/_temporary/' directory.
+2024-12-12 03:23:29 [Executor task launch worker for task 0.0 in stage 7.0 (TID 7)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120323207384960417686157642_0007_m_000000_7' to gs://scala-spark-temp/walmart_data/dynamic_data/train.csv/_temporary/0/task_202412120323207384960417686157642_0007_m_000000
+2024-12-12 03:23:31 [Executor task launch worker for task 1.0 in stage 7.0 (TID 8)] INFO  c.g.c.h.gcsio.GoogleCloudStorageImpl - Ignoring exception of type GoogleJsonResponseException; verified object already exists with desired state.
+2024-12-12 03:23:31 [Executor task launch worker for task 1.0 in stage 7.0 (TID 8)] INFO  c.g.c.h.g.GoogleCloudStorageFileSystem - Successfully repaired 'gs://scala-spark-temp/walmart_data/dynamic_data/train.csv/_temporary/0/_temporary/' directory.
+2024-12-12 03:23:31 [Executor task launch worker for task 1.0 in stage 7.0 (TID 8)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120323207384960417686157642_0007_m_000001_8' to gs://scala-spark-temp/walmart_data/dynamic_data/train.csv/_temporary/0/task_202412120323207384960417686157642_0007_m_000001
+2024-12-12 03:23:32 [Executor task launch worker for task 2.0 in stage 7.0 (TID 9)] INFO  c.g.c.h.gcsio.GoogleCloudStorageImpl - Ignoring exception of type GoogleJsonResponseException; verified object already exists with desired state.
+2024-12-12 03:23:32 [Executor task launch worker for task 2.0 in stage 7.0 (TID 9)] INFO  c.g.c.h.g.GoogleCloudStorageFileSystem - Successfully repaired 'gs://scala-spark-temp/walmart_data/dynamic_data/train.csv/_temporary/0/_temporary/' directory.
+2024-12-12 03:23:32 [Executor task launch worker for task 2.0 in stage 7.0 (TID 9)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120323207384960417686157642_0007_m_000002_9' to gs://scala-spark-temp/walmart_data/dynamic_data/train.csv/_temporary/0/task_202412120323207384960417686157642_0007_m_000002
+2024-12-12 03:23:38 [stream execution thread for [id = a48421b7-6d6a-4f54-8965-765e5941ea5c, runId = 5362b126-c1ec-4850-8b94-29b04b363236]] INFO  c.g.c.h.g.GoogleCloudStorageFileSystem - Successfully repaired 'gs://scala-spark-temp/walmart_data/dynamic_data/train.csv/_temporary/0/task_202412120323207384960417686157642_0007_m_000000/' directory.
+2024-12-12 03:23:43 [stream execution thread for [id = a48421b7-6d6a-4f54-8965-765e5941ea5c, runId = 5362b126-c1ec-4850-8b94-29b04b363236]] INFO  c.g.c.h.g.GoogleCloudStorageFileSystem - Successfully repaired 'gs://scala-spark-temp/walmart_data/dynamic_data/train.csv/_temporary/0/task_202412120323207384960417686157642_0007_m_000001/' directory.
+2024-12-12 03:23:49 [stream execution thread for [id = a48421b7-6d6a-4f54-8965-765e5941ea5c, runId = 5362b126-c1ec-4850-8b94-29b04b363236]] INFO  c.g.c.h.g.GoogleCloudStorageFileSystem - Successfully repaired 'gs://scala-spark-temp/walmart_data/dynamic_data/train.csv/_temporary/0/task_202412120323207384960417686157642_0007_m_000002/' directory.
+2024-12-12 03:23:51 [stream execution thread for [id = a48421b7-6d6a-4f54-8965-765e5941ea5c, runId = 5362b126-c1ec-4850-8b94-29b04b363236]] INFO  c.g.c.h.g.GoogleCloudStorageFileSystem - Successfully repaired 'gs://scala-spark-temp/walmart_data/dynamic_data/train.csv/' directory.
++-----+----------+----------+------------+----------+
+|store|department|      date|weekly_sales|is_holiday|
++-----+----------+----------+------------+----------+
+|    8|         3|2024-12-11|   1962.4646|     false|
+|    1|        11|2024-12-11|   1324.5887|     false|
+|    5|         6|2024-12-11|   1148.7737|      true|
+|    8|         9|2024-12-11|   1719.7625|      true|
+|    5|        15|2024-12-11|   1947.4795|     false|
+|    8|         6|2024-12-11|   1652.5537|     false|
+|    5|        17|2024-12-11|   1434.1079|      true|
+|    8|         5|2024-12-11|   1811.2391|      true|
+|    5|         9|2024-12-11|   1914.6292|     false|
+|    1|        11|2024-12-11|   1438.8889|      true|
++-----+----------+----------+------------+----------+
+only showing top 10 rows
+
++-----+----------+---------+----------+------------+-----------+----------+---------+---------+---------+---------+---------+----+------------+----+------+
+|store|      date|IsHoliday|department|weekly_sales|Temperature|Fuel_Price|MarkDown1|MarkDown2|MarkDown3|MarkDown4|MarkDown5| CPI|Unemployment|Type|  Size|
++-----+----------+---------+----------+------------+-----------+----------+---------+---------+---------+---------+---------+----+------------+----+------+
+|    8|2024-12-11|    false|         3|   1962.4646|       NULL|      NULL|     NULL|     NULL|     NULL|     NULL|     NULL|NULL|        NULL|   A|155078|
+|    1|2024-12-11|    false|        11|   1324.5887|       NULL|      NULL|     NULL|     NULL|     NULL|     NULL|     NULL|NULL|        NULL|   A|151315|
+|    5|2024-12-11|     true|         6|   1148.7737|       NULL|      NULL|     NULL|     NULL|     NULL|     NULL|     NULL|NULL|        NULL|   B| 34875|
+|    8|2024-12-11|     true|         9|   1719.7625|       NULL|      NULL|     NULL|     NULL|     NULL|     NULL|     NULL|NULL|        NULL|   A|155078|
+|    5|2024-12-11|    false|        15|   1947.4795|       NULL|      NULL|     NULL|     NULL|     NULL|     NULL|     NULL|NULL|        NULL|   B| 34875|
+|    8|2024-12-11|    false|         6|   1652.5537|       NULL|      NULL|     NULL|     NULL|     NULL|     NULL|     NULL|NULL|        NULL|   A|155078|
+|    5|2024-12-11|     true|        17|   1434.1079|       NULL|      NULL|     NULL|     NULL|     NULL|     NULL|     NULL|NULL|        NULL|   B| 34875|
+|    8|2024-12-11|     true|         5|   1811.2391|       NULL|      NULL|     NULL|     NULL|     NULL|     NULL|     NULL|NULL|        NULL|   A|155078|
+|    5|2024-12-11|    false|         9|   1914.6292|       NULL|      NULL|     NULL|     NULL|     NULL|     NULL|     NULL|NULL|        NULL|   B| 34875|
+|    1|2024-12-11|     true|        11|   1438.8889|       NULL|      NULL|     NULL|     NULL|     NULL|     NULL|     NULL|NULL|        NULL|   A|151315|
++-----+----------+---------+----------+------------+-----------+----------+---------+---------+---------+---------+---------+----+------------+----+------+
+only showing top 10 rows
+
+2024-12-12 03:24:09 [stream execution thread for [id = a48421b7-6d6a-4f54-8965-765e5941ea5c, runId = 5362b126-c1ec-4850-8b94-29b04b363236]] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:24:09 [stream execution thread for [id = a48421b7-6d6a-4f54-8965-765e5941ea5c, runId = 5362b126-c1ec-4850-8b94-29b04b363236]] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:24:09 [stream execution thread for [id = a48421b7-6d6a-4f54-8965-765e5941ea5c, runId = 5362b126-c1ec-4850-8b94-29b04b363236]] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:24:09 [stream execution thread for [id = a48421b7-6d6a-4f54-8965-765e5941ea5c, runId = 5362b126-c1ec-4850-8b94-29b04b363236]] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:24:13 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:24:13 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:24:13 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:24:13 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:24:14 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.parquet.hadoop.codec.CodecConfig - Compression: SNAPPY
+2024-12-12 03:24:14 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.parquet.hadoop.codec.CodecConfig - Compression: SNAPPY
+2024-12-12 03:24:14 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.p.hadoop.ParquetOutputFormat - ParquetRecordWriter [block size: 134217728b, row group padding size: 8388608b, validating: false]
+2024-12-12 03:24:15 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.hadoop.io.compress.CodecPool - Got brand-new compressor [.snappy]
+2024-12-12 03:24:17 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.parquet.hadoop.codec.CodecConfig - Compression: SNAPPY
+2024-12-12 03:24:17 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.parquet.hadoop.codec.CodecConfig - Compression: SNAPPY
+2024-12-12 03:24:17 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.p.hadoop.ParquetOutputFormat - ParquetRecordWriter [block size: 134217728b, row group padding size: 8388608b, validating: false]
+2024-12-12 03:24:20 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.parquet.hadoop.codec.CodecConfig - Compression: SNAPPY
+2024-12-12 03:24:20 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.parquet.hadoop.codec.CodecConfig - Compression: SNAPPY
+2024-12-12 03:24:20 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.p.hadoop.ParquetOutputFormat - ParquetRecordWriter [block size: 134217728b, row group padding size: 8388608b, validating: false]
+2024-12-12 03:24:24 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.parquet.hadoop.codec.CodecConfig - Compression: SNAPPY
+2024-12-12 03:24:24 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.parquet.hadoop.codec.CodecConfig - Compression: SNAPPY
+2024-12-12 03:24:24 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.p.hadoop.ParquetOutputFormat - ParquetRecordWriter [block size: 134217728b, row group padding size: 8388608b, validating: false]
+2024-12-12 03:24:28 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.parquet.hadoop.codec.CodecConfig - Compression: SNAPPY
+2024-12-12 03:24:28 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.parquet.hadoop.codec.CodecConfig - Compression: SNAPPY
+2024-12-12 03:24:28 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.p.hadoop.ParquetOutputFormat - ParquetRecordWriter [block size: 134217728b, row group padding size: 8388608b, validating: false]
+2024-12-12 03:24:32 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.parquet.hadoop.codec.CodecConfig - Compression: SNAPPY
+2024-12-12 03:24:32 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.parquet.hadoop.codec.CodecConfig - Compression: SNAPPY
+2024-12-12 03:24:32 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.p.hadoop.ParquetOutputFormat - ParquetRecordWriter [block size: 134217728b, row group padding size: 8388608b, validating: false]
+2024-12-12 03:24:35 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.parquet.hadoop.codec.CodecConfig - Compression: SNAPPY
+2024-12-12 03:24:35 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.parquet.hadoop.codec.CodecConfig - Compression: SNAPPY
+2024-12-12 03:24:35 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.p.hadoop.ParquetOutputFormat - ParquetRecordWriter [block size: 134217728b, row group padding size: 8388608b, validating: false]
+2024-12-12 03:24:38 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.parquet.hadoop.codec.CodecConfig - Compression: SNAPPY
+2024-12-12 03:24:38 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.parquet.hadoop.codec.CodecConfig - Compression: SNAPPY
+2024-12-12 03:24:38 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.p.hadoop.ParquetOutputFormat - ParquetRecordWriter [block size: 134217728b, row group padding size: 8388608b, validating: false]
+2024-12-12 03:24:42 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.parquet.hadoop.codec.CodecConfig - Compression: SNAPPY
+2024-12-12 03:24:42 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.parquet.hadoop.codec.CodecConfig - Compression: SNAPPY
+2024-12-12 03:24:42 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.p.hadoop.ParquetOutputFormat - ParquetRecordWriter [block size: 134217728b, row group padding size: 8388608b, validating: false]
+2024-12-12 03:24:46 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.parquet.hadoop.codec.CodecConfig - Compression: SNAPPY
+2024-12-12 03:24:46 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.parquet.hadoop.codec.CodecConfig - Compression: SNAPPY
+2024-12-12 03:24:46 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.p.hadoop.ParquetOutputFormat - ParquetRecordWriter [block size: 134217728b, row group padding size: 8388608b, validating: false]
+2024-12-12 03:24:50 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.parquet.hadoop.codec.CodecConfig - Compression: SNAPPY
+2024-12-12 03:24:50 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.parquet.hadoop.codec.CodecConfig - Compression: SNAPPY
+2024-12-12 03:24:50 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.p.hadoop.ParquetOutputFormat - ParquetRecordWriter [block size: 134217728b, row group padding size: 8388608b, validating: false]
+2024-12-12 03:24:53 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.parquet.hadoop.codec.CodecConfig - Compression: SNAPPY
+2024-12-12 03:24:53 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.parquet.hadoop.codec.CodecConfig - Compression: SNAPPY
+2024-12-12 03:24:53 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.p.hadoop.ParquetOutputFormat - ParquetRecordWriter [block size: 134217728b, row group padding size: 8388608b, validating: false]
+2024-12-12 03:24:56 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.parquet.hadoop.codec.CodecConfig - Compression: SNAPPY
+2024-12-12 03:24:56 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.parquet.hadoop.codec.CodecConfig - Compression: SNAPPY
+2024-12-12 03:24:56 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.p.hadoop.ParquetOutputFormat - ParquetRecordWriter [block size: 134217728b, row group padding size: 8388608b, validating: false]
+2024-12-12 03:25:00 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.parquet.hadoop.codec.CodecConfig - Compression: SNAPPY
+2024-12-12 03:25:00 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.parquet.hadoop.codec.CodecConfig - Compression: SNAPPY
+2024-12-12 03:25:00 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.p.hadoop.ParquetOutputFormat - ParquetRecordWriter [block size: 134217728b, row group padding size: 8388608b, validating: false]
+2024-12-12 03:25:03 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.parquet.hadoop.codec.CodecConfig - Compression: SNAPPY
+2024-12-12 03:25:03 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.parquet.hadoop.codec.CodecConfig - Compression: SNAPPY
+2024-12-12 03:25:03 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.p.hadoop.ParquetOutputFormat - ParquetRecordWriter [block size: 134217728b, row group padding size: 8388608b, validating: false]
+2024-12-12 03:25:05 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.parquet.hadoop.codec.CodecConfig - Compression: SNAPPY
+2024-12-12 03:25:05 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.parquet.hadoop.codec.CodecConfig - Compression: SNAPPY
+2024-12-12 03:25:05 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.p.hadoop.ParquetOutputFormat - ParquetRecordWriter [block size: 134217728b, row group padding size: 8388608b, validating: false]
+2024-12-12 03:25:09 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.parquet.hadoop.codec.CodecConfig - Compression: SNAPPY
+2024-12-12 03:25:09 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.parquet.hadoop.codec.CodecConfig - Compression: SNAPPY
+2024-12-12 03:25:09 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.p.hadoop.ParquetOutputFormat - ParquetRecordWriter [block size: 134217728b, row group padding size: 8388608b, validating: false]
+2024-12-12 03:25:12 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.parquet.hadoop.codec.CodecConfig - Compression: SNAPPY
+2024-12-12 03:25:12 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.parquet.hadoop.codec.CodecConfig - Compression: SNAPPY
+2024-12-12 03:25:12 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.p.hadoop.ParquetOutputFormat - ParquetRecordWriter [block size: 134217728b, row group padding size: 8388608b, validating: false]
+2024-12-12 03:25:16 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.parquet.hadoop.codec.CodecConfig - Compression: SNAPPY
+2024-12-12 03:25:16 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.parquet.hadoop.codec.CodecConfig - Compression: SNAPPY
+2024-12-12 03:25:16 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.p.hadoop.ParquetOutputFormat - ParquetRecordWriter [block size: 134217728b, row group padding size: 8388608b, validating: false]
+2024-12-12 03:25:19 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.parquet.hadoop.codec.CodecConfig - Compression: SNAPPY
+2024-12-12 03:25:19 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.parquet.hadoop.codec.CodecConfig - Compression: SNAPPY
+2024-12-12 03:25:19 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.p.hadoop.ParquetOutputFormat - ParquetRecordWriter [block size: 134217728b, row group padding size: 8388608b, validating: false]
+2024-12-12 03:25:30 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  c.g.c.h.g.GoogleCloudStorageFileSystem - Successfully repaired 'gs://scala-spark-temp/walmart_data/dynamic_data/enriched_data/_temporary/0/_temporary/' directory.
+2024-12-12 03:25:30 [Executor task launch worker for task 0.0 in stage 18.0 (TID 223)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120324123813862539895722584_0018_m_000000_223' to gs://scala-spark-temp/walmart_data/dynamic_data/enriched_data/_temporary/0/task_202412120324123813862539895722584_0018_m_000000
+2024-12-12 03:25:37 [stream execution thread for [id = a48421b7-6d6a-4f54-8965-765e5941ea5c, runId = 5362b126-c1ec-4850-8b94-29b04b363236]] INFO  c.g.c.h.g.GoogleCloudStorageFileSystem - Successfully repaired 'gs://scala-spark-temp/walmart_data/dynamic_data/enriched_data/_temporary/0/task_202412120324123813862539895722584_0018_m_000000/' directory.
+2024-12-12 03:26:09 [stream execution thread for [id = a48421b7-6d6a-4f54-8965-765e5941ea5c, runId = 5362b126-c1ec-4850-8b94-29b04b363236]] INFO  c.g.c.h.g.GoogleCloudStorageFileSystem - Successfully repaired 'gs://scala-spark-temp/walmart_data/dynamic_data/enriched_data/' directory.
++-----+------------------+--------------------+
+|Store|Total_Weekly_Sales|Average_Weekly_Sales|
++-----+------------------+--------------------+
+|    5|        17844.9289|  1487.0774083333333|
+|    6|        17299.0693|  1572.6426636363635|
+|    8|15402.339800000002|  1540.2339800000002|
+|    9|        10682.8151|  1526.1164428571428|
+|    2|         9578.5137|           1368.3591|
+|    1|         8942.6065|  1490.4344166666667|
+|    7| 7587.228000000001|  1517.4456000000002|
+|    0| 7483.013099999999|          1496.60262|
+|    3|         7347.8878|  1469.5775600000002|
+|    4|         6503.8493|         1625.962325|
++-----+------------------+--------------------+
+only showing top 10 rows
+
+2024-12-12 03:26:12 [stream execution thread for [id = a48421b7-6d6a-4f54-8965-765e5941ea5c, runId = 5362b126-c1ec-4850-8b94-29b04b363236]] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:26:12 [stream execution thread for [id = a48421b7-6d6a-4f54-8965-765e5941ea5c, runId = 5362b126-c1ec-4850-8b94-29b04b363236]] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:26:13 [Executor task launch worker for task 2.0 in stage 37.0 (TID 837)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:26:13 [Executor task launch worker for task 2.0 in stage 37.0 (TID 837)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:26:13 [Executor task launch worker for task 4.0 in stage 37.0 (TID 839)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:26:13 [Executor task launch worker for task 4.0 in stage 37.0 (TID 839)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:26:13 [Executor task launch worker for task 6.0 in stage 37.0 (TID 841)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:26:13 [Executor task launch worker for task 6.0 in stage 37.0 (TID 841)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:26:13 [Executor task launch worker for task 7.0 in stage 37.0 (TID 842)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:26:13 [Executor task launch worker for task 8.0 in stage 37.0 (TID 843)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:26:13 [Executor task launch worker for task 7.0 in stage 37.0 (TID 842)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:26:13 [Executor task launch worker for task 10.0 in stage 37.0 (TID 845)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:26:13 [Executor task launch worker for task 8.0 in stage 37.0 (TID 843)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:26:13 [Executor task launch worker for task 1.0 in stage 37.0 (TID 836)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:26:13 [Executor task launch worker for task 5.0 in stage 37.0 (TID 840)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:26:13 [Executor task launch worker for task 1.0 in stage 37.0 (TID 836)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:26:13 [Executor task launch worker for task 3.0 in stage 37.0 (TID 838)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:26:13 [Executor task launch worker for task 3.0 in stage 37.0 (TID 838)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:26:13 [Executor task launch worker for task 10.0 in stage 37.0 (TID 845)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:26:13 [Executor task launch worker for task 5.0 in stage 37.0 (TID 840)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:26:13 [Executor task launch worker for task 9.0 in stage 37.0 (TID 844)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:26:13 [Executor task launch worker for task 9.0 in stage 37.0 (TID 844)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:26:13 [Executor task launch worker for task 0.0 in stage 37.0 (TID 835)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:26:13 [Executor task launch worker for task 0.0 in stage 37.0 (TID 835)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:26:20 [Executor task launch worker for task 5.0 in stage 37.0 (TID 840)] INFO  c.g.c.h.g.GoogleCloudStorageFileSystem - Successfully repaired 'gs://scala-spark-temp/walmart_data/store_wise/_temporary/0/_temporary/' directory.
+2024-12-12 03:26:20 [Executor task launch worker for task 5.0 in stage 37.0 (TID 840)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120326131357561536710178710_0037_m_000005_840' to gs://scala-spark-temp/walmart_data/store_wise/_temporary/0/task_202412120326131357561536710178710_0037_m_000005
+2024-12-12 03:26:21 [Executor task launch worker for task 0.0 in stage 37.0 (TID 835)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120326131357561536710178710_0037_m_000000_835' to gs://scala-spark-temp/walmart_data/store_wise/_temporary/0/task_202412120326131357561536710178710_0037_m_000000
+2024-12-12 03:26:22 [Executor task launch worker for task 7.0 in stage 37.0 (TID 842)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120326131357561536710178710_0037_m_000007_842' to gs://scala-spark-temp/walmart_data/store_wise/_temporary/0/task_202412120326131357561536710178710_0037_m_000007
+2024-12-12 03:26:22 [Executor task launch worker for task 3.0 in stage 37.0 (TID 838)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120326131357561536710178710_0037_m_000003_838' to gs://scala-spark-temp/walmart_data/store_wise/_temporary/0/task_202412120326131357561536710178710_0037_m_000003
+2024-12-12 03:26:22 [Executor task launch worker for task 6.0 in stage 37.0 (TID 841)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120326131357561536710178710_0037_m_000006_841' to gs://scala-spark-temp/walmart_data/store_wise/_temporary/0/task_202412120326131357561536710178710_0037_m_000006
+2024-12-12 03:26:22 [Executor task launch worker for task 1.0 in stage 37.0 (TID 836)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120326131357561536710178710_0037_m_000001_836' to gs://scala-spark-temp/walmart_data/store_wise/_temporary/0/task_202412120326131357561536710178710_0037_m_000001
+2024-12-12 03:26:22 [Executor task launch worker for task 2.0 in stage 37.0 (TID 837)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120326131357561536710178710_0037_m_000002_837' to gs://scala-spark-temp/walmart_data/store_wise/_temporary/0/task_202412120326131357561536710178710_0037_m_000002
+2024-12-12 03:26:22 [Executor task launch worker for task 8.0 in stage 37.0 (TID 843)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120326131357561536710178710_0037_m_000008_843' to gs://scala-spark-temp/walmart_data/store_wise/_temporary/0/task_202412120326131357561536710178710_0037_m_000008
+2024-12-12 03:26:22 [Executor task launch worker for task 4.0 in stage 37.0 (TID 839)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120326131357561536710178710_0037_m_000004_839' to gs://scala-spark-temp/walmart_data/store_wise/_temporary/0/task_202412120326131357561536710178710_0037_m_000004
+2024-12-12 03:26:22 [Executor task launch worker for task 10.0 in stage 37.0 (TID 845)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120326131357561536710178710_0037_m_000010_845' to gs://scala-spark-temp/walmart_data/store_wise/_temporary/0/task_202412120326131357561536710178710_0037_m_000010
+2024-12-12 03:26:23 [Executor task launch worker for task 9.0 in stage 37.0 (TID 844)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120326131357561536710178710_0037_m_000009_844' to gs://scala-spark-temp/walmart_data/store_wise/_temporary/0/task_202412120326131357561536710178710_0037_m_000009
+2024-12-12 03:26:29 [stream execution thread for [id = a48421b7-6d6a-4f54-8965-765e5941ea5c, runId = 5362b126-c1ec-4850-8b94-29b04b363236]] INFO  c.g.c.h.g.GoogleCloudStorageFileSystem - Successfully repaired 'gs://scala-spark-temp/walmart_data/store_wise/_temporary/0/task_202412120326131357561536710178710_0037_m_000000/' directory.
+2024-12-12 03:26:34 [stream execution thread for [id = a48421b7-6d6a-4f54-8965-765e5941ea5c, runId = 5362b126-c1ec-4850-8b94-29b04b363236]] INFO  c.g.c.h.g.GoogleCloudStorageFileSystem - Successfully repaired 'gs://scala-spark-temp/walmart_data/store_wise/_temporary/0/task_202412120326131357561536710178710_0037_m_000001/' directory.
+2024-12-12 03:26:39 [stream execution thread for [id = a48421b7-6d6a-4f54-8965-765e5941ea5c, runId = 5362b126-c1ec-4850-8b94-29b04b363236]] INFO  c.g.c.h.g.GoogleCloudStorageFileSystem - Successfully repaired 'gs://scala-spark-temp/walmart_data/store_wise/_temporary/0/task_202412120326131357561536710178710_0037_m_000002/' directory.
+2024-12-12 03:26:44 [stream execution thread for [id = a48421b7-6d6a-4f54-8965-765e5941ea5c, runId = 5362b126-c1ec-4850-8b94-29b04b363236]] INFO  c.g.c.h.g.GoogleCloudStorageFileSystem - Successfully repaired 'gs://scala-spark-temp/walmart_data/store_wise/_temporary/0/task_202412120326131357561536710178710_0037_m_000003/' directory.
+2024-12-12 03:26:50 [stream execution thread for [id = a48421b7-6d6a-4f54-8965-765e5941ea5c, runId = 5362b126-c1ec-4850-8b94-29b04b363236]] INFO  c.g.c.h.g.GoogleCloudStorageFileSystem - Successfully repaired 'gs://scala-spark-temp/walmart_data/store_wise/_temporary/0/task_202412120326131357561536710178710_0037_m_000004/' directory.
+2024-12-12 03:26:55 [stream execution thread for [id = a48421b7-6d6a-4f54-8965-765e5941ea5c, runId = 5362b126-c1ec-4850-8b94-29b04b363236]] INFO  c.g.c.h.g.GoogleCloudStorageFileSystem - Successfully repaired 'gs://scala-spark-temp/walmart_data/store_wise/_temporary/0/task_202412120326131357561536710178710_0037_m_000005/' directory.
+2024-12-12 03:27:00 [stream execution thread for [id = a48421b7-6d6a-4f54-8965-765e5941ea5c, runId = 5362b126-c1ec-4850-8b94-29b04b363236]] INFO  c.g.c.h.g.GoogleCloudStorageFileSystem - Successfully repaired 'gs://scala-spark-temp/walmart_data/store_wise/_temporary/0/task_202412120326131357561536710178710_0037_m_000006/' directory.
+2024-12-12 03:27:06 [stream execution thread for [id = a48421b7-6d6a-4f54-8965-765e5941ea5c, runId = 5362b126-c1ec-4850-8b94-29b04b363236]] INFO  c.g.c.h.g.GoogleCloudStorageFileSystem - Successfully repaired 'gs://scala-spark-temp/walmart_data/store_wise/_temporary/0/task_202412120326131357561536710178710_0037_m_000007/' directory.
+2024-12-12 03:27:11 [stream execution thread for [id = a48421b7-6d6a-4f54-8965-765e5941ea5c, runId = 5362b126-c1ec-4850-8b94-29b04b363236]] INFO  c.g.c.h.g.GoogleCloudStorageFileSystem - Successfully repaired 'gs://scala-spark-temp/walmart_data/store_wise/_temporary/0/task_202412120326131357561536710178710_0037_m_000008/' directory.
+2024-12-12 03:27:15 [stream execution thread for [id = a48421b7-6d6a-4f54-8965-765e5941ea5c, runId = 5362b126-c1ec-4850-8b94-29b04b363236]] INFO  c.g.c.h.g.GoogleCloudStorageFileSystem - Successfully repaired 'gs://scala-spark-temp/walmart_data/store_wise/_temporary/0/task_202412120326131357561536710178710_0037_m_000009/' directory.
+2024-12-12 03:27:20 [stream execution thread for [id = a48421b7-6d6a-4f54-8965-765e5941ea5c, runId = 5362b126-c1ec-4850-8b94-29b04b363236]] INFO  c.g.c.h.g.GoogleCloudStorageFileSystem - Successfully repaired 'gs://scala-spark-temp/walmart_data/store_wise/_temporary/0/task_202412120326131357561536710178710_0037_m_000010/' directory.
+2024-12-12 03:27:23 [stream execution thread for [id = a48421b7-6d6a-4f54-8965-765e5941ea5c, runId = 5362b126-c1ec-4850-8b94-29b04b363236]] INFO  c.g.c.h.g.GoogleCloudStorageFileSystem - Successfully repaired 'gs://scala-spark-temp/walmart_data/store_wise/' directory.
+2024-12-12 03:27:26 [stream execution thread for [id = a48421b7-6d6a-4f54-8965-765e5941ea5c, runId = 5362b126-c1ec-4850-8b94-29b04b363236]] ERROR o.a.s.s.e.s.MicroBatchExecution - Query [id = a48421b7-6d6a-4f54-8965-765e5941ea5c, runId = 5362b126-c1ec-4850-8b94-29b04b363236] terminated with error
+
++-----+----------+------------------+------------------+
+|Store|department|       Total_Sales|     Average_Sales|
++-----+----------+------------------+------------------+
+|    3|        15|         1576.5537|         1576.5537|
+|    4|        10|         2910.7276|         1455.3638|
+|    9|        10|        22164.0098|1477.6006533333334|
+|    9|        16|         3561.6612|         1780.8306|
+|    6|         1|4188.6494999999995|1396.2164999999998|
+|    7|         4|         3096.0378|         1548.0189|
+|    2|         2|         8883.0618|         1480.5103|
+|    8|         9|15551.492900000001|1727.9436555555558|
+|    9|         4|         11839.929|1691.4184285714286|
+|    8|         3|        11792.1917|      1474.0239625|
++-----+----------+------------------+------------------+
+only showing top 10 rows
+
+2024-12-12 03:34:41 [stream execution thread for [id = c7a02dcc-1c8a-4a3d-90a8-daea01cee61b, runId = fce3b4d2-a482-4803-903e-7100209cf4f7]] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:34:41 [stream execution thread for [id = c7a02dcc-1c8a-4a3d-90a8-daea01cee61b, runId = fce3b4d2-a482-4803-903e-7100209cf4f7]] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:34:43 [Executor task launch worker for task 3.0 in stage 27.0 (TID 257)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:34:43 [Executor task launch worker for task 3.0 in stage 27.0 (TID 257)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:34:43 [Executor task launch worker for task 8.0 in stage 27.0 (TID 262)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:34:43 [Executor task launch worker for task 8.0 in stage 27.0 (TID 262)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:34:43 [Executor task launch worker for task 2.0 in stage 27.0 (TID 256)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:34:43 [Executor task launch worker for task 2.0 in stage 27.0 (TID 256)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:34:43 [Executor task launch worker for task 11.0 in stage 27.0 (TID 265)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:34:43 [Executor task launch worker for task 11.0 in stage 27.0 (TID 265)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:34:43 [Executor task launch worker for task 9.0 in stage 27.0 (TID 263)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:34:43 [Executor task launch worker for task 9.0 in stage 27.0 (TID 263)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:34:43 [Executor task launch worker for task 5.0 in stage 27.0 (TID 259)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:34:43 [Executor task launch worker for task 5.0 in stage 27.0 (TID 259)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:34:43 [Executor task launch worker for task 1.0 in stage 27.0 (TID 255)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:34:43 [Executor task launch worker for task 1.0 in stage 27.0 (TID 255)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:34:43 [Executor task launch worker for task 6.0 in stage 27.0 (TID 260)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:34:43 [Executor task launch worker for task 6.0 in stage 27.0 (TID 260)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:34:43 [Executor task launch worker for task 4.0 in stage 27.0 (TID 258)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:34:43 [Executor task launch worker for task 4.0 in stage 27.0 (TID 258)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:34:43 [Executor task launch worker for task 0.0 in stage 27.0 (TID 254)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:34:43 [Executor task launch worker for task 0.0 in stage 27.0 (TID 254)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:34:43 [Executor task launch worker for task 10.0 in stage 27.0 (TID 264)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:34:43 [Executor task launch worker for task 10.0 in stage 27.0 (TID 264)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:34:43 [Executor task launch worker for task 7.0 in stage 27.0 (TID 261)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:34:43 [Executor task launch worker for task 7.0 in stage 27.0 (TID 261)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:34:43 [Executor task launch worker for task 12.0 in stage 27.0 (TID 266)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:34:43 [Executor task launch worker for task 12.0 in stage 27.0 (TID 266)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:34:43 [Executor task launch worker for task 13.0 in stage 27.0 (TID 267)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:34:43 [Executor task launch worker for task 13.0 in stage 27.0 (TID 267)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:34:43 [Executor task launch worker for task 14.0 in stage 27.0 (TID 268)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:34:43 [Executor task launch worker for task 14.0 in stage 27.0 (TID 268)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:34:43 [Executor task launch worker for task 15.0 in stage 27.0 (TID 269)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:34:43 [Executor task launch worker for task 15.0 in stage 27.0 (TID 269)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:34:43 [Executor task launch worker for task 16.0 in stage 27.0 (TID 270)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:34:43 [Executor task launch worker for task 16.0 in stage 27.0 (TID 270)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:34:44 [Executor task launch worker for task 17.0 in stage 27.0 (TID 271)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:34:44 [Executor task launch worker for task 17.0 in stage 27.0 (TID 271)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:34:53 [Executor task launch worker for task 12.0 in stage 27.0 (TID 266)] INFO  c.g.c.h.g.GoogleCloudStorageFileSystem - Successfully repaired 'gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/_temporary/' directory.
+2024-12-12 03:34:53 [Executor task launch worker for task 12.0 in stage 27.0 (TID 266)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000012_266' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000012
+2024-12-12 03:34:53 [Executor task launch worker for task 18.0 in stage 27.0 (TID 272)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:34:53 [Executor task launch worker for task 18.0 in stage 27.0 (TID 272)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:34:53 [Executor task launch worker for task 1.0 in stage 27.0 (TID 255)] INFO  c.g.c.h.gcsio.GoogleCloudStorageImpl - Ignoring exception of type GoogleJsonResponseException; verified object already exists with desired state.
+2024-12-12 03:34:53 [Executor task launch worker for task 1.0 in stage 27.0 (TID 255)] INFO  c.g.c.h.g.GoogleCloudStorageFileSystem - Successfully repaired 'gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/_temporary/' directory.
+2024-12-12 03:34:53 [Executor task launch worker for task 1.0 in stage 27.0 (TID 255)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000001_255' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000001
+2024-12-12 03:34:53 [Executor task launch worker for task 19.0 in stage 27.0 (TID 273)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:34:53 [Executor task launch worker for task 19.0 in stage 27.0 (TID 273)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:34:54 [Executor task launch worker for task 5.0 in stage 27.0 (TID 259)] INFO  c.g.c.h.gcsio.GoogleCloudStorageImpl - Ignoring exception of type GoogleJsonResponseException; verified object already exists with desired state.
+2024-12-12 03:34:54 [Executor task launch worker for task 5.0 in stage 27.0 (TID 259)] INFO  c.g.c.h.g.GoogleCloudStorageFileSystem - Successfully repaired 'gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/_temporary/' directory.
+2024-12-12 03:34:54 [Executor task launch worker for task 5.0 in stage 27.0 (TID 259)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000005_259' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000005
+2024-12-12 03:34:54 [Executor task launch worker for task 21.0 in stage 27.0 (TID 274)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:34:54 [Executor task launch worker for task 21.0 in stage 27.0 (TID 274)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:34:54 [Executor task launch worker for task 11.0 in stage 27.0 (TID 265)] INFO  c.g.c.h.gcsio.GoogleCloudStorageImpl - Ignoring exception of type GoogleJsonResponseException; verified object already exists with desired state.
+2024-12-12 03:34:54 [Executor task launch worker for task 11.0 in stage 27.0 (TID 265)] INFO  c.g.c.h.g.GoogleCloudStorageFileSystem - Successfully repaired 'gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/_temporary/' directory.
+2024-12-12 03:34:54 [Executor task launch worker for task 11.0 in stage 27.0 (TID 265)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000011_265' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000011
+2024-12-12 03:34:54 [Executor task launch worker for task 24.0 in stage 27.0 (TID 275)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:34:54 [Executor task launch worker for task 24.0 in stage 27.0 (TID 275)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:34:54 [Executor task launch worker for task 8.0 in stage 27.0 (TID 262)] INFO  c.g.c.h.gcsio.GoogleCloudStorageImpl - Ignoring exception of type GoogleJsonResponseException; verified object already exists with desired state.
+2024-12-12 03:34:54 [Executor task launch worker for task 8.0 in stage 27.0 (TID 262)] INFO  c.g.c.h.g.GoogleCloudStorageFileSystem - Successfully repaired 'gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/_temporary/' directory.
+2024-12-12 03:34:54 [Executor task launch worker for task 8.0 in stage 27.0 (TID 262)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000008_262' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000008
+2024-12-12 03:34:54 [Executor task launch worker for task 28.0 in stage 27.0 (TID 276)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:34:54 [Executor task launch worker for task 28.0 in stage 27.0 (TID 276)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:34:54 [Executor task launch worker for task 4.0 in stage 27.0 (TID 258)] INFO  c.g.c.h.gcsio.GoogleCloudStorageImpl - Ignoring exception of type GoogleJsonResponseException; verified object already exists with desired state.
+2024-12-12 03:34:54 [Executor task launch worker for task 4.0 in stage 27.0 (TID 258)] INFO  c.g.c.h.g.GoogleCloudStorageFileSystem - Successfully repaired 'gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/_temporary/' directory.
+2024-12-12 03:34:54 [Executor task launch worker for task 4.0 in stage 27.0 (TID 258)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000004_258' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000004
+2024-12-12 03:34:54 [Executor task launch worker for task 34.0 in stage 27.0 (TID 277)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:34:54 [Executor task launch worker for task 34.0 in stage 27.0 (TID 277)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:34:55 [Executor task launch worker for task 17.0 in stage 27.0 (TID 271)] INFO  c.g.c.h.gcsio.GoogleCloudStorageImpl - Ignoring exception of type GoogleJsonResponseException; verified object already exists with desired state.
+2024-12-12 03:34:55 [Executor task launch worker for task 17.0 in stage 27.0 (TID 271)] INFO  c.g.c.h.g.GoogleCloudStorageFileSystem - Successfully repaired 'gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/_temporary/' directory.
+2024-12-12 03:34:55 [Executor task launch worker for task 17.0 in stage 27.0 (TID 271)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000017_271' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000017
+2024-12-12 03:34:55 [Executor task launch worker for task 9.0 in stage 27.0 (TID 263)] INFO  c.g.c.h.gcsio.GoogleCloudStorageImpl - Ignoring exception of type GoogleJsonResponseException; verified object already exists with desired state.
+2024-12-12 03:34:55 [Executor task launch worker for task 9.0 in stage 27.0 (TID 263)] INFO  c.g.c.h.g.GoogleCloudStorageFileSystem - Successfully repaired 'gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/_temporary/' directory.
+2024-12-12 03:34:55 [Executor task launch worker for task 9.0 in stage 27.0 (TID 263)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000009_263' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000009
+2024-12-12 03:34:55 [Executor task launch worker for task 39.0 in stage 27.0 (TID 279)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:34:55 [Executor task launch worker for task 39.0 in stage 27.0 (TID 279)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:34:55 [Executor task launch worker for task 36.0 in stage 27.0 (TID 278)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:34:55 [Executor task launch worker for task 36.0 in stage 27.0 (TID 278)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:34:55 [Executor task launch worker for task 0.0 in stage 27.0 (TID 254)] INFO  c.g.c.h.gcsio.GoogleCloudStorageImpl - Ignoring exception of type GoogleJsonResponseException; verified object already exists with desired state.
+2024-12-12 03:34:55 [Executor task launch worker for task 0.0 in stage 27.0 (TID 254)] INFO  c.g.c.h.g.GoogleCloudStorageFileSystem - Successfully repaired 'gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/_temporary/' directory.
+2024-12-12 03:34:55 [Executor task launch worker for task 0.0 in stage 27.0 (TID 254)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000000_254' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000000
+2024-12-12 03:34:55 [Executor task launch worker for task 42.0 in stage 27.0 (TID 280)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:34:55 [Executor task launch worker for task 42.0 in stage 27.0 (TID 280)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:34:55 [Executor task launch worker for task 15.0 in stage 27.0 (TID 269)] INFO  c.g.c.h.gcsio.GoogleCloudStorageImpl - Ignoring exception of type GoogleJsonResponseException; verified object already exists with desired state.
+2024-12-12 03:34:55 [Executor task launch worker for task 15.0 in stage 27.0 (TID 269)] INFO  c.g.c.h.g.GoogleCloudStorageFileSystem - Successfully repaired 'gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/_temporary/' directory.
+2024-12-12 03:34:55 [Executor task launch worker for task 15.0 in stage 27.0 (TID 269)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000015_269' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000015
+2024-12-12 03:34:55 [Executor task launch worker for task 43.0 in stage 27.0 (TID 281)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:34:55 [Executor task launch worker for task 43.0 in stage 27.0 (TID 281)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:34:55 [Executor task launch worker for task 16.0 in stage 27.0 (TID 270)] INFO  c.g.c.h.gcsio.GoogleCloudStorageImpl - Ignoring exception of type GoogleJsonResponseException; verified object already exists with desired state.
+2024-12-12 03:34:55 [Executor task launch worker for task 16.0 in stage 27.0 (TID 270)] INFO  c.g.c.h.g.GoogleCloudStorageFileSystem - Successfully repaired 'gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/_temporary/' directory.
+2024-12-12 03:34:55 [Executor task launch worker for task 16.0 in stage 27.0 (TID 270)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000016_270' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000016
+2024-12-12 03:34:55 [Executor task launch worker for task 47.0 in stage 27.0 (TID 282)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:34:55 [Executor task launch worker for task 47.0 in stage 27.0 (TID 282)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:34:55 [Executor task launch worker for task 14.0 in stage 27.0 (TID 268)] INFO  c.g.c.h.gcsio.GoogleCloudStorageImpl - Ignoring exception of type GoogleJsonResponseException; verified object already exists with desired state.
+2024-12-12 03:34:55 [Executor task launch worker for task 14.0 in stage 27.0 (TID 268)] INFO  c.g.c.h.g.GoogleCloudStorageFileSystem - Successfully repaired 'gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/_temporary/' directory.
+2024-12-12 03:34:55 [Executor task launch worker for task 14.0 in stage 27.0 (TID 268)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000014_268' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000014
+2024-12-12 03:34:55 [Executor task launch worker for task 48.0 in stage 27.0 (TID 283)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:34:55 [Executor task launch worker for task 48.0 in stage 27.0 (TID 283)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:02 [Executor task launch worker for task 24.0 in stage 27.0 (TID 275)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000024_275' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000024
+2024-12-12 03:35:02 [Executor task launch worker for task 49.0 in stage 27.0 (TID 284)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:02 [Executor task launch worker for task 49.0 in stage 27.0 (TID 284)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:02 [Executor task launch worker for task 18.0 in stage 27.0 (TID 272)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000018_272' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000018
+2024-12-12 03:35:02 [Executor task launch worker for task 50.0 in stage 27.0 (TID 285)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:02 [Executor task launch worker for task 50.0 in stage 27.0 (TID 285)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:03 [Executor task launch worker for task 28.0 in stage 27.0 (TID 276)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000028_276' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000028
+2024-12-12 03:35:03 [Executor task launch worker for task 51.0 in stage 27.0 (TID 286)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:03 [Executor task launch worker for task 51.0 in stage 27.0 (TID 286)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:04 [Executor task launch worker for task 43.0 in stage 27.0 (TID 281)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000043_281' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000043
+2024-12-12 03:35:04 [Executor task launch worker for task 56.0 in stage 27.0 (TID 287)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:04 [Executor task launch worker for task 56.0 in stage 27.0 (TID 287)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:04 [Executor task launch worker for task 19.0 in stage 27.0 (TID 273)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000019_273' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000019
+2024-12-12 03:35:04 [Executor task launch worker for task 57.0 in stage 27.0 (TID 288)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:04 [Executor task launch worker for task 57.0 in stage 27.0 (TID 288)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:04 [Executor task launch worker for task 34.0 in stage 27.0 (TID 277)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000034_277' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000034
+2024-12-12 03:35:04 [Executor task launch worker for task 59.0 in stage 27.0 (TID 289)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:04 [Executor task launch worker for task 59.0 in stage 27.0 (TID 289)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:04 [Executor task launch worker for task 21.0 in stage 27.0 (TID 274)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000021_274' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000021
+2024-12-12 03:35:04 [Executor task launch worker for task 60.0 in stage 27.0 (TID 290)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:04 [Executor task launch worker for task 60.0 in stage 27.0 (TID 290)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:04 [Executor task launch worker for task 47.0 in stage 27.0 (TID 282)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000047_282' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000047
+2024-12-12 03:35:04 [Executor task launch worker for task 61.0 in stage 27.0 (TID 291)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:04 [Executor task launch worker for task 61.0 in stage 27.0 (TID 291)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:04 [Executor task launch worker for task 42.0 in stage 27.0 (TID 280)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000042_280' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000042
+2024-12-12 03:35:04 [Executor task launch worker for task 62.0 in stage 27.0 (TID 292)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:04 [Executor task launch worker for task 62.0 in stage 27.0 (TID 292)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:04 [Executor task launch worker for task 39.0 in stage 27.0 (TID 279)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000039_279' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000039
+2024-12-12 03:35:04 [Executor task launch worker for task 63.0 in stage 27.0 (TID 293)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:04 [Executor task launch worker for task 63.0 in stage 27.0 (TID 293)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:05 [Executor task launch worker for task 36.0 in stage 27.0 (TID 278)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000036_278' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000036
+2024-12-12 03:35:05 [Executor task launch worker for task 65.0 in stage 27.0 (TID 294)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:05 [Executor task launch worker for task 65.0 in stage 27.0 (TID 294)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:05 [Executor task launch worker for task 48.0 in stage 27.0 (TID 283)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000048_283' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000048
+2024-12-12 03:35:05 [Executor task launch worker for task 66.0 in stage 27.0 (TID 295)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:05 [Executor task launch worker for task 66.0 in stage 27.0 (TID 295)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:10 [Executor task launch worker for task 49.0 in stage 27.0 (TID 284)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000049_284' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000049
+2024-12-12 03:35:10 [Executor task launch worker for task 67.0 in stage 27.0 (TID 296)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:10 [Executor task launch worker for task 67.0 in stage 27.0 (TID 296)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:11 [Executor task launch worker for task 51.0 in stage 27.0 (TID 286)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000051_286' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000051
+2024-12-12 03:35:11 [Executor task launch worker for task 70.0 in stage 27.0 (TID 297)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:11 [Executor task launch worker for task 70.0 in stage 27.0 (TID 297)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:11 [Executor task launch worker for task 50.0 in stage 27.0 (TID 285)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000050_285' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000050
+2024-12-12 03:35:11 [Executor task launch worker for task 72.0 in stage 27.0 (TID 298)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:11 [Executor task launch worker for task 72.0 in stage 27.0 (TID 298)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:12 [Executor task launch worker for task 57.0 in stage 27.0 (TID 288)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000057_288' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000057
+2024-12-12 03:35:12 [Executor task launch worker for task 73.0 in stage 27.0 (TID 299)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:12 [Executor task launch worker for task 73.0 in stage 27.0 (TID 299)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:13 [Executor task launch worker for task 65.0 in stage 27.0 (TID 294)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000065_294' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000065
+2024-12-12 03:35:13 [Executor task launch worker for task 74.0 in stage 27.0 (TID 300)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:13 [Executor task launch worker for task 74.0 in stage 27.0 (TID 300)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:13 [Executor task launch worker for task 59.0 in stage 27.0 (TID 289)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000059_289' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000059
+2024-12-12 03:35:13 [Executor task launch worker for task 75.0 in stage 27.0 (TID 301)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:13 [Executor task launch worker for task 75.0 in stage 27.0 (TID 301)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:13 [Executor task launch worker for task 60.0 in stage 27.0 (TID 290)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000060_290' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000060
+2024-12-12 03:35:13 [Executor task launch worker for task 76.0 in stage 27.0 (TID 302)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:13 [Executor task launch worker for task 76.0 in stage 27.0 (TID 302)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:13 [Executor task launch worker for task 63.0 in stage 27.0 (TID 293)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000063_293' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000063
+2024-12-12 03:35:13 [Executor task launch worker for task 77.0 in stage 27.0 (TID 303)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:13 [Executor task launch worker for task 77.0 in stage 27.0 (TID 303)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:13 [Executor task launch worker for task 56.0 in stage 27.0 (TID 287)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000056_287' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000056
+2024-12-12 03:35:13 [Executor task launch worker for task 78.0 in stage 27.0 (TID 304)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:13 [Executor task launch worker for task 78.0 in stage 27.0 (TID 304)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:13 [Executor task launch worker for task 62.0 in stage 27.0 (TID 292)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000062_292' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000062
+2024-12-12 03:35:13 [Executor task launch worker for task 79.0 in stage 27.0 (TID 305)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:13 [Executor task launch worker for task 79.0 in stage 27.0 (TID 305)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:14 [Executor task launch worker for task 61.0 in stage 27.0 (TID 291)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000061_291' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000061
+2024-12-12 03:35:14 [Executor task launch worker for task 66.0 in stage 27.0 (TID 295)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000066_295' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000066
+2024-12-12 03:35:14 [Executor task launch worker for task 82.0 in stage 27.0 (TID 306)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:14 [Executor task launch worker for task 82.0 in stage 27.0 (TID 306)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:14 [Executor task launch worker for task 83.0 in stage 27.0 (TID 307)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:14 [Executor task launch worker for task 83.0 in stage 27.0 (TID 307)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:18 [Executor task launch worker for task 67.0 in stage 27.0 (TID 296)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000067_296' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000067
+2024-12-12 03:35:18 [Executor task launch worker for task 84.0 in stage 27.0 (TID 308)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:18 [Executor task launch worker for task 84.0 in stage 27.0 (TID 308)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:20 [Executor task launch worker for task 70.0 in stage 27.0 (TID 297)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000070_297' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000070
+2024-12-12 03:35:20 [Executor task launch worker for task 85.0 in stage 27.0 (TID 309)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:20 [Executor task launch worker for task 85.0 in stage 27.0 (TID 309)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:20 [Executor task launch worker for task 72.0 in stage 27.0 (TID 298)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000072_298' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000072
+2024-12-12 03:35:20 [Executor task launch worker for task 87.0 in stage 27.0 (TID 310)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:20 [Executor task launch worker for task 87.0 in stage 27.0 (TID 310)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:21 [Executor task launch worker for task 73.0 in stage 27.0 (TID 299)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000073_299' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000073
+2024-12-12 03:35:21 [Executor task launch worker for task 91.0 in stage 27.0 (TID 311)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:21 [Executor task launch worker for task 91.0 in stage 27.0 (TID 311)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:22 [Executor task launch worker for task 77.0 in stage 27.0 (TID 303)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000077_303' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000077
+2024-12-12 03:35:22 [Executor task launch worker for task 93.0 in stage 27.0 (TID 312)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:22 [Executor task launch worker for task 93.0 in stage 27.0 (TID 312)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:22 [Executor task launch worker for task 75.0 in stage 27.0 (TID 301)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000075_301' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000075
+2024-12-12 03:35:22 [Executor task launch worker for task 95.0 in stage 27.0 (TID 313)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:22 [Executor task launch worker for task 95.0 in stage 27.0 (TID 313)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:22 [Executor task launch worker for task 79.0 in stage 27.0 (TID 305)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000079_305' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000079
+2024-12-12 03:35:22 [Executor task launch worker for task 96.0 in stage 27.0 (TID 314)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:22 [Executor task launch worker for task 96.0 in stage 27.0 (TID 314)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:23 [Executor task launch worker for task 76.0 in stage 27.0 (TID 302)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000076_302' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000076
+2024-12-12 03:35:23 [Executor task launch worker for task 97.0 in stage 27.0 (TID 315)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:23 [Executor task launch worker for task 97.0 in stage 27.0 (TID 315)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:23 [Executor task launch worker for task 74.0 in stage 27.0 (TID 300)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000074_300' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000074
+2024-12-12 03:35:23 [Executor task launch worker for task 98.0 in stage 27.0 (TID 316)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:23 [Executor task launch worker for task 98.0 in stage 27.0 (TID 316)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:23 [Executor task launch worker for task 82.0 in stage 27.0 (TID 306)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000082_306' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000082
+2024-12-12 03:35:23 [Executor task launch worker for task 99.0 in stage 27.0 (TID 317)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:23 [Executor task launch worker for task 99.0 in stage 27.0 (TID 317)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:23 [Executor task launch worker for task 83.0 in stage 27.0 (TID 307)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000083_307' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000083
+2024-12-12 03:35:23 [Executor task launch worker for task 100.0 in stage 27.0 (TID 318)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:23 [Executor task launch worker for task 100.0 in stage 27.0 (TID 318)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:23 [Executor task launch worker for task 78.0 in stage 27.0 (TID 304)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000078_304' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000078
+2024-12-12 03:35:23 [Executor task launch worker for task 101.0 in stage 27.0 (TID 319)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:23 [Executor task launch worker for task 101.0 in stage 27.0 (TID 319)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:28 [Executor task launch worker for task 84.0 in stage 27.0 (TID 308)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000084_308' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000084
+2024-12-12 03:35:28 [Executor task launch worker for task 103.0 in stage 27.0 (TID 320)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:28 [Executor task launch worker for task 103.0 in stage 27.0 (TID 320)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:29 [Executor task launch worker for task 85.0 in stage 27.0 (TID 309)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000085_309' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000085
+2024-12-12 03:35:29 [Executor task launch worker for task 104.0 in stage 27.0 (TID 321)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:29 [Executor task launch worker for task 104.0 in stage 27.0 (TID 321)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:29 [Executor task launch worker for task 87.0 in stage 27.0 (TID 310)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000087_310' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000087
+2024-12-12 03:35:29 [Executor task launch worker for task 105.0 in stage 27.0 (TID 322)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:29 [Executor task launch worker for task 105.0 in stage 27.0 (TID 322)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:30 [Executor task launch worker for task 91.0 in stage 27.0 (TID 311)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000091_311' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000091
+2024-12-12 03:35:30 [Executor task launch worker for task 107.0 in stage 27.0 (TID 323)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:30 [Executor task launch worker for task 107.0 in stage 27.0 (TID 323)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:31 [Executor task launch worker for task 93.0 in stage 27.0 (TID 312)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000093_312' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000093
+2024-12-12 03:35:31 [Executor task launch worker for task 109.0 in stage 27.0 (TID 324)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:31 [Executor task launch worker for task 109.0 in stage 27.0 (TID 324)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:32 [Executor task launch worker for task 96.0 in stage 27.0 (TID 314)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000096_314' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000096
+2024-12-12 03:35:32 [Executor task launch worker for task 111.0 in stage 27.0 (TID 325)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:32 [Executor task launch worker for task 111.0 in stage 27.0 (TID 325)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:32 [Executor task launch worker for task 95.0 in stage 27.0 (TID 313)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000095_313' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000095
+2024-12-12 03:35:32 [Executor task launch worker for task 115.0 in stage 27.0 (TID 326)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:32 [Executor task launch worker for task 115.0 in stage 27.0 (TID 326)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:33 [Executor task launch worker for task 97.0 in stage 27.0 (TID 315)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000097_315' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000097
+2024-12-12 03:35:33 [Executor task launch worker for task 116.0 in stage 27.0 (TID 327)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:33 [Executor task launch worker for task 116.0 in stage 27.0 (TID 327)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:33 [Executor task launch worker for task 101.0 in stage 27.0 (TID 319)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000101_319' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000101
+2024-12-12 03:35:33 [Executor task launch worker for task 117.0 in stage 27.0 (TID 328)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:33 [Executor task launch worker for task 117.0 in stage 27.0 (TID 328)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:34 [Executor task launch worker for task 100.0 in stage 27.0 (TID 318)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000100_318' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000100
+2024-12-12 03:35:34 [Executor task launch worker for task 118.0 in stage 27.0 (TID 329)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:34 [Executor task launch worker for task 118.0 in stage 27.0 (TID 329)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:34 [Executor task launch worker for task 99.0 in stage 27.0 (TID 317)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000099_317' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000099
+2024-12-12 03:35:34 [Executor task launch worker for task 119.0 in stage 27.0 (TID 330)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:34 [Executor task launch worker for task 119.0 in stage 27.0 (TID 330)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:34 [Executor task launch worker for task 98.0 in stage 27.0 (TID 316)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000098_316' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000098
+2024-12-12 03:35:34 [Executor task launch worker for task 123.0 in stage 27.0 (TID 331)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:34 [Executor task launch worker for task 123.0 in stage 27.0 (TID 331)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:36 [Executor task launch worker for task 103.0 in stage 27.0 (TID 320)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000103_320' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000103
+2024-12-12 03:35:36 [Executor task launch worker for task 124.0 in stage 27.0 (TID 332)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:36 [Executor task launch worker for task 124.0 in stage 27.0 (TID 332)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:37 [Executor task launch worker for task 104.0 in stage 27.0 (TID 321)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000104_321' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000104
+2024-12-12 03:35:37 [Executor task launch worker for task 125.0 in stage 27.0 (TID 333)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:37 [Executor task launch worker for task 125.0 in stage 27.0 (TID 333)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:38 [Executor task launch worker for task 105.0 in stage 27.0 (TID 322)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000105_322' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000105
+2024-12-12 03:35:38 [Executor task launch worker for task 127.0 in stage 27.0 (TID 334)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:38 [Executor task launch worker for task 127.0 in stage 27.0 (TID 334)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:39 [Executor task launch worker for task 109.0 in stage 27.0 (TID 324)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000109_324' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000109
+2024-12-12 03:35:39 [Executor task launch worker for task 129.0 in stage 27.0 (TID 335)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:39 [Executor task launch worker for task 129.0 in stage 27.0 (TID 335)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:39 [Executor task launch worker for task 107.0 in stage 27.0 (TID 323)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000107_323' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000107
+2024-12-12 03:35:39 [Executor task launch worker for task 130.0 in stage 27.0 (TID 336)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:39 [Executor task launch worker for task 130.0 in stage 27.0 (TID 336)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:41 [Executor task launch worker for task 115.0 in stage 27.0 (TID 326)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000115_326' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000115
+2024-12-12 03:35:41 [Executor task launch worker for task 131.0 in stage 27.0 (TID 337)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:41 [Executor task launch worker for task 131.0 in stage 27.0 (TID 337)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:41 [Executor task launch worker for task 111.0 in stage 27.0 (TID 325)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000111_325' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000111
+2024-12-12 03:35:41 [Executor task launch worker for task 132.0 in stage 27.0 (TID 338)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:41 [Executor task launch worker for task 132.0 in stage 27.0 (TID 338)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:42 [Executor task launch worker for task 116.0 in stage 27.0 (TID 327)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000116_327' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000116
+2024-12-12 03:35:42 [Executor task launch worker for task 134.0 in stage 27.0 (TID 339)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:42 [Executor task launch worker for task 134.0 in stage 27.0 (TID 339)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:42 [Executor task launch worker for task 118.0 in stage 27.0 (TID 329)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000118_329' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000118
+2024-12-12 03:35:42 [Executor task launch worker for task 136.0 in stage 27.0 (TID 340)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:42 [Executor task launch worker for task 136.0 in stage 27.0 (TID 340)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:42 [Executor task launch worker for task 117.0 in stage 27.0 (TID 328)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000117_328' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000117
+2024-12-12 03:35:42 [Executor task launch worker for task 138.0 in stage 27.0 (TID 341)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:42 [Executor task launch worker for task 138.0 in stage 27.0 (TID 341)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:43 [Executor task launch worker for task 119.0 in stage 27.0 (TID 330)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000119_330' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000119
+2024-12-12 03:35:43 [Executor task launch worker for task 139.0 in stage 27.0 (TID 342)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:43 [Executor task launch worker for task 139.0 in stage 27.0 (TID 342)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:45 [Executor task launch worker for task 124.0 in stage 27.0 (TID 332)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000124_332' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000124
+2024-12-12 03:35:45 [Executor task launch worker for task 140.0 in stage 27.0 (TID 343)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:45 [Executor task launch worker for task 140.0 in stage 27.0 (TID 343)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:45 [Executor task launch worker for task 123.0 in stage 27.0 (TID 331)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000123_331' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000123
+2024-12-12 03:35:45 [Executor task launch worker for task 141.0 in stage 27.0 (TID 344)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:45 [Executor task launch worker for task 141.0 in stage 27.0 (TID 344)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:47 [Executor task launch worker for task 125.0 in stage 27.0 (TID 333)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000125_333' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000125
+2024-12-12 03:35:47 [Executor task launch worker for task 142.0 in stage 27.0 (TID 345)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:47 [Executor task launch worker for task 142.0 in stage 27.0 (TID 345)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:47 [Executor task launch worker for task 127.0 in stage 27.0 (TID 334)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000127_334' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000127
+2024-12-12 03:35:47 [Executor task launch worker for task 145.0 in stage 27.0 (TID 346)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:47 [Executor task launch worker for task 145.0 in stage 27.0 (TID 346)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:49 [Executor task launch worker for task 130.0 in stage 27.0 (TID 336)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000130_336' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000130
+2024-12-12 03:35:49 [Executor task launch worker for task 146.0 in stage 27.0 (TID 347)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:49 [Executor task launch worker for task 146.0 in stage 27.0 (TID 347)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:49 [Executor task launch worker for task 129.0 in stage 27.0 (TID 335)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000129_335' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000129
+2024-12-12 03:35:49 [Executor task launch worker for task 147.0 in stage 27.0 (TID 348)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:49 [Executor task launch worker for task 147.0 in stage 27.0 (TID 348)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:50 [Executor task launch worker for task 131.0 in stage 27.0 (TID 337)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000131_337' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000131
+2024-12-12 03:35:50 [Executor task launch worker for task 148.0 in stage 27.0 (TID 349)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:50 [Executor task launch worker for task 148.0 in stage 27.0 (TID 349)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:50 [Executor task launch worker for task 132.0 in stage 27.0 (TID 338)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000132_338' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000132
+2024-12-12 03:35:50 [Executor task launch worker for task 155.0 in stage 27.0 (TID 350)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:50 [Executor task launch worker for task 155.0 in stage 27.0 (TID 350)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:51 [Executor task launch worker for task 134.0 in stage 27.0 (TID 339)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000134_339' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000134
+2024-12-12 03:35:51 [Executor task launch worker for task 156.0 in stage 27.0 (TID 351)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:51 [Executor task launch worker for task 156.0 in stage 27.0 (TID 351)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:52 [Executor task launch worker for task 136.0 in stage 27.0 (TID 340)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000136_340' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000136
+2024-12-12 03:35:52 [Executor task launch worker for task 157.0 in stage 27.0 (TID 352)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:52 [Executor task launch worker for task 157.0 in stage 27.0 (TID 352)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:52 [Executor task launch worker for task 139.0 in stage 27.0 (TID 342)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000139_342' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000139
+2024-12-12 03:35:52 [Executor task launch worker for task 158.0 in stage 27.0 (TID 353)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:52 [Executor task launch worker for task 158.0 in stage 27.0 (TID 353)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:52 [Executor task launch worker for task 138.0 in stage 27.0 (TID 341)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000138_341' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000138
+2024-12-12 03:35:52 [Executor task launch worker for task 160.0 in stage 27.0 (TID 354)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:52 [Executor task launch worker for task 160.0 in stage 27.0 (TID 354)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:54 [Executor task launch worker for task 140.0 in stage 27.0 (TID 343)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000140_343' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000140
+2024-12-12 03:35:54 [Executor task launch worker for task 161.0 in stage 27.0 (TID 355)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:54 [Executor task launch worker for task 161.0 in stage 27.0 (TID 355)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:55 [Executor task launch worker for task 141.0 in stage 27.0 (TID 344)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120334432741175420780567315_0027_m_000141_344' to gs://scala-spark-temp/walmart_data/department_wise/_temporary/0/task_202412120334432741175420780567315_0027_m_000141
+2024-12-12 03:35:55 [Executor task launch worker for task 162.0 in stage 27.0 (TID 356)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:35:55 [Executor task launch worker for task 162.0 in stage 27.0 (TID 356)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:35:56 [shutdown-hook-0] INFO  o.s.jetty.server.AbstractConnector - Stopped Spark@778d82e9{HTTP/1.1, (http/1.1)}{0.0.0.0:4040}
+2024-12-12 03:35:56 [stream execution thread for [id = c7a02dcc-1c8a-4a3d-90a8-daea01cee61b, runId = fce3b4d2-a482-4803-903e-7100209cf4f7]] ERROR o.a.s.s.e.d.FileFormatWriter - Aborting job df97d8f6-f009-4219-a984-e494962af79a.
+org.apache.spark.SparkException: Job 19 cancelled because SparkContext was shut down
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$cleanUpAfterSchedulerStop$1(DAGScheduler.scala:1253)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$cleanUpAfterSchedulerStop$1$adapted(DAGScheduler.scala:1251)
+	at scala.collection.mutable.HashSet$Node.foreach(HashSet.scala:450)
+	at scala.collection.mutable.HashSet.foreach(HashSet.scala:376)
+	at org.apache.spark.scheduler.DAGScheduler.cleanUpAfterSchedulerStop(DAGScheduler.scala:1251)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onStop(DAGScheduler.scala:3087)
+	at org.apache.spark.util.EventLoop.stop(EventLoop.scala:84)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$stop$3(DAGScheduler.scala:2973)
+	at org.apache.spark.util.Utils$.tryLogNonFatalError(Utils.scala:1375)
+	at org.apache.spark.scheduler.DAGScheduler.stop(DAGScheduler.scala:2973)
+	at org.apache.spark.SparkContext.$anonfun$stop$12(SparkContext.scala:2263)
+	at org.apache.spark.util.Utils$.tryLogNonFatalError(Utils.scala:1375)
+	at org.apache.spark.SparkContext.stop(SparkContext.scala:2263)
+	at org.apache.spark.SparkContext.stop(SparkContext.scala:2216)
+	at org.apache.spark.SparkContext.$anonfun$new$34(SparkContext.scala:686)
+	at org.apache.spark.util.SparkShutdownHook.run(ShutdownHookManager.scala:214)
+	at org.apache.spark.util.SparkShutdownHookManager.$anonfun$runAll$2(ShutdownHookManager.scala:188)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+	at org.apache.spark.util.Utils$.logUncaughtExceptions(Utils.scala:1928)
+	at org.apache.spark.util.SparkShutdownHookManager.$anonfun$runAll$1(ShutdownHookManager.scala:188)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+	at scala.util.Try$.apply(Try.scala:217)
+	at org.apache.spark.util.SparkShutdownHookManager.runAll(ShutdownHookManager.scala:188)
+	at org.apache.spark.util.SparkShutdownHookManager$$anon$2.run(ShutdownHookManager.scala:178)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:989)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2398)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.$anonfun$executeWrite$4(FileFormatWriter.scala:307)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.writeAndCommit(FileFormatWriter.scala:271)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.executeWrite(FileFormatWriter.scala:304)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.write(FileFormatWriter.scala:190)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand.run(InsertIntoHadoopFsRelationCommand.scala:190)
+	at org.apache.spark.sql.execution.command.DataWritingCommandExec.sideEffectResult$lzycompute(commands.scala:113)
+	at org.apache.spark.sql.execution.command.DataWritingCommandExec.sideEffectResult(commands.scala:111)
+	at org.apache.spark.sql.execution.command.DataWritingCommandExec.executeCollect(commands.scala:125)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.$anonfun$applyOrElse$1(QueryExecution.scala:107)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$6(SQLExecution.scala:125)
+	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:201)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:108)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:66)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:107)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:98)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$1(TreeNode.scala:461)
+	at org.apache.spark.sql.catalyst.trees.CurrentOrigin$.withOrigin(origin.scala:76)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:461)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:32)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:267)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:263)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:32)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:32)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDown(TreeNode.scala:437)
+	at org.apache.spark.sql.execution.QueryExecution.eagerlyExecuteCommands(QueryExecution.scala:98)
+	at org.apache.spark.sql.execution.QueryExecution.commandExecuted$lzycompute(QueryExecution.scala:85)
+	at org.apache.spark.sql.execution.QueryExecution.commandExecuted(QueryExecution.scala:83)
+	at org.apache.spark.sql.execution.QueryExecution.assertCommandExecuted(QueryExecution.scala:142)
+	at org.apache.spark.sql.DataFrameWriter.runCommand(DataFrameWriter.scala:859)
+	at org.apache.spark.sql.DataFrameWriter.saveToV1Source(DataFrameWriter.scala:388)
+	at org.apache.spark.sql.DataFrameWriter.saveInternal(DataFrameWriter.scala:361)
+	at org.apache.spark.sql.DataFrameWriter.save(DataFrameWriter.scala:240)
+	at org.apache.spark.sql.DataFrameWriter.json(DataFrameWriter.scala:774)
+	at optimization.KafkaSalesConsumer$.updateEnrichedAndMetrics(KafkaSalesConsumer.scala:132)
+	at optimization.KafkaSalesConsumer$.$anonfun$main$1(KafkaSalesConsumer.scala:73)
+	at optimization.KafkaSalesConsumer$.$anonfun$main$1$adapted(KafkaSalesConsumer.scala:68)
+	at org.apache.spark.sql.execution.streaming.sources.ForeachBatchSink.addBatch(ForeachBatchSink.scala:34)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runBatch$17(MicroBatchExecution.scala:732)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$6(SQLExecution.scala:125)
+	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:201)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:108)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:66)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runBatch$16(MicroBatchExecution.scala:729)
+	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken(ProgressReporter.scala:427)
+	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken$(ProgressReporter.scala:425)
+	at org.apache.spark.sql.execution.streaming.StreamExecution.reportTimeTaken(StreamExecution.scala:67)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.runBatch(MicroBatchExecution.scala:729)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runActivatedStream$2(MicroBatchExecution.scala:286)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken(ProgressReporter.scala:427)
+	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken$(ProgressReporter.scala:425)
+	at org.apache.spark.sql.execution.streaming.StreamExecution.reportTimeTaken(StreamExecution.scala:67)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runActivatedStream$1(MicroBatchExecution.scala:249)
+	at org.apache.spark.sql.execution.streaming.ProcessingTimeExecutor.execute(TriggerExecutor.scala:67)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.runActivatedStream(MicroBatchExecution.scala:239)
+	at org.apache.spark.sql.execution.streaming.StreamExecution.$anonfun$runStream$1(StreamExecution.scala:311)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+	at org.apache.spark.sql.execution.streaming.StreamExecution.org$apache$spark$sql$execution$streaming$StreamExecution$$runStream(StreamExecution.scala:289)
+	at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.$anonfun$run$1(StreamExecution.scala:211)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+	at org.apache.spark.JobArtifactSet$.withActiveJobArtifactState(JobArtifactSet.scala:94)
+	at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.run(StreamExecution.scala:211)

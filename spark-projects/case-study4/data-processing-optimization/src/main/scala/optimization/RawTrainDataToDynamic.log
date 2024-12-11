@@ -1,0 +1,163 @@
+SLF4J: Class path contains multiple SLF4J providers.
+SLF4J: Found provider [ch.qos.logback.classic.spi.LogbackServiceProvider@4efc180e]
+SLF4J: Found provider [org.apache.logging.slf4j.SLF4JServiceProvider@bd4dc25]
+SLF4J: See https://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual provider is of type [ch.qos.logback.classic.spi.LogbackServiceProvider@4efc180e]
+2024-12-12 03:43:30 [main] WARN  o.a.hadoop.util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.apache.spark.unsafe.Platform (file:/Users/surajverma/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/apache/spark/spark-unsafe_2.13/3.5.1/spark-unsafe_2.13-3.5.1.jar) to constructor java.nio.DirectByteBuffer(long,int)
+WARNING: Please consider reporting this to the maintainers of org.apache.spark.unsafe.Platform
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2024-12-12 03:43:30 [main] INFO  org.sparkproject.jetty.util.log - Logging initialized @5717ms to org.sparkproject.jetty.util.log.Slf4jLog
+2024-12-12 03:43:30 [main] INFO  o.sparkproject.jetty.server.Server - jetty-9.4.52.v20230823; built: 2023-08-23T19:29:37.669Z; git: abdcda73818a1a2c705da276edb0bf6581e7997e; jvm 11.0.25+9-LTS
+2024-12-12 03:43:30 [main] INFO  o.sparkproject.jetty.server.Server - Started @5755ms
+2024-12-12 03:43:30 [main] INFO  o.s.jetty.server.AbstractConnector - Started ServerConnector@216914{HTTP/1.1, (http/1.1)}{0.0.0.0:4040}
+2024-12-12 03:43:30 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@2b22a1cc{/,null,AVAILABLE,@Spark}
+2024-12-12 03:43:30 [main] INFO  o.s.j.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@2b22a1cc{/,null,STOPPED,@Spark}
+2024-12-12 03:43:30 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@63a28987{/jobs,null,AVAILABLE,@Spark}
+2024-12-12 03:43:30 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@38c9e0d6{/jobs/json,null,AVAILABLE,@Spark}
+2024-12-12 03:43:30 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@410ae5ac{/jobs/job,null,AVAILABLE,@Spark}
+2024-12-12 03:43:30 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@7c112f5f{/jobs/job/json,null,AVAILABLE,@Spark}
+2024-12-12 03:43:30 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@4fd05028{/stages,null,AVAILABLE,@Spark}
+2024-12-12 03:43:30 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@4fb392c4{/stages/json,null,AVAILABLE,@Spark}
+2024-12-12 03:43:30 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@7b32b129{/stages/stage,null,AVAILABLE,@Spark}
+2024-12-12 03:43:30 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@1c9fbb61{/stages/stage/json,null,AVAILABLE,@Spark}
+2024-12-12 03:43:30 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@15d42ccb{/stages/pool,null,AVAILABLE,@Spark}
+2024-12-12 03:43:30 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@46383a78{/stages/pool/json,null,AVAILABLE,@Spark}
+2024-12-12 03:43:30 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@244418a{/storage,null,AVAILABLE,@Spark}
+2024-12-12 03:43:30 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@4c361f63{/storage/json,null,AVAILABLE,@Spark}
+2024-12-12 03:43:30 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@4eb166a1{/storage/rdd,null,AVAILABLE,@Spark}
+2024-12-12 03:43:30 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@29fd8e67{/storage/rdd/json,null,AVAILABLE,@Spark}
+2024-12-12 03:43:30 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@4bd5849e{/environment,null,AVAILABLE,@Spark}
+2024-12-12 03:43:30 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@39909d1a{/environment/json,null,AVAILABLE,@Spark}
+2024-12-12 03:43:30 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@7343922c{/executors,null,AVAILABLE,@Spark}
+2024-12-12 03:43:30 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@6f2e1024{/executors/json,null,AVAILABLE,@Spark}
+2024-12-12 03:43:30 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@3c50ad4b{/executors/threadDump,null,AVAILABLE,@Spark}
+2024-12-12 03:43:30 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@28f9fedd{/executors/threadDump/json,null,AVAILABLE,@Spark}
+2024-12-12 03:43:30 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@2e17a321{/executors/heapHistogram,null,AVAILABLE,@Spark}
+2024-12-12 03:43:30 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@35f3a22c{/executors/heapHistogram/json,null,AVAILABLE,@Spark}
+2024-12-12 03:43:30 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@123d7057{/static,null,AVAILABLE,@Spark}
+2024-12-12 03:43:30 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@462e1e64{/,null,AVAILABLE,@Spark}
+2024-12-12 03:43:30 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@49f40c00{/api,null,AVAILABLE,@Spark}
+2024-12-12 03:43:30 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@559cedee{/jobs/job/kill,null,AVAILABLE,@Spark}
+2024-12-12 03:43:30 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@4f3faa70{/stages/stage/kill,null,AVAILABLE,@Spark}
+2024-12-12 03:43:30 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@4a8e6e89{/metrics/json,null,AVAILABLE,@Spark}
+2024-12-12 03:43:30 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@4aeb0e2b{/SQL,null,AVAILABLE,@Spark}
+2024-12-12 03:43:30 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@47b33e07{/SQL/json,null,AVAILABLE,@Spark}
+2024-12-12 03:43:30 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@590765c4{/SQL/execution,null,AVAILABLE,@Spark}
+2024-12-12 03:43:30 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@626d2016{/SQL/execution/json,null,AVAILABLE,@Spark}
+2024-12-12 03:43:30 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@581b1c08{/static/sql,null,AVAILABLE,@Spark}
++-----+----+----------+------------+---------+
+|Store|Dept|      Date|Weekly_Sales|IsHoliday|
++-----+----+----------+------------+---------+
+|    1|   1|2010-02-05|     24924.5|    false|
+|    1|   1|2010-02-12|    46039.49|     true|
+|    1|   1|2010-02-19|    41595.55|    false|
+|    1|   1|2010-02-26|    19403.54|    false|
+|    1|   1|2010-03-05|     21827.9|    false|
+|    1|   1|2010-03-12|    21043.39|    false|
+|    1|   1|2010-03-19|    22136.64|    false|
+|    1|   1|2010-03-26|    26229.21|    false|
+|    1|   1|2010-04-02|    57258.43|    false|
+|    1|   1|2010-04-09|    42960.91|    false|
++-----+----+----------+------------+---------+
+only showing top 10 rows
+
+2024-12-12 03:43:48 [main] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:43:48 [main] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:43:50 [Executor task launch worker for task 1.0 in stage 3.0 (TID 7)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:43:50 [Executor task launch worker for task 0.0 in stage 3.0 (TID 6)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:43:50 [Executor task launch worker for task 2.0 in stage 3.0 (TID 8)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:43:50 [Executor task launch worker for task 0.0 in stage 3.0 (TID 6)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:43:50 [Executor task launch worker for task 3.0 in stage 3.0 (TID 9)] INFO  o.a.h.m.l.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+2024-12-12 03:43:50 [Executor task launch worker for task 1.0 in stage 3.0 (TID 7)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:43:50 [Executor task launch worker for task 2.0 in stage 3.0 (TID 8)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:43:50 [Executor task launch worker for task 3.0 in stage 3.0 (TID 9)] INFO  o.a.h.m.l.output.FileOutputCommitter - FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2024-12-12 03:44:04 [Executor task launch worker for task 2.0 in stage 3.0 (TID 8)] INFO  c.g.c.h.g.GoogleCloudStorageFileSystem - Successfully repaired 'gs://scala-spark-temp/walmart_data/updated_train.csv/_temporary/0/_temporary/' directory.
+2024-12-12 03:44:04 [Executor task launch worker for task 2.0 in stage 3.0 (TID 8)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120343502777735501619041243_0003_m_000002_8' to gs://scala-spark-temp/walmart_data/updated_train.csv/_temporary/0/task_202412120343502777735501619041243_0003_m_000002
+2024-12-12 03:44:04 [Executor task launch worker for task 3.0 in stage 3.0 (TID 9)] INFO  c.g.c.h.gcsio.GoogleCloudStorageImpl - Ignoring exception of type GoogleJsonResponseException; verified object already exists with desired state.
+2024-12-12 03:44:04 [Executor task launch worker for task 3.0 in stage 3.0 (TID 9)] INFO  c.g.c.h.g.GoogleCloudStorageFileSystem - Successfully repaired 'gs://scala-spark-temp/walmart_data/updated_train.csv/_temporary/0/_temporary/' directory.
+2024-12-12 03:44:04 [Executor task launch worker for task 3.0 in stage 3.0 (TID 9)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120343502777735501619041243_0003_m_000003_9' to gs://scala-spark-temp/walmart_data/updated_train.csv/_temporary/0/task_202412120343502777735501619041243_0003_m_000003
+2024-12-12 03:44:05 [Executor task launch worker for task 1.0 in stage 3.0 (TID 7)] INFO  c.g.c.h.gcsio.GoogleCloudStorageImpl - Ignoring exception of type GoogleJsonResponseException; verified object already exists with desired state.
+2024-12-12 03:44:05 [Executor task launch worker for task 1.0 in stage 3.0 (TID 7)] INFO  c.g.c.h.g.GoogleCloudStorageFileSystem - Successfully repaired 'gs://scala-spark-temp/walmart_data/updated_train.csv/_temporary/0/_temporary/' directory.
+2024-12-12 03:44:05 [Executor task launch worker for task 1.0 in stage 3.0 (TID 7)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120343502777735501619041243_0003_m_000001_7' to gs://scala-spark-temp/walmart_data/updated_train.csv/_temporary/0/task_202412120343502777735501619041243_0003_m_000001
+2024-12-12 03:44:05 [Executor task launch worker for task 0.0 in stage 3.0 (TID 6)] INFO  c.g.c.h.gcsio.GoogleCloudStorageImpl - Ignoring exception of type GoogleJsonResponseException; verified object already exists with desired state.
+2024-12-12 03:44:05 [Executor task launch worker for task 0.0 in stage 3.0 (TID 6)] INFO  c.g.c.h.g.GoogleCloudStorageFileSystem - Successfully repaired 'gs://scala-spark-temp/walmart_data/updated_train.csv/_temporary/0/_temporary/' directory.
+2024-12-12 03:44:05 [Executor task launch worker for task 0.0 in stage 3.0 (TID 6)] INFO  o.a.h.m.l.output.FileOutputCommitter - Saved output of task 'attempt_202412120343502777735501619041243_0003_m_000000_6' to gs://scala-spark-temp/walmart_data/updated_train.csv/_temporary/0/task_202412120343502777735501619041243_0003_m_000000
+2024-12-12 03:44:12 [main] INFO  c.g.c.h.g.GoogleCloudStorageFileSystem - Successfully repaired 'gs://scala-spark-temp/walmart_data/updated_train.csv/_temporary/0/task_202412120343502777735501619041243_0003_m_000000/' directory.
+2024-12-12 03:44:17 [main] INFO  c.g.c.h.g.GoogleCloudStorageFileSystem - Successfully repaired 'gs://scala-spark-temp/walmart_data/updated_train.csv/_temporary/0/task_202412120343502777735501619041243_0003_m_000001/' directory.
+2024-12-12 03:44:22 [main] INFO  c.g.c.h.g.GoogleCloudStorageFileSystem - Successfully repaired 'gs://scala-spark-temp/walmart_data/updated_train.csv/_temporary/0/task_202412120343502777735501619041243_0003_m_000002/' directory.
+2024-12-12 03:44:27 [main] INFO  c.g.c.h.g.GoogleCloudStorageFileSystem - Successfully repaired 'gs://scala-spark-temp/walmart_data/updated_train.csv/_temporary/0/task_202412120343502777735501619041243_0003_m_000003/' directory.
+2024-12-12 03:44:30 [main] INFO  c.g.c.h.g.GoogleCloudStorageFileSystem - Successfully repaired 'gs://scala-spark-temp/walmart_data/updated_train.csv/' directory.
++-----+----+----------+------------+---------+
+|Store|Dept|      Date|Weekly_Sales|IsHoliday|
++-----+----+----------+------------+---------+
+|    1|   1|2010-02-05|     24924.5|    false|
+|    1|   1|2010-02-12|    46039.49|     true|
+|    1|   1|2010-02-19|    41595.55|    false|
+|    1|   1|2010-02-26|    19403.54|    false|
+|    1|   1|2010-03-05|     21827.9|    false|
+|    1|   1|2010-03-12|    21043.39|    false|
+|    1|   1|2010-03-19|    22136.64|    false|
+|    1|   1|2010-03-26|    26229.21|    false|
+|    1|   1|2010-04-02|    57258.43|    false|
+|    1|   1|2010-04-09|    42960.91|    false|
++-----+----+----------+------------+---------+
+only showing top 10 rows
+
+Last 5 records from updated training data:
+[45,9,2010-10-29,9086.86,false]
+[45,9,2010-11-05,8924.38,false]
+[45,9,2010-11-12,8645.83,false]
+[45,9,2010-11-19,9503.07,false]
+[45,9,2010-11-26,15032.46,true]
++--------------------+-----+---------------------------+
+|Average_Weekly_Sales|Store|Total_Weekly_Sales_Millions|
++--------------------+-----+---------------------------+
+|           29,618.85|   20|                     301.40|
+|           28,877.08|   14|                     289.00|
+|           27,394.39|   13|                     286.52|
+|           26,461.19|   10|                     271.62|
+|           24,892.84|   27|                     253.86|
+|           21,081.96|   39|                     207.45|
+|           20,420.76|   19|                     206.64|
+|           19,757.99|   31|                     199.61|
+|           19,839.56|   23|                     198.75|
+|           19,002.60|   24|                     194.02|
++--------------------+-----+---------------------------+
+only showing top 10 rows
+
++------------------------+----+-----+----------------------+
+|Average_Department_Sales|Dept|Store|Total_Department_Sales|
++------------------------+----+-----+----------------------+
+|              182,527.96|  92|   14|         26,101,497.71|
+|              164,840.23|  92|    2|         23,572,153.03|
+|              164,633.74|  92|   20|         23,542,625.04|
+|              162,034.10|  92|   13|         23,170,876.20|
+|              159,365.11|  92|    4|         22,789,210.43|
+|              150,613.96|  95|   20|         21,537,795.62|
+|              147,236.47|  95|    4|         21,054,815.74|
+|              146,518.14|  92|   27|         20,952,094.22|
+|              144,446.93|  95|   14|         20,655,911.35|
+|              143,588.75|  95|    2|         20,533,191.52|
++------------------------+----+-----+----------------------+
+only showing top 10 rows
+
++----+-------------+-----------------+-----+
+|Dept|Holiday_Sales|Non_Holiday_Sales|Store|
++----+-------------+-----------------+-----+
+|  72| 2,634,762.04|    17,776,164.52|   10|
+|  72| 2,075,972.70|    10,555,475.97|   35|
+|  92| 1,901,127.78|    24,200,369.93|   14|
+|  92| 1,804,627.93|    21,767,525.10|    2|
+|  92| 1,706,249.03|    21,082,961.40|    4|
+|  72| 1,689,370.39|    11,465,180.05|   20|
+|  92| 1,671,525.29|    21,871,099.75|   20|
+|  72| 1,656,755.54|    12,821,200.93|    4|
+|  72| 1,638,752.62|    11,823,386.48|   14|
+|  92| 1,636,038.10|    21,534,838.10|   13|
++----+-------------+-----------------+-----+
+only showing top 10 rows
+
+2024-12-12 03:46:00 [main] INFO  o.s.jetty.server.AbstractConnector - Stopped Spark@216914{HTTP/1.1, (http/1.1)}{0.0.0.0:4040}

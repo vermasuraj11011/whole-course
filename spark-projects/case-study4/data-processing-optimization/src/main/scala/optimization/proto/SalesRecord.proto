@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package optimization.proto;
+
+message SalesRecord {
+  string store = 1;
+  string department = 2;
+  string date = 3;
+  float weekly_sales = 4;
+  bool is_holiday = 5;
+}

@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package proto;
+
+message SensorMetric {
+  string sensorId = 1;
+  float avgTemperature = 2;
+  float avgHumidity = 3;
+  float minTemperature = 4;
+  float maxTemperature = 5;
+  float minHumidity = 6;
+  float maxHumidity = 7;
+  int32 weight = 8;
+}

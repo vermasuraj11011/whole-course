@@ -1,0 +1,190 @@
+SLF4J(W): Class path contains multiple SLF4J providers.
+SLF4J(W): Found provider [ch.qos.logback.classic.spi.LogbackServiceProvider@6d6ddece]
+SLF4J(W): Found provider [org.apache.logging.slf4j.SLF4JServiceProvider@368f2bf8]
+SLF4J(W): See https://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J(I): Connected with provider of type [ch.qos.logback.classic.spi.LogbackServiceProvider]
+2024-12-13 23:38:33 [DashboardAPI-akka.actor.default-dispatcher-5] INFO  akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+2024-12-13 23:38:33 [DashboardAPI-akka.actor.default-dispatcher-5] WARN  akka.actor.ActorSystemImpl - Dev use only. Free keys at https://akka.io/key
+2024-12-13 23:38:38 [main] WARN  o.a.hadoop.util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.apache.spark.unsafe.Platform (file:/Users/surajverma/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/apache/spark/spark-unsafe_2.13/3.5.1/spark-unsafe_2.13-3.5.1.jar) to constructor java.nio.DirectByteBuffer(long,int)
+WARNING: Please consider reporting this to the maintainers of org.apache.spark.unsafe.Platform
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2024-12-13 23:38:38 [main] INFO  org.sparkproject.jetty.util.log - Logging initialized @6054ms to org.sparkproject.jetty.util.log.Slf4jLog
+2024-12-13 23:38:38 [main] INFO  o.sparkproject.jetty.server.Server - jetty-9.4.52.v20230823; built: 2023-08-23T19:29:37.669Z; git: abdcda73818a1a2c705da276edb0bf6581e7997e; jvm 11.0.25+9-LTS
+2024-12-13 23:38:38 [main] INFO  o.sparkproject.jetty.server.Server - Started @6096ms
+2024-12-13 23:38:38 [main] WARN  org.apache.spark.util.Utils - Service 'SparkUI' could not bind on port 4040. Attempting port 4041.
+2024-12-13 23:38:38 [main] INFO  o.s.jetty.server.AbstractConnector - Started ServerConnector@3451f01d{HTTP/1.1, (http/1.1)}{0.0.0.0:4041}
+2024-12-13 23:38:38 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@10947c4e{/,null,AVAILABLE,@Spark}
+2024-12-13 23:38:38 [main] INFO  o.s.j.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@10947c4e{/,null,STOPPED,@Spark}
+2024-12-13 23:38:38 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@46fc522d{/jobs,null,AVAILABLE,@Spark}
+2024-12-13 23:38:38 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@5f0a2638{/jobs/json,null,AVAILABLE,@Spark}
+2024-12-13 23:38:38 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@2c26ba07{/jobs/job,null,AVAILABLE,@Spark}
+2024-12-13 23:38:38 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@42ea7565{/jobs/job/json,null,AVAILABLE,@Spark}
+2024-12-13 23:38:38 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@62b3a2f6{/stages,null,AVAILABLE,@Spark}
+2024-12-13 23:38:38 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@317890ea{/stages/json,null,AVAILABLE,@Spark}
+2024-12-13 23:38:38 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@6048e26a{/stages/stage,null,AVAILABLE,@Spark}
+2024-12-13 23:38:38 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@44286963{/stages/stage/json,null,AVAILABLE,@Spark}
+2024-12-13 23:38:38 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@2b736fee{/stages/pool,null,AVAILABLE,@Spark}
+2024-12-13 23:38:38 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@35adf623{/stages/pool/json,null,AVAILABLE,@Spark}
+2024-12-13 23:38:38 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@75d366c2{/storage,null,AVAILABLE,@Spark}
+2024-12-13 23:38:38 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@5232e3f1{/storage/json,null,AVAILABLE,@Spark}
+2024-12-13 23:38:38 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@2047981{/storage/rdd,null,AVAILABLE,@Spark}
+2024-12-13 23:38:38 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@6f31df32{/storage/rdd/json,null,AVAILABLE,@Spark}
+2024-12-13 23:38:38 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@5d7911d5{/environment,null,AVAILABLE,@Spark}
+2024-12-13 23:38:38 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@5a08b084{/environment/json,null,AVAILABLE,@Spark}
+2024-12-13 23:38:38 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@36bed37a{/executors,null,AVAILABLE,@Spark}
+2024-12-13 23:38:38 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@1b3ab4f9{/executors/json,null,AVAILABLE,@Spark}
+2024-12-13 23:38:38 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@1c8f6c66{/executors/threadDump,null,AVAILABLE,@Spark}
+2024-12-13 23:38:38 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@1b7f06c7{/executors/threadDump/json,null,AVAILABLE,@Spark}
+2024-12-13 23:38:38 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@729c8063{/executors/heapHistogram,null,AVAILABLE,@Spark}
+2024-12-13 23:38:38 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@23c767e6{/executors/heapHistogram/json,null,AVAILABLE,@Spark}
+2024-12-13 23:38:38 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@19e21f89{/static,null,AVAILABLE,@Spark}
+2024-12-13 23:38:38 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@1f782c05{/,null,AVAILABLE,@Spark}
+2024-12-13 23:38:38 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@432af457{/api,null,AVAILABLE,@Spark}
+2024-12-13 23:38:38 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@59498d94{/jobs/job/kill,null,AVAILABLE,@Spark}
+2024-12-13 23:38:38 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@6b321262{/stages/stage/kill,null,AVAILABLE,@Spark}
+2024-12-13 23:38:38 [main] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@2282400e{/metrics/json,null,AVAILABLE,@Spark}
+Server listening on  /127.0.0.1:8080
+2024-12-13 23:39:06 [DashboardAPI-akka.actor.default-dispatcher-5] INFO  c.g.c.h.fs.gcs.GhfsStorageStatistics - Detected potential high latency for operation op_get_file_status. latencyMs=1017; previousMaxLatencyMs=0; operationCount=2; context=gs://scala-spark-temp/sensor-reading/aggregate/json
+2024-12-13 23:39:06 [DashboardAPI-akka.actor.default-dispatcher-6] INFO  c.g.c.h.fs.gcs.GhfsStorageStatistics - Detected potential high latency for operation op_get_file_status. latencyMs=1017; previousMaxLatencyMs=0; operationCount=2; context=gs://scala-spark-temp/sensor-reading/aggregate/json
+2024-12-13 23:41:09 [DashboardAPI-akka.actor.default-dispatcher-14] INFO  c.g.c.h.fs.gcs.GhfsStorageStatistics - Detected potential high latency for operation op_list_status. latencyMs=1061; previousMaxLatencyMs=0; operationCount=2; context=gs://scala-spark-temp/sensor-reading/aggregate/json
+Fetching data for sensor sensor-31 from gs://scala-spark-temp/sensor-reading/aggregate/json/2024/12/13/23
+2024-12-13 23:41:11 [DashboardAPI-akka.actor.default-dispatcher-14] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@78e0c201{/SQL,null,AVAILABLE,@Spark}
+2024-12-13 23:41:11 [DashboardAPI-akka.actor.default-dispatcher-14] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@1e862d0a{/SQL/json,null,AVAILABLE,@Spark}
+2024-12-13 23:41:11 [DashboardAPI-akka.actor.default-dispatcher-14] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@1c2a62fb{/SQL/execution,null,AVAILABLE,@Spark}
+2024-12-13 23:41:11 [DashboardAPI-akka.actor.default-dispatcher-14] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@26532dc{/SQL/execution/json,null,AVAILABLE,@Spark}
+2024-12-13 23:41:11 [DashboardAPI-akka.actor.default-dispatcher-14] INFO  o.s.j.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@727ba04d{/static/sql,null,AVAILABLE,@Spark}
+2024-12-13 23:41:11 [DashboardAPI-akka.actor.default-dispatcher-13] INFO  c.g.c.h.fs.gcs.GhfsStorageStatistics - Detected potential high latency for operation op_list_status. latencyMs=1079; previousMaxLatencyMs=1061; operationCount=8; context=gs://scala-spark-temp/sensor-reading/aggregate/json/2024/12/13
+Fetching data for sensor sensor-31 from gs://scala-spark-temp/sensor-reading/aggregate/json/2024/12/13/23
+2024-12-13 23:41:13 [DashboardAPI-akka.actor.default-dispatcher-9] ERROR akka.actor.ActorSystemImpl - Error during processing of request: '[UNABLE_TO_INFER_SCHEMA] Unable to infer schema for JSON. It must be specified manually.'. Completing with 500 Internal Server Error response. To change default exception handling behavior, provide a custom ExceptionHandler.
+org.apache.spark.sql.AnalysisException: [UNABLE_TO_INFER_SCHEMA] Unable to infer schema for JSON. It must be specified manually.
+	at org.apache.spark.sql.errors.QueryCompilationErrors$.dataSchemaNotSpecifiedError(QueryCompilationErrors.scala:1494)
+	at org.apache.spark.sql.execution.datasources.DataSource.$anonfun$getOrInferFileFormatSchema$12(DataSource.scala:210)
+	at scala.Option.getOrElse(Option.scala:201)
+	at org.apache.spark.sql.execution.datasources.DataSource.getOrInferFileFormatSchema(DataSource.scala:210)
+	at org.apache.spark.sql.execution.datasources.DataSource.resolveRelation(DataSource.scala:407)
+	at org.apache.spark.sql.DataFrameReader.loadV1Source(DataFrameReader.scala:229)
+	at org.apache.spark.sql.DataFrameReader.$anonfun$load$2(DataFrameReader.scala:211)
+	at scala.Option.getOrElse(Option.scala:201)
+	at org.apache.spark.sql.DataFrameReader.load(DataFrameReader.scala:211)
+	at org.apache.spark.sql.DataFrameReader.load(DataFrameReader.scala:186)
+	at DashboardMain$.loadDataFromFolder(DashboardMain.scala:146)
+	at DashboardMain$.fetchAggregatedDataBySensorId(DashboardMain.scala:99)
+	at DashboardMain$.$anonfun$apiRoutes$9(DashboardMain.scala:49)
+	at akka.http.scaladsl.server.directives.RouteDirectives.$anonfun$complete$1(RouteDirectives.scala:51)
+	at akka.http.scaladsl.server.StandardRoute$$anon$1.apply(StandardRoute.scala:19)
+	at akka.http.scaladsl.server.StandardRoute$$anon$1.apply(StandardRoute.scala:19)
+	at akka.http.scaladsl.server.directives.BasicDirectives.$anonfun$mapRouteResult$2(BasicDirectives.scala:68)
+	at akka.http.scaladsl.server.directives.BasicDirectives.$anonfun$textract$2(BasicDirectives.scala:161)
+	at akka.http.scaladsl.server.directives.BasicDirectives.$anonfun$mapRequestContext$2(BasicDirectives.scala:45)
+	at akka.http.scaladsl.server.directives.BasicDirectives.$anonfun$textract$2(BasicDirectives.scala:161)
+	at akka.http.scaladsl.server.RouteConcatenation$RouteWithConcatenation.$anonfun$$tilde$2(RouteConcatenation.scala:47)
+	at akka.http.scaladsl.util.FastFuture$.strictTransform$1(FastFuture.scala:40)
+	at akka.http.scaladsl.util.FastFuture$.transformWith$extension(FastFuture.scala:44)
+	at akka.http.scaladsl.util.FastFuture$.flatMap$extension(FastFuture.scala:25)
+	at akka.http.scaladsl.server.RouteConcatenation$RouteWithConcatenation.$anonfun$$tilde$1(RouteConcatenation.scala:44)
+	at akka.http.scaladsl.server.RouteConcatenation$RouteWithConcatenation.$anonfun$$tilde$2(RouteConcatenation.scala:47)
+	at akka.http.scaladsl.util.FastFuture$.strictTransform$1(FastFuture.scala:40)
+	at akka.http.scaladsl.util.FastFuture$.transformWith$extension(FastFuture.scala:44)
+	at akka.http.scaladsl.util.FastFuture$.flatMap$extension(FastFuture.scala:25)
+	at akka.http.scaladsl.server.RouteConcatenation$RouteWithConcatenation.$anonfun$$tilde$1(RouteConcatenation.scala:44)
+	at akka.http.scaladsl.server.directives.BasicDirectives.$anonfun$mapRouteResult$2(BasicDirectives.scala:68)
+	at akka.http.scaladsl.server.directives.BasicDirectives.$anonfun$textract$2(BasicDirectives.scala:161)
+	at akka.http.scaladsl.server.directives.BasicDirectives.$anonfun$mapRouteResultWith$2(BasicDirectives.scala:74)
+	at akka.http.scaladsl.server.directives.BasicDirectives.$anonfun$textract$2(BasicDirectives.scala:161)
+	at akka.http.scaladsl.server.directives.ExecutionDirectives.$anonfun$handleExceptions$2(ExecutionDirectives.scala:32)
+	at akka.http.scaladsl.server.Route$.$anonfun$createAsyncHandler$1(Route.scala:110)
+	at akka.stream.impl.fusing.MapAsyncUnordered$$anon$30.onPush(Ops.scala:1427)
+	at akka.stream.impl.fusing.GraphInterpreter.processPush(GraphInterpreter.scala:557)
+	at akka.stream.impl.fusing.GraphInterpreter.processEvent(GraphInterpreter.scala:511)
+	at akka.stream.impl.fusing.GraphInterpreter.execute(GraphInterpreter.scala:403)
+	at akka.stream.impl.fusing.GraphInterpreterShell.runBatch(ActorGraphInterpreter.scala:650)
+	at akka.stream.impl.fusing.GraphInterpreterShell$AsyncInput.execute(ActorGraphInterpreter.scala:521)
+	at akka.stream.impl.fusing.GraphInterpreterShell.processEvent(ActorGraphInterpreter.scala:625)
+	at akka.stream.impl.fusing.ActorGraphInterpreter.akka$stream$impl$fusing$ActorGraphInterpreter$$processEvent(ActorGraphInterpreter.scala:800)
+	at akka.stream.impl.fusing.ActorGraphInterpreter$$anonfun$receive$1.applyOrElse(ActorGraphInterpreter.scala:818)
+	at akka.actor.Actor.aroundReceive(Actor.scala:542)
+	at akka.actor.Actor.aroundReceive$(Actor.scala:540)
+	at akka.stream.impl.fusing.ActorGraphInterpreter.aroundReceive(ActorGraphInterpreter.scala:716)
+	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:577)
+	at akka.actor.ActorCell.invoke(ActorCell.scala:545)
+	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:270)
+	at akka.dispatch.Mailbox.run(Mailbox.scala:231)
+	at akka.dispatch.Mailbox.exec(Mailbox.scala:243)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:290)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1020)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1656)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1594)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:183)
+2024-12-13 23:41:13 [DashboardAPI-akka.actor.default-dispatcher-9] ERROR akka.actor.ActorSystemImpl - Error during processing of request: '[UNABLE_TO_INFER_SCHEMA] Unable to infer schema for JSON. It must be specified manually.'. Completing with 500 Internal Server Error response. To change default exception handling behavior, provide a custom ExceptionHandler.
+org.apache.spark.sql.AnalysisException: [UNABLE_TO_INFER_SCHEMA] Unable to infer schema for JSON. It must be specified manually.
+	at org.apache.spark.sql.errors.QueryCompilationErrors$.dataSchemaNotSpecifiedError(QueryCompilationErrors.scala:1494)
+	at org.apache.spark.sql.execution.datasources.DataSource.$anonfun$getOrInferFileFormatSchema$12(DataSource.scala:210)
+	at scala.Option.getOrElse(Option.scala:201)
+	at org.apache.spark.sql.execution.datasources.DataSource.getOrInferFileFormatSchema(DataSource.scala:210)
+	at org.apache.spark.sql.execution.datasources.DataSource.resolveRelation(DataSource.scala:407)
+	at org.apache.spark.sql.DataFrameReader.loadV1Source(DataFrameReader.scala:229)
+	at org.apache.spark.sql.DataFrameReader.$anonfun$load$2(DataFrameReader.scala:211)
+	at scala.Option.getOrElse(Option.scala:201)
+	at org.apache.spark.sql.DataFrameReader.load(DataFrameReader.scala:211)
+	at org.apache.spark.sql.DataFrameReader.load(DataFrameReader.scala:186)
+	at DashboardMain$.loadDataFromFolder(DashboardMain.scala:146)
+	at DashboardMain$.fetchAggregatedDataBySensorId(DashboardMain.scala:99)
+	at DashboardMain$.$anonfun$apiRoutes$9(DashboardMain.scala:49)
+	at akka.http.scaladsl.server.directives.RouteDirectives.$anonfun$complete$1(RouteDirectives.scala:51)
+	at akka.http.scaladsl.server.StandardRoute$$anon$1.apply(StandardRoute.scala:19)
+	at akka.http.scaladsl.server.StandardRoute$$anon$1.apply(StandardRoute.scala:19)
+	at akka.http.scaladsl.server.directives.BasicDirectives.$anonfun$mapRouteResult$2(BasicDirectives.scala:68)
+	at akka.http.scaladsl.server.directives.BasicDirectives.$anonfun$textract$2(BasicDirectives.scala:161)
+	at akka.http.scaladsl.server.directives.BasicDirectives.$anonfun$mapRequestContext$2(BasicDirectives.scala:45)
+	at akka.http.scaladsl.server.directives.BasicDirectives.$anonfun$textract$2(BasicDirectives.scala:161)
+	at akka.http.scaladsl.server.RouteConcatenation$RouteWithConcatenation.$anonfun$$tilde$2(RouteConcatenation.scala:47)
+	at akka.http.scaladsl.util.FastFuture$.strictTransform$1(FastFuture.scala:40)
+	at akka.http.scaladsl.util.FastFuture$.transformWith$extension(FastFuture.scala:44)
+	at akka.http.scaladsl.util.FastFuture$.flatMap$extension(FastFuture.scala:25)
+	at akka.http.scaladsl.server.RouteConcatenation$RouteWithConcatenation.$anonfun$$tilde$1(RouteConcatenation.scala:44)
+	at akka.http.scaladsl.server.RouteConcatenation$RouteWithConcatenation.$anonfun$$tilde$2(RouteConcatenation.scala:47)
+	at akka.http.scaladsl.util.FastFuture$.strictTransform$1(FastFuture.scala:40)
+	at akka.http.scaladsl.util.FastFuture$.transformWith$extension(FastFuture.scala:44)
+	at akka.http.scaladsl.util.FastFuture$.flatMap$extension(FastFuture.scala:25)
+	at akka.http.scaladsl.server.RouteConcatenation$RouteWithConcatenation.$anonfun$$tilde$1(RouteConcatenation.scala:44)
+	at akka.http.scaladsl.server.directives.BasicDirectives.$anonfun$mapRouteResult$2(BasicDirectives.scala:68)
+	at akka.http.scaladsl.server.directives.BasicDirectives.$anonfun$textract$2(BasicDirectives.scala:161)
+	at akka.http.scaladsl.server.directives.BasicDirectives.$anonfun$mapRouteResultWith$2(BasicDirectives.scala:74)
+	at akka.http.scaladsl.server.directives.BasicDirectives.$anonfun$textract$2(BasicDirectives.scala:161)
+	at akka.http.scaladsl.server.directives.ExecutionDirectives.$anonfun$handleExceptions$2(ExecutionDirectives.scala:32)
+	at akka.http.scaladsl.server.Route$.$anonfun$createAsyncHandler$1(Route.scala:110)
+	at akka.stream.impl.fusing.MapAsyncUnordered$$anon$30.onPush(Ops.scala:1427)
+	at akka.stream.impl.fusing.GraphInterpreter.processPush(GraphInterpreter.scala:557)
+	at akka.stream.impl.fusing.GraphInterpreter.processEvent(GraphInterpreter.scala:511)
+	at akka.stream.impl.fusing.GraphInterpreter.execute(GraphInterpreter.scala:403)
+	at akka.stream.impl.fusing.GraphInterpreterShell.runBatch(ActorGraphInterpreter.scala:650)
+	at akka.stream.impl.fusing.GraphInterpreterShell$AsyncInput.execute(ActorGraphInterpreter.scala:521)
+	at akka.stream.impl.fusing.GraphInterpreterShell.processEvent(ActorGraphInterpreter.scala:625)
+	at akka.stream.impl.fusing.ActorGraphInterpreter.akka$stream$impl$fusing$ActorGraphInterpreter$$processEvent(ActorGraphInterpreter.scala:800)
+	at akka.stream.impl.fusing.ActorGraphInterpreter$$anonfun$receive$1.applyOrElse(ActorGraphInterpreter.scala:818)
+	at akka.actor.Actor.aroundReceive(Actor.scala:542)
+	at akka.actor.Actor.aroundReceive$(Actor.scala:540)
+	at akka.stream.impl.fusing.ActorGraphInterpreter.aroundReceive(ActorGraphInterpreter.scala:716)
+	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:577)
+	at akka.actor.ActorCell.invoke(ActorCell.scala:545)
+	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:270)
+	at akka.dispatch.Mailbox.run(Mailbox.scala:231)
+	at akka.dispatch.Mailbox.exec(Mailbox.scala:243)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:290)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1020)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1656)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1594)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:183)
+2024-12-13 23:41:41 [Executor task launch worker for task 2.0 in stage 0.0 (TID 2)] INFO  c.g.c.h.fs.gcs.GhfsStorageStatistics - Detected potential high latency for operation op_open. latencyMs=509; previousMaxLatencyMs=414; operationCount=12; context=gs://scala-spark-temp/sensor-reading/aggregate/json/2024/12/13/23/part-00009-ad4d724d-aeb3-4817-9af7-ce50fafa16e7-c000.json
+2024-12-13 23:41:42 [Executor task launch worker for task 1.0 in stage 1.0 (TID 9)] INFO  c.g.c.h.fs.gcs.GhfsStorageStatistics - Detected potential high latency for operation op_open. latencyMs=629; previousMaxLatencyMs=509; operationCount=16; context=gs://scala-spark-temp/sensor-reading/aggregate/json/2024/12/13/23/part-00008-ad4d724d-aeb3-4817-9af7-ce50fafa16e7-c000.json
+2024-12-13 23:41:43 [Executor task launch worker for task 6.0 in stage 1.0 (TID 14)] INFO  c.g.c.h.fs.gcs.GhfsStorageStatistics - Detected potential high latency for operation stream_read_operations. latencyMs=680; previousMaxLatencyMs=454; operationCount=14; context=gs://scala-spark-temp/sensor-reading/aggregate/json/2024/12/13/23/part-00001-ad4d724d-aeb3-4817-9af7-ce50fafa16e7-c000.json
+2024-12-13 23:41:43 [Executor task launch worker for task 6.0 in stage 0.0 (TID 6)] INFO  c.g.c.h.fs.gcs.GhfsStorageStatistics - Detected potential high latency for operation stream_read_operations. latencyMs=1149; previousMaxLatencyMs=454; operationCount=14; context=gs://scala-spark-temp/sensor-reading/aggregate/json/2024/12/13/23/part-00001-ad4d724d-aeb3-4817-9af7-ce50fafa16e7-c000.json
+Fetching data for sensor sensor-35 from gs://scala-spark-temp/sensor-reading/aggregate/json/2024/12/13/23
+Fetching data for sensor sensor-35 from gs://scala-spark-temp/sensor-reading/aggregate/json/2024/12/13/23
+2024-12-13 23:42:01 [checkPathsExist-ForkJoinPool-14-worker-115] INFO  c.g.c.h.fs.gcs.GhfsStorageStatistics - Detected potential high latency for operation op_get_file_status. latencyMs=1054; previousMaxLatencyMs=1017; operationCount=26; context=gs://scala-spark-temp/sensor-reading/aggregate/json/2024/12/13/23
+2024-12-13 23:42:08 [Executor task launch worker for task 0.0 in stage 6.0 (TID 48)] INFO  c.g.c.h.fs.gcs.GhfsStorageStatistics - Detected potential high latency for operation op_open. latencyMs=666; previousMaxLatencyMs=629; operationCount=64; context=gs://scala-spark-temp/sensor-reading/aggregate/json/2024/12/13/23/part-00034-ad4d724d-aeb3-4817-9af7-ce50fafa16e7-c000.json
+2024-12-13 23:42:09 [Executor task launch worker for task 6.0 in stage 5.0 (TID 46)] INFO  c.g.c.h.fs.gcs.GhfsStorageStatistics - Detected potential high latency for operation stream_read_operations. latencyMs=1191; previousMaxLatencyMs=1149; operationCount=71; context=gs://scala-spark-temp/sensor-reading/aggregate/json/2024/12/13/23/part-00017-ad4d724d-aeb3-4817-9af7-ce50fafa16e7-c000.json
+2024-12-13 23:42:51 [shutdown-hook-0] INFO  o.s.jetty.server.AbstractConnector - Stopped Spark@3451f01d{HTTP/1.1, (http/1.1)}{0.0.0.0:4041}

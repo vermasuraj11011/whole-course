@@ -1,0 +1,12 @@
+
+Ì
+proto/SensorMetric.protoproto" 
+SensorMetric
+sensorId (	RsensorId&
+avgTemperature (RavgTemperature 
+avgHumidity (RavgHumidity&
+minTemperature (RminTemperature&
+maxTemperature (RmaxTemperature 
+minHumidity (RminHumidity 
+maxHumidity (RmaxHumidity
+weight (Rweightbproto3

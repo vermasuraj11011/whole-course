@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package proto;
+
+message SensorReadingProto {
+  string sensorId = 1;
+  string timestamp = 2;
+  float temperature = 3;
+  float humidity = 4;
+}
+

@@ -1,0 +1,168 @@
+1. Compute Resources:
+A. Application Servers:
+
+Your application will consist of several microservices that handle various functionalities like barcode generation, product movement tracking, consumer verification, etc. Each microservice can be scaled independently based on the load.
+
+    Expected Load:
+        Assume an average of 1000 requests per second across all services at peak time.
+        Burst Load: Assume some spikes, with peak load reaching 10,000 requests per second.
+
+For this, you will need:
+
+    Web Servers (Load Balancers): Load balancing will distribute incoming traffic across your application servers. For 10,000 requests per second at peak, you can have multiple servers, likely using an auto-scaling mechanism.
+        Servers: 10–20 web servers (depends on the server’s power and load balancing configuration).
+        CPU: 2–4 vCPUs per web server.
+        Memory: 8–16 GB RAM per server.
+    API Servers: Each service (e.g., Barcode Service, Traceability Service, Verification Service) will run on separate instances or containers.
+        Servers: 5–10 API servers (depends on service load).
+        CPU: 4–8 vCPUs per server.
+        Memory: 16–32 GB RAM per server.
+
+B. Data Storage Servers (Databases):
+
+The database will hold structured information like product details, barcode mappings, movement logs, user info, and more.
+
+    Database Load:
+        Total of 10 million products.
+        Total of 200 million packages and 1 billion containers.
+        Around 10 billion trace logs (movement events, product scans, etc.) annually.
+        365 million consumer requests (API interactions) annually.
+
+For this, you’ll likely require:
+
+    Primary Relational Database (e.g., PostgreSQL, MySQL, Aurora):
+        Master Database: 1–2 primary database instances for high availability (HA).
+        Replicas: 2–3 read replicas for read-heavy operations (e.g., consumer verification).
+        Disk: High IOPS SSD (e.g., 1TB per database instance), with additional storage for logs.
+        CPU: 16–32 vCPUs per instance for handling large query loads.
+        Memory: 64 GB+ RAM for handling large datasets and cache requirements.
+
+    Data Archival:
+        Use cloud-based object storage (e.g., AWS S3) for archiving old logs, traceability events, etc. Archive logs older than 6 months or 1 year based on your retention policy.
+
+C. Caching Layer (Redis, Memcached):
+
+    In-memory caching to reduce database load, especially for frequently accessed data like product traceability or verification results.
+        Redis Cluster: 3-5 Redis nodes for session management and caching frequently accessed product/traceability data.
+        CPU: 8 vCPUs per Redis node.
+        Memory: 64 GB+ RAM per node for high-speed caching.
+
+D. Queueing System (for Asynchronous Operations):
+
+    For handling barcode creation, traceability updates, and consumer verification requests asynchronously.
+        RabbitMQ / Kafka (for processing events like trace data logging, barcode scans).
+        CPU: 4–8 vCPUs per instance.
+        Memory: 16 GB RAM.
+
+E. API Rate Limiting and Throttling:
+
+    Implement rate-limiting mechanisms to prevent abuse, particularly for public consumer-facing APIs.
+    Use API gateways or web application firewalls (WAF) for managing traffic spikes.
+
+2. Storage Requirements:
+A. Database Storage:
+
+    Each product record could take around 1 KB of storage (metadata, barcode IDs, product info).
+    Each trace event might take about 500 bytes (event info, timestamp, location, etc.).
+    Estimate:
+        10 million products * 1 KB = 10 GB for product data.
+        10 billion trace events * 500 bytes = 4.6 TB per year for trace data.
+
+For 1 year of data, you’ll need approximately 4.6 TB of storage for trace logs. Factor in growth for logs, audit records, and other data, you’ll likely need at least 10 TB of primary storage.
+B. Object Storage (Archival):
+
+    Use object storage for older trace logs, package histories, etc.
+        Estimate: 5–10 TB of object storage per year for data retention.
+
+C. Backup and Redundancy:
+
+    Maintain weekly backups of your entire database, typically 2x the size of your production DB.
+    Use a cloud provider's backup solution to automate this process, with geo-redundancy.
+
+3. Networking:
+A. Network Throughput:
+
+    At peak load, your system could experience up to 10,000 requests per second.
+        Ensure high throughput for database reads/writes, file uploads/downloads for barcode images, and external API calls (if integrated with other logistics or verification services).
+    Internet Bandwidth: You’ll need a high-speed internet connection (100 Gbps or more, depending on peak request rates).
+
+4. Security & Compliance:
+
+    SSL/TLS encryption for all data in transit.
+    Data encryption at rest for sensitive data.
+    Two-factor authentication (2FA) for admins and users.
+    Compliance: Ensure compliance with relevant regulations (GDPR, CCPA) for storing user and company data.
+    Penetration testing and regular security audits.
+
+Scalability Considerations:
+
+    Horizontal Scaling: The system must be able to scale horizontally. This includes:
+        Microservices: Scale individual services as needed (e.g., barcode service, traceability service).
+        Database: Use partitioning, sharding, or a cloud-native solution like AWS Aurora for scaling.
+
+    Auto-scaling: Use auto-scaling groups for both application servers and database replicas to handle spikes in traffic.
+
+    Load Balancers: Ensure load balancing and failover across multiple regions or availability zones to avoid downtime.
+
+High-Level Estimate:
+
+    Compute Resources (Servers):
+        20–30 Application Servers for handling load and API requests.
+        5–10 Database Servers (relational DB clusters).
+        3–5 Redis Servers for caching.
+        5–10 Queueing/Message Brokers for asynchronous tasks.
+
+    Storage:
+        10 TB of storage for database (trace logs, product data, etc.).
+        5–10 TB of object storage (AWS S3 or equivalent) for long-term archival.
+
+    Network:
+        High-speed 100 Gbps network throughput for peak load.
+
+
+
+
+
+
+
+
+
+
+
+
+hello my name is spark
+
+shuffling
+partitioning
+upstream task
+downstream task
+
+
+val gcpMovieDf = spark.read.option("header", "true").option("inferSchema", "true").csv(gcpPath + fileName)
+
+println("writing movies to hdfs")
+gcpMovieDf.write.option("header", "true").mode("overwrite").csv(hdfsPath + fileName)
+
+println("reading from the hdfs file")
+val movieDf = spark.read.option("header", "true").option("inferSchema", "true").csv(hdfsPath + fileName)
+
+println("creating rdd from the dataframe")
+val movieRdd         = movieDf.rdd.map(row => ((row.getAs[Int]("movieId"), row.getAs[String]("title")), row))
+val distinctMovieRdd = movieRdd.distinct().map(_._2)
+
+println("clean dataframe from the distinct rdd")
+val cleanedMovieDf = spark.createDataFrame(distinctMovieRdd, movieDf.schema)
+
+val originalCount     = movieDf.count()
+val cleanedCount      = cleanedMovieDf.count()
+val duplicatesRemoved = originalCount - cleanedCount
+println(s"Number of duplicates removed: $duplicatesRemoved")
+
+cleanedMovieDf.write.format("avro").mode("overwrite").save(gcpPath + fileName)
+
+println("before removing duplicates")
+val duplicateMovieDf = movieDf.groupBy("movieId", "title").count().filter(col("count") > 1)
+duplicateMovieDf.show()
+
+println("after removing duplicates")
+cleanedMovieDf.groupBy("movieId", "title").count().filter(col("count") > 1).show()

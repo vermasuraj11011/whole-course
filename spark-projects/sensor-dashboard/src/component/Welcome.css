@@ -1,0 +1,56 @@
+.welcome {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #fcb045, #fd1d1d, #833ab4);
+    color: #ffffff;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.welcome h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+.welcome img {
+    width: 200px;
+    height: auto;
+    margin-bottom: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.welcome img:hover {
+    transform: scale(1.05);
+}
+
+.welcome button {
+    background-color: #ffffff;
+    color: #fcb045;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.welcome button:hover {
+    background-color: #fd1d1d;
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+.welcome button:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}

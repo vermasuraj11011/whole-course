@@ -21,7 +21,7 @@ function Dashboard() {
     return (
         <div className="App">
             <h1>Sensor Dashboard</h1>
-            {loading ? <p>Loading...</p> : <SensorTable data={data}/>}
+            {loading ? <p>Loading...</p> : <SensorTable data={data} setData={setData}/>}
         </div>
     );
 }

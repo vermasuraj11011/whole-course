@@ -20,6 +20,7 @@ function SensorTable({data, setData}) {
     };
 
     const handleRefresh = () => {
+        setSearchQuery(''); // Clear the search query
         setLoading(true);
         axios.get('http://localhost:8080/api/aggregated-data')
             .then(response => {

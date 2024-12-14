@@ -13,8 +13,6 @@ object SensorDataProcessor {
   val gcs_creds =
     "/Users/surajverma/Documents/course/whole-course/spark-projects/case-study1(sensor_data)/sensor-data/src/main/resources/gcs-key.json"
 
-  val
-
   def main(args: Array[String]): Unit = {
     // Initialize Spark session
     val spark                 = initializeSparkSession()

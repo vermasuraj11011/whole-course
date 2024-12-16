@@ -54,7 +54,6 @@ object WalmartDataPreprocessor {
     val partitionedEnrichedDataFrame = enrichedDataFrame.repartition(col("Store"), col("Date")).cache()
 
     partitionedEnrichedDataFrame
-      .limit(100)
       .write
       .mode(SaveMode.Overwrite)
       .partitionBy("Store", "Date")

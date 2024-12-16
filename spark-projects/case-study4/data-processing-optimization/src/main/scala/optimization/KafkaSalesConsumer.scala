@@ -32,9 +32,9 @@ object KafkaSalesConsumer {
 
     // Step 4: Load and prepare feature and store data
     val rawFeaturesData = SparkSessionFactory.getDfFromCsv(featuresFilePath)
-    rawFeaturesData.show(10)
+//    rawFeaturesData.show(10)
     val rawStoresData = SparkSessionFactory.getDfFromCsv(storesFilePath)
-    rawStoresData.show(10)
+//    rawStoresData.show(10)
 
     val featuresData = rawFeaturesData.na.drop("any", Seq("Store", "Date")).cache()
     val storesData   = broadcast(rawStoresData.na.drop("any", Seq("Store", "Type", "Size")))
@@ -67,7 +67,7 @@ object KafkaSalesConsumer {
         .trigger(Trigger.ProcessingTime("10 seconds"))
         .foreachBatch { (batchData: Dataset[Row], batchId: Long) =>
           println(s"Processing batch: $batchId")
-          batchData.show(10)
+//          batchData.show(10)
           batchData.write.mode("append").option("header", "true").csv(s"$basePath/dynamic_data/train.csv")
 
           updateEnrichedAndMetrics(featuresData, storesData, basePath)
@@ -86,7 +86,7 @@ object KafkaSalesConsumer {
     val enrichedDataPath = s"$basePath/dynamic_data/enriched_data"
 
     val rawTrainData = SparkSessionFactory.getDfFromCsv(trainFilePath)
-    rawTrainData.show(10)
+//    rawTrainData.show(10)
     val trainData =
       rawTrainData.filter("Weekly_Sales >= 0").na.drop("any", Seq("Store", "Department", "Weekly_Sales", "Date"))
 
@@ -97,7 +97,7 @@ object KafkaSalesConsumer {
         .join(featuresData, Seq("Store", "Date", "IsHoliday"), "left")
         .join(storesData, Seq("Store"), "left")
 
-    enrichedData.show(10)
+//    enrichedData.show(10)
 
     val partitionedEnrichedData = enrichedData.repartition(col("Store"), col("Date")).cache()
 
@@ -116,10 +116,8 @@ object KafkaSalesConsumer {
         .orderBy(desc("Total_Weekly_Sales"))
         .persist(StorageLevel.MEMORY_ONLY)
 
-    storeMetrics.show(10)
+//    storeMetrics.show(10)
     storeMetrics.write.mode("overwrite").json(s"$basePath/store_wise")
-
-    println("jfgfgfghfghfghfhfhgf")
 
     // Step 11: Calculate and save department metrics
     val departmentMetrics =
@@ -128,7 +126,7 @@ object KafkaSalesConsumer {
         .agg(sum("Weekly_Sales").alias("Total_Sales"), avg("Weekly_Sales").alias("Average_Sales"))
         .persist(StorageLevel.MEMORY_AND_DISK_SER)
 
-    departmentMetrics.show(10)
+//    departmentMetrics.show(10)
     departmentMetrics.write.mode("overwrite").json(s"$basePath/department_wise")
 
     // Step 12: Calculate and save holiday comparison metrics
@@ -150,7 +148,7 @@ object KafkaSalesConsumer {
         .join(nonHolidaySalesMetrics, Seq("Store", "department"), "outer")
         .orderBy(desc("Holiday_Sales"))
 
-    holidayComparisonMetrics.show(10)
+//    holidayComparisonMetrics.show(10)
     holidayComparisonMetrics.write.mode(SaveMode.Overwrite).json(s"$basePath/holiday_vs_non_holiday")
   }
 }

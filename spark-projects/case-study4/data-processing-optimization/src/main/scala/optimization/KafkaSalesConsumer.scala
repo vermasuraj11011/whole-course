@@ -101,23 +101,23 @@ object KafkaSalesConsumer {
 
     val partitionedEnrichedData = enrichedData.repartition(col("Store"), col("Date")).cache()
 
-//    partitionedEnrichedData
-//      .limit(1000)
-//      .write
-//      .mode(SaveMode.Overwrite)
-//      .partitionBy("Store", "Date")
-//      .parquet(enrichedDataPath)
+    partitionedEnrichedData
+      .limit(1000)
+      .write
+      .mode(SaveMode.Overwrite)
+      .partitionBy("Store", "Date")
+      .parquet(enrichedDataPath)
 
-    // Step 10: Calculate and save store metrics
-//    val storeMetrics =
-//      partitionedEnrichedData
-//        .groupBy("Store")
-//        .agg(sum("Weekly_Sales").alias("Total_Weekly_Sales"), avg("Weekly_Sales").alias("Average_Weekly_Sales"))
-//        .orderBy(desc("Total_Weekly_Sales"))
-//        .persist(StorageLevel.MEMORY_ONLY)
+//     Step 10: Calculate and save store metrics
+    val storeMetrics =
+      partitionedEnrichedData
+        .groupBy("Store")
+        .agg(sum("Weekly_Sales").alias("Total_Weekly_Sales"), avg("Weekly_Sales").alias("Average_Weekly_Sales"))
+        .orderBy(desc("Total_Weekly_Sales"))
+        .persist(StorageLevel.MEMORY_ONLY)
 
-//    storeMetrics.show(10)
-//    storeMetrics.write.mode("overwrite").json(s"$basePath/store_wise")
+    storeMetrics.show(10)
+    storeMetrics.write.mode("overwrite").json(s"$basePath/store_wise")
 
     println("jfgfgfghfghfghfhfhgf")
 
